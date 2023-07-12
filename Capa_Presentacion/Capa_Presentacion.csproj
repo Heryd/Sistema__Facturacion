@@ -76,6 +76,12 @@
     <Compile Include="Modulos\1. Factura\Frm_Nueva_Factura.Designer.cs">
       <DependentUpon>Frm_Nueva_Factura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\2. Pago\FrmPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\FrmPagos.Designer.cs">
+      <DependentUpon>FrmPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\2. Pago\Frm_Actualizar_Pago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,24 +93,6 @@
     </Compile>
     <Compile Include="Modulos\2. Pago\Frm_Nuevo_Pago.Designer.cs">
       <DependentUpon>Frm_Nuevo_Pago.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\Frm_Pagos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\Frm_Pagos.Designer.cs">
-      <DependentUpon>Frm_Pagos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\MPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\MPago.Designer.cs">
-      <DependentUpon>MPago.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\PruebaPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulos\2. Pago\PruebaPago.Designer.cs">
-      <DependentUpon>PruebaPago.cs</DependentUpon>
     </Compile>
     <Compile Include="Modulos\3. Cliente\Frm_Actualizar_Cliente.cs">
       <SubType>Form</SubType>
@@ -164,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulos\1. Factura\Frm_Nueva_Factura.resx">
       <DependentUpon>Frm_Nueva_Factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\2. Pago\FrmPagos.resx">
+      <DependentUpon>FrmPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\2. Pago\Frm_Nuevo_Pago.resx">
+      <DependentUpon>Frm_Nuevo_Pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

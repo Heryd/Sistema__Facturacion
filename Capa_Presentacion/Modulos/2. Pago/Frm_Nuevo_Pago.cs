@@ -16,5 +16,10 @@ namespace Capa_Presentacion.Modulos._2._Pago
         {
             InitializeComponent();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

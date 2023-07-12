@@ -83,7 +83,7 @@
             this.pn_Container_border.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Container_border.Location = new System.Drawing.Point(0, 0);
             this.pn_Container_border.Name = "pn_Container_border";
-            this.pn_Container_border.Size = new System.Drawing.Size(1438, 789);
+            this.pn_Container_border.Size = new System.Drawing.Size(1386, 788);
             this.pn_Container_border.TabIndex = 0;
             // 
             // panel1
@@ -144,7 +144,7 @@
             this.textBox_Control6.PasswordChar = false;
             this.textBox_Control6.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control6.PlaceholderText = "Nombre del Encargado";
-            this.textBox_Control6.Size = new System.Drawing.Size(233, 38);
+            this.textBox_Control6.Size = new System.Drawing.Size(233, 31);
             this.textBox_Control6.TabIndex = 33;
             this.textBox_Control6.Texts = "";
             this.textBox_Control6.UnderlinedStyle = true;
@@ -158,7 +158,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(233, 26);
+            this.numericUpDown1.Size = new System.Drawing.Size(233, 20);
             this.numericUpDown1.TabIndex = 32;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -187,7 +187,7 @@
             "Efectivo"});
             this.comboBox1.Location = new System.Drawing.Point(630, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(233, 31);
+            this.comboBox1.Size = new System.Drawing.Size(233, 24);
             this.comboBox1.TabIndex = 30;
             // 
             // label15
@@ -196,7 +196,7 @@
             this.label15.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(474, 188);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(83, 21);
+            this.label15.Size = new System.Drawing.Size(57, 15);
             this.label15.TabIndex = 29;
             this.label15.Text = "Cantidad:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,7 +207,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(474, 248);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 21);
+            this.label14.Size = new System.Drawing.Size(65, 15);
             this.label14.TabIndex = 28;
             this.label14.Text = "Encargado:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -228,7 +228,7 @@
             this.label12.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(474, 32);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 21);
+            this.label12.Size = new System.Drawing.Size(98, 15);
             this.label12.TabIndex = 26;
             this.label12.Text = "Método de Pago:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -251,7 +251,7 @@
             this.textBox_Control5.PasswordChar = false;
             this.textBox_Control5.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control5.PlaceholderText = "";
-            this.textBox_Control5.Size = new System.Drawing.Size(250, 39);
+            this.textBox_Control5.Size = new System.Drawing.Size(250, 31);
             this.textBox_Control5.TabIndex = 25;
             this.textBox_Control5.Texts = "";
             this.textBox_Control5.UnderlinedStyle = false;
@@ -274,7 +274,7 @@
             this.textBox_Control4.PasswordChar = false;
             this.textBox_Control4.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control4.PlaceholderText = "";
-            this.textBox_Control4.Size = new System.Drawing.Size(250, 38);
+            this.textBox_Control4.Size = new System.Drawing.Size(250, 31);
             this.textBox_Control4.TabIndex = 24;
             this.textBox_Control4.Texts = "";
             this.textBox_Control4.UnderlinedStyle = false;
@@ -297,7 +297,7 @@
             this.textBox_Control3.PasswordChar = false;
             this.textBox_Control3.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control3.PlaceholderText = "";
-            this.textBox_Control3.Size = new System.Drawing.Size(250, 38);
+            this.textBox_Control3.Size = new System.Drawing.Size(250, 31);
             this.textBox_Control3.TabIndex = 23;
             this.textBox_Control3.Texts = "";
             this.textBox_Control3.UnderlinedStyle = false;
@@ -320,7 +320,7 @@
             this.textBox_Control2.PasswordChar = false;
             this.textBox_Control2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control2.PlaceholderText = "";
-            this.textBox_Control2.Size = new System.Drawing.Size(250, 38);
+            this.textBox_Control2.Size = new System.Drawing.Size(250, 31);
             this.textBox_Control2.TabIndex = 22;
             this.textBox_Control2.Texts = "";
             this.textBox_Control2.UnderlinedStyle = false;
@@ -342,7 +342,7 @@
             this.textBox_Control1.PasswordChar = false;
             this.textBox_Control1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBox_Control1.PlaceholderText = "Ingrese el código del cliente";
-            this.textBox_Control1.Size = new System.Drawing.Size(250, 38);
+            this.textBox_Control1.Size = new System.Drawing.Size(250, 31);
             this.textBox_Control1.TabIndex = 21;
             this.textBox_Control1.Texts = "";
             this.textBox_Control1.UnderlinedStyle = true;
@@ -438,7 +438,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(964, 266);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 21);
+            this.label11.Size = new System.Drawing.Size(36, 15);
             this.label11.TabIndex = 15;
             this.label11.Text = "Total:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -449,7 +449,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(964, 173);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 21);
+            this.label10.Size = new System.Drawing.Size(54, 15);
             this.label10.TabIndex = 14;
             this.label10.Text = "Subtotal:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -460,7 +460,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(964, 125);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 21);
+            this.label9.Size = new System.Drawing.Size(53, 15);
             this.label9.TabIndex = 13;
             this.label9.Text = "IVA 12%:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -471,7 +471,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(964, 218);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 21);
+            this.label8.Size = new System.Drawing.Size(56, 15);
             this.label8.TabIndex = 12;
             this.label8.Text = "Devolver:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -482,7 +482,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(964, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 21);
+            this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 11;
             this.label7.Text = "Pagó con:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -544,7 +544,7 @@
             this.txt_fecha.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fecha.Location = new System.Drawing.Point(1144, 34);
             this.txt_fecha.Name = "txt_fecha";
-            this.txt_fecha.Size = new System.Drawing.Size(117, 21);
+            this.txt_fecha.Size = new System.Drawing.Size(87, 14);
             this.txt_fecha.TabIndex = 7;
             this.txt_fecha.Text = "Esta es la Fecha";
             this.txt_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -555,7 +555,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(964, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(174, 21);
+            this.label6.Size = new System.Drawing.Size(119, 15);
             this.label6.TabIndex = 6;
             this.label6.Text = "Fecha de Facturación:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -566,7 +566,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 248);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 21);
+            this.label5.Size = new System.Drawing.Size(56, 15);
             this.label5.TabIndex = 5;
             this.label5.Text = "Teléfono:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -577,7 +577,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(34, 197);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 21);
+            this.label4.Size = new System.Drawing.Size(53, 15);
             this.label4.TabIndex = 4;
             this.label4.Text = "Nombre:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -588,7 +588,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(34, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 21);
+            this.label3.Size = new System.Drawing.Size(46, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "Cédula:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -599,7 +599,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(34, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 21);
+            this.label2.Size = new System.Drawing.Size(103, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Código de Cliente:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -610,7 +610,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(34, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 21);
+            this.label1.Size = new System.Drawing.Size(105, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Código de Factura:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -665,7 +665,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1438, 789);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.pn_Container_border);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Nueva_Factura";
