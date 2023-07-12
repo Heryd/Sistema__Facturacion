@@ -1,13 +1,13 @@
 ﻿using Capa_Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/*GRUPO G03 - INTEGRANTES
+ * Morla Gordillo Heryd Xavier (Líder)
+ * Sánchez Vargas Bryan Jonas
+ * Solorzano Terán Petter Max
+ * Valencia Quintero Angelo Jardel
+*/
 
 namespace Capa_Presentacion
 {
@@ -20,20 +20,22 @@ namespace Capa_Presentacion
             InitializeComponent();
         }
 
+        #region Password_Hide
+        //Muestra la contraseña
         private void btn_eye_close_Click(object sender, EventArgs e)
         {
             btn_eye_close.Visible = false;
             btn_eye_open.Visible = true;
             txt_password.PasswordChar = true;
         }
-
+        //Oculta la contraseña
         private void btn_eye_open_Click(object sender, EventArgs e)
         {
             btn_eye_close.Visible = true;
             btn_eye_open.Visible = false;
             txt_password.PasswordChar = false;
         }
-
+        #endregion
         private void btn_CloseForm_Click(object sender, EventArgs e)
         {
             Application.Exit();

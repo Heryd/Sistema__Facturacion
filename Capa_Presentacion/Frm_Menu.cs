@@ -9,6 +9,13 @@ using System.Linq;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
 
+/*GRUPO G03 - INTEGRANTES
+ * Morla Gordillo Heryd Xavier (Líder)
+ * Sánchez Vargas Bryan Jonas
+ * Solorzano Terán Petter Max
+ * Valencia Quintero Angelo Jardel
+*/
+
 namespace Capa_Presentacion
 {
     public partial class Frm_Menu : Form
