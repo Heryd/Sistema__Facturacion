@@ -4,6 +4,7 @@ using Capa_Presentacion.Properties;
 using Capa_Presentacion.user_controls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
@@ -26,10 +27,12 @@ namespace Capa_Presentacion
         private bool confirm_button_Delete;
 
         private RJButton current_Button;
-
         private Form active_Form = null;
-
         private List<Form> formulariosAbiertos = new List<Form>();
+
+        //Imagenes de las opciones de Modulo
+        private Image icon_new_Register = Resources.btn_nuevo_registro_background;
+        private Image icon_Records= Resources.btn_lista_entidades_background;
 
         #endregion
 
@@ -37,6 +40,7 @@ namespace Capa_Presentacion
         {
             InitializeComponent();
             hidePanels();
+            Add_Icon_Background();
         }
 
 
@@ -356,7 +360,7 @@ namespace Capa_Presentacion
         #endregion
 
         //Metodo para abrir formularios dentro del panel
-        private void AbrirFormulario<MiForm> () where MiForm : Form, new()
+        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario = formulariosAbiertos.FirstOrDefault(f => f.GetType() == typeof(MiForm));
 
@@ -396,7 +400,7 @@ namespace Capa_Presentacion
             if (showPanelFactura)
             {
                 showPanelFactura = !showPanelFactura;
-            }else if (showPanelPago)
+            } else if (showPanelPago)
             {
                 showPanelPago = !showPanelPago;
             }
@@ -427,7 +431,7 @@ namespace Capa_Presentacion
 
         private void Frm_Menu_SizeChanged(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Maximized)
+            if (WindowState == FormWindowState.Maximized)
             {
                 if (active_Form != null)
                     active_Form.Width = 800;
@@ -438,6 +442,20 @@ namespace Capa_Presentacion
         {
             Frm_Login frm_Lg = new Frm_Login();
             frm_Lg.Show();
+        }
+
+        private void Add_Icon_Background() {
+            //Botones de Nuevos Registros
+            btn_Registro_Factura.Image = icon_new_Register;
+            btn_Registro_Pago.Image = icon_new_Register;
+            btn_Registrar_Cliente.Image = icon_new_Register;
+            btn_Registrar_Reembolso.Image = icon_new_Register;
+
+            //Botones de Consulta Registros
+            btn_Consultar_Factura.Image = icon_Records;
+            btn_Consultar_Pago.Image = icon_Records;
+            btn_Consultar_Cliente.Image = icon_Records;
+            btn_Consultar_Reembolso.Image=icon_Records;
         }
     }
 }
