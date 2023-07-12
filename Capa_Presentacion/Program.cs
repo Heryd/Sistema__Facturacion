@@ -4,6 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*GRUPO G03 - INTEGRANTES
+ * Morla Gordillo Heryd Xavier (Líder)
+ * Sánchez Vargas Bryan Jonas
+ * Solorzano Terán Petter Max
+ * Valencia Quintero Angelo Jardel
+*/
+
 namespace Capa_Presentacion
 {
     internal static class Program

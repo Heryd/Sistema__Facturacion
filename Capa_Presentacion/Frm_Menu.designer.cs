@@ -51,9 +51,9 @@
             this.btn_MFactura = new Capa_Presentacion.user_controls.RJButton();
             this.pn_Home = new System.Windows.Forms.Panel();
             this.btn_HOME = new Capa_Presentacion.user_controls.RJButton();
-            this.lbl_Name_User = new System.Windows.Forms.Label();
             this.pcb_Separator_Profile = new System.Windows.Forms.PictureBox();
             this.lbl_Rol_User = new System.Windows.Forms.Label();
+            this.lbl_Name_User = new System.Windows.Forms.Label();
             this.pnl_User = new System.Windows.Forms.Panel();
             this.pcb_Profile_User = new System.Windows.Forms.PictureBox();
             this.pn_Form_Hijo = new System.Windows.Forms.Panel();
@@ -485,17 +485,6 @@
             this.btn_HOME.UseVisualStyleBackColor = false;
             this.btn_HOME.Click += new System.EventHandler(this.btn_HOME_Click);
             // 
-            // lbl_Name_User
-            // 
-            this.lbl_Name_User.Font = new System.Drawing.Font("IOS 15 Bold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Name_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.lbl_Name_User.Location = new System.Drawing.Point(0, 3);
-            this.lbl_Name_User.Name = "lbl_Name_User";
-            this.lbl_Name_User.Size = new System.Drawing.Size(224, 33);
-            this.lbl_Name_User.TabIndex = 30;
-            this.lbl_Name_User.Text = "User";
-            this.lbl_Name_User.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pcb_Separator_Profile
             // 
             this.pcb_Separator_Profile.Image = ((System.Drawing.Image)(resources.GetObject("pcb_Separator_Profile.Image")));
@@ -516,6 +505,17 @@
             this.lbl_Rol_User.TabIndex = 29;
             this.lbl_Rol_User.Text = "Rol";
             this.lbl_Rol_User.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Name_User
+            // 
+            this.lbl_Name_User.Font = new System.Drawing.Font("IOS 15 Bold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Name_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.lbl_Name_User.Location = new System.Drawing.Point(0, 3);
+            this.lbl_Name_User.Name = "lbl_Name_User";
+            this.lbl_Name_User.Size = new System.Drawing.Size(224, 33);
+            this.lbl_Name_User.TabIndex = 30;
+            this.lbl_Name_User.Text = "User";
+            this.lbl_Name_User.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnl_User
             // 
@@ -559,8 +559,8 @@
             // 
             // Frm_Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1174, 585);
             this.Controls.Add(this.pn_Form_Hijo);

@@ -150,6 +150,9 @@
     <EmbeddedResource Include="Frm_Menu.resx">
       <DependentUpon>Frm_Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\1. Factura\Frm_Facturas.resx">
+      <DependentUpon>Frm_Facturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\1. Factura\Frm_Nueva_Factura.resx">
       <DependentUpon>Frm_Nueva_Factura.cs</DependentUpon>
     </EmbeddedResource>

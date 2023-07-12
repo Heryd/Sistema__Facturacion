@@ -6,6 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*GRUPO G03 - INTEGRANTES
+ * Morla Gordillo Heryd Xavier (Líder)
+ * Sánchez Vargas Bryan Jonas
+ * Solorzano Terán Petter Max
+ * Valencia Quintero Angelo Jardel
+*/
+
 namespace Capa_Negocio
 {
     public class CN_GetData
