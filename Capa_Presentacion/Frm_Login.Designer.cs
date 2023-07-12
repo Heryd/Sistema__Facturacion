@@ -53,9 +53,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 302);
+            this.label1.Location = new System.Drawing.Point(76, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 20);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "USUARIO:";
             // 
@@ -63,19 +63,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 436);
+            this.label2.Location = new System.Drawing.Point(76, 294);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 20);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 99);
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(96, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(574, 45);
+            this.label3.Size = new System.Drawing.Size(293, 24);
             this.label3.TabIndex = 4;
             this.label3.Text = "SISTEMA DE FACTURACION";
             // 
@@ -98,16 +98,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 685);
+            this.panel1.Size = new System.Drawing.Size(484, 467);
             this.panel1.TabIndex = 5;
             // 
             // btn_CloseForm
             // 
             this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
-            this.btn_CloseForm.Location = new System.Drawing.Point(578, 12);
+            this.btn_CloseForm.Location = new System.Drawing.Point(437, 12);
             this.btn_CloseForm.Name = "btn_CloseForm";
-            this.btn_CloseForm.Size = new System.Drawing.Size(50, 50);
+            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
             this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_CloseForm.TabIndex = 12;
             this.btn_CloseForm.TabStop = false;
@@ -117,9 +117,9 @@
             // 
             this.btn_MinForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MinForm.Image = global::Capa_Presentacion.Properties.Resources.minimizar;
-            this.btn_MinForm.Location = new System.Drawing.Point(522, 11);
+            this.btn_MinForm.Location = new System.Drawing.Point(400, 11);
             this.btn_MinForm.Name = "btn_MinForm";
-            this.btn_MinForm.Size = new System.Drawing.Size(53, 53);
+            this.btn_MinForm.Size = new System.Drawing.Size(37, 37);
             this.btn_MinForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_MinForm.TabIndex = 11;
             this.btn_MinForm.TabStop = false;
@@ -129,7 +129,7 @@
             // 
             this.btn_eye_open.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eye_open.Image = global::Capa_Presentacion.Properties.Resources.eye_open;
-            this.btn_eye_open.Location = new System.Drawing.Point(157, 434);
+            this.btn_eye_open.Location = new System.Drawing.Point(148, 288);
             this.btn_eye_open.Name = "btn_eye_open";
             this.btn_eye_open.Size = new System.Drawing.Size(25, 25);
             this.btn_eye_open.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -141,7 +141,7 @@
             // 
             this.btn_eye_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_eye_close.Image = global::Capa_Presentacion.Properties.Resources.ezgif_1_144b164ee3;
-            this.btn_eye_close.Location = new System.Drawing.Point(157, 434);
+            this.btn_eye_close.Location = new System.Drawing.Point(148, 288);
             this.btn_eye_close.Name = "btn_eye_close";
             this.btn_eye_close.Size = new System.Drawing.Size(25, 25);
             this.btn_eye_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,16 +154,16 @@
             this.btn_cancelar.AutoSize = true;
             this.btn_cancelar.BackColor = System.Drawing.Color.DarkGray;
             this.btn_cancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_cancelar.BorderRadius = 10;
+            this.btn_cancelar.BorderRadius = 8;
             this.btn_cancelar.BorderSize = 0;
             this.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancelar.FlatAppearance.BorderSize = 0;
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.Color.White;
-            this.btn_cancelar.Location = new System.Drawing.Point(52, 595);
+            this.btn_cancelar.Location = new System.Drawing.Point(72, 403);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(544, 54);
+            this.btn_cancelar.Size = new System.Drawing.Size(341, 31);
             this.btn_cancelar.TabIndex = 8;
             this.btn_cancelar.Text = "CANCELAR";
             this.btn_cancelar.UseVisualStyleBackColor = false;
@@ -174,16 +174,16 @@
             this.btn_login.AutoSize = true;
             this.btn_login.BackColor = System.Drawing.Color.Orange;
             this.btn_login.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_login.BorderRadius = 10;
+            this.btn_login.BorderRadius = 8;
             this.btn_login.BorderSize = 0;
             this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_login.FlatAppearance.BorderSize = 0;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Location = new System.Drawing.Point(52, 541);
+            this.btn_login.Location = new System.Drawing.Point(72, 372);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(544, 54);
+            this.btn_login.Size = new System.Drawing.Size(341, 31);
             this.btn_login.TabIndex = 7;
             this.btn_login.Text = "INICIAR SESION";
             this.btn_login.UseVisualStyleBackColor = false;
@@ -193,9 +193,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(153, 230);
+            this.label5.Location = new System.Drawing.Point(130, 151);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(335, 23);
+            this.label5.Size = new System.Drawing.Size(224, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Ingresa las credenciales para inciar sesión";
             // 
@@ -203,9 +203,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 193);
+            this.label4.Location = new System.Drawing.Point(207, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 37);
+            this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "LOGIN";
             // 
@@ -218,7 +218,7 @@
             this.txt_password.BorderSize = 1;
             this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txt_password.Location = new System.Drawing.Point(48, 460);
+            this.txt_password.Location = new System.Drawing.Point(72, 321);
             this.txt_password.Margin = new System.Windows.Forms.Padding(4);
             this.txt_password.Multiline = false;
             this.txt_password.Name = "txt_password";
@@ -226,7 +226,7 @@
             this.txt_password.PasswordChar = true;
             this.txt_password.PlaceholderColor = System.Drawing.Color.Goldenrod;
             this.txt_password.PlaceholderText = "Ingresa tu contraseña";
-            this.txt_password.Size = new System.Drawing.Size(544, 39);
+            this.txt_password.Size = new System.Drawing.Size(341, 31);
             this.txt_password.TabIndex = 3;
             this.txt_password.Texts = "";
             this.txt_password.UnderlinedStyle = true;
@@ -240,7 +240,7 @@
             this.txt_user.BorderSize = 1;
             this.txt_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_user.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txt_user.Location = new System.Drawing.Point(48, 326);
+            this.txt_user.Location = new System.Drawing.Point(72, 230);
             this.txt_user.Margin = new System.Windows.Forms.Padding(4);
             this.txt_user.Multiline = false;
             this.txt_user.Name = "txt_user";
@@ -248,16 +248,17 @@
             this.txt_user.PasswordChar = false;
             this.txt_user.PlaceholderColor = System.Drawing.Color.Goldenrod;
             this.txt_user.PlaceholderText = "Ingresa tu usuario/email";
-            this.txt_user.Size = new System.Drawing.Size(544, 39);
+            this.txt_user.Size = new System.Drawing.Size(341, 31);
             this.txt_user.TabIndex = 2;
             this.txt_user.Texts = "";
             this.txt_user.UnderlinedStyle = true;
             // 
             // Frm_Login
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(640, 685);
+            this.ClientSize = new System.Drawing.Size(484, 467);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Login";
