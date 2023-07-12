@@ -100,6 +100,12 @@
     <Compile Include="Modulos\2. Pago\MPago.Designer.cs">
       <DependentUpon>MPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\2. Pago\PruebaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\PruebaPago.Designer.cs">
+      <DependentUpon>PruebaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\3. Cliente\Frm_Actualizar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
