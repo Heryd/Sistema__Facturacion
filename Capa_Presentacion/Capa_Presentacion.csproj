@@ -52,21 +52,106 @@
     <Compile Include="Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu.designer.cs">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Actualizar_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Actualizar_Factura.Designer.cs">
+      <DependentUpon>Frm_Actualizar_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Facturas.Designer.cs">
+      <DependentUpon>Frm_Facturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Nueva_Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\1. Factura\Frm_Nueva_Factura.Designer.cs">
+      <DependentUpon>Frm_Nueva_Factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Actualizar_Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Actualizar_Pago.Designer.cs">
+      <DependentUpon>Frm_Actualizar_Pago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Nuevo_Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Nuevo_Pago.Designer.cs">
+      <DependentUpon>Frm_Nuevo_Pago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\2. Pago\Frm_Pagos.Designer.cs">
+      <DependentUpon>Frm_Pagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Actualizar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Actualizar_Cliente.Designer.cs">
+      <DependentUpon>Frm_Actualizar_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Clientes.Designer.cs">
+      <DependentUpon>Frm_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Nuevo_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\3. Cliente\Frm_Nuevo_Cliente.Designer.cs">
+      <DependentUpon>Frm_Nuevo_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Actualizar_Reembolso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Actualizar_Reembolso.Designer.cs">
+      <DependentUpon>Frm_Actualizar_Reembolso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Nuevo_Reembolso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Nuevo_Reembolso.Designer.cs">
+      <DependentUpon>Frm_Nuevo_Reembolso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Reembolsos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulos\4. Reembolso\Frm_Reembolsos.Designer.cs">
+      <DependentUpon>Frm_Reembolsos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user_controls\Gradient_Label_Bounds.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="user_controls\MenuColorTable.cs" />
     <Compile Include="user_controls\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="user_controls\TextBox_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="user_controls\TextBox_Control.Designer.cs" />
+    <Compile Include="user_controls\TextBox_Control.designer.cs">
+      <DependentUpon>TextBox_Control.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\1. Factura\Frm_Nueva_Factura.resx">
+      <DependentUpon>Frm_Nueva_Factura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,7 +163,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="user_controls\TextBox_Control.resx" />
+    <EmbeddedResource Include="user_controls\TextBox_Control.resx">
+      <DependentUpon>TextBox_Control.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,6 +190,101 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\btn_Facturas_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Facturas_Background_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_lista_entidades_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_lista_entidades_background_white %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_lista_entidades_background_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_MFactura_Background_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\broom_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_MFactura_Background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Nueva_Factura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Nueva_Factura_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_Nuevo_Pago_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_nuevo_registro_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_nuevo_registro_background_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cash-out-svgrepo-com %28Custom%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 11 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_door_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo_OPC_Elegida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 12 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-square-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_MFactura_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CENTER %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\home_5_line.png" />
+    <None Include="Resources\home_5_line1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.csproj">
+      <Project>{097e4f7e-e455-4380-9d72-e86534f3f886}</Project>
+      <Name>Capa_Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

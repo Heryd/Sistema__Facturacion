@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System;
 
-namespace Capa_Presentacion.User_Controls
+namespace Capa_Presentacion.user_controls
 {
     class RJButton : Button
     {

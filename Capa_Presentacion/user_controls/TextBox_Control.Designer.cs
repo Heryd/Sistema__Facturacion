@@ -4,7 +4,7 @@ using System;
 using System.Windows.Forms;
 using System.ComponentModel;
 
-namespace Capa_Presentacion.User_Controls
+namespace Capa_Presentacion.user_controls
 {
     partial class TextBox_Control
     {

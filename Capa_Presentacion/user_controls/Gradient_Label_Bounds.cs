@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace Capa_Presentacion
+namespace Capa_Presentacion.user_controls
 {
     public class Gradient_Label_Bounds : Label
     {

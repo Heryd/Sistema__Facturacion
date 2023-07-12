@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace Capa_Presentacion
 {
     public partial class Frm_Login : Form
     {
+        //Fields
+        CN_GetData objCapaNegocio = new CN_GetData();
         public Frm_Login()
         {
             InitializeComponent();
@@ -45,6 +48,13 @@ namespace Capa_Presentacion
         {
             txt_user.Texts = "";
             txt_password.Texts = "";
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            Close();
+            Frm_Menu frm_mn = new Frm_Menu();
+            frm_mn.ShowDialog();
         }
     }
 }

@@ -32,16 +32,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.btn_MinForm = new System.Windows.Forms.PictureBox();
             this.btn_eye_open = new System.Windows.Forms.PictureBox();
             this.btn_eye_close = new System.Windows.Forms.PictureBox();
-            this.btn_cancelar = new Capa_Presentacion.User_Controls.RJButton();
-            this.btn_login = new Capa_Presentacion.User_Controls.RJButton();
-            this.txt_password = new Capa_Presentacion.User_Controls.TextBox_Control();
-            this.txt_user = new Capa_Presentacion.User_Controls.TextBox_Control();
+            this.btn_cancelar = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_login = new Capa_Presentacion.user_controls.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_password = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_user = new Capa_Presentacion.user_controls.TextBox_Control();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_MinForm)).BeginInit();
@@ -101,26 +101,6 @@
             this.panel1.Size = new System.Drawing.Size(640, 685);
             this.panel1.TabIndex = 5;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 193);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 37);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "LOGIN";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(153, 230);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(335, 23);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Ingresa las credenciales para inciar sesión";
-            // 
             // btn_CloseForm
             // 
             this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -137,9 +117,9 @@
             // 
             this.btn_MinForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MinForm.Image = global::Capa_Presentacion.Properties.Resources.minimizar;
-            this.btn_MinForm.Location = new System.Drawing.Point(522, 12);
+            this.btn_MinForm.Location = new System.Drawing.Point(522, 11);
             this.btn_MinForm.Name = "btn_MinForm";
-            this.btn_MinForm.Size = new System.Drawing.Size(50, 50);
+            this.btn_MinForm.Size = new System.Drawing.Size(53, 53);
             this.btn_MinForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_MinForm.TabIndex = 11;
             this.btn_MinForm.TabStop = false;
@@ -207,6 +187,27 @@
             this.btn_login.TabIndex = 7;
             this.btn_login.Text = "INICIAR SESION";
             this.btn_login.UseVisualStyleBackColor = false;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(153, 230);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(335, 23);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Ingresa las credenciales para inciar sesión";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(269, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 37);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "LOGIN";
             // 
             // txt_password
             // 
@@ -276,12 +277,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private User_Controls.TextBox_Control txt_user;
-        private User_Controls.TextBox_Control txt_password;
+        private user_controls.TextBox_Control txt_user;
+        private user_controls.TextBox_Control txt_password;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private User_Controls.RJButton btn_cancelar;
-        private User_Controls.RJButton btn_login;
+        private user_controls.RJButton btn_cancelar;
+        private user_controls.RJButton btn_login;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox btn_eye_close;
