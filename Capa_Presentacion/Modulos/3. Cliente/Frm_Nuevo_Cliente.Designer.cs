@@ -238,6 +238,7 @@
             this.txt_Correo.TabIndex = 24;
             this.txt_Correo.Texts = "";
             this.txt_Correo.UnderlinedStyle = true;
+            this.txt_Correo.Load += new System.EventHandler(this.txt_Correo_Load);
             // 
             // txt_Nombres
             // 

@@ -23,5 +23,25 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         {
             Close();
         }
+
+        private void txt_Cedula_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Codigo_Cliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActCliente(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarAtc(object sender, EventArgs e)
+        {
+
+        }
     }
 }

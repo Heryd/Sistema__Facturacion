@@ -45,5 +45,10 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         {
             this.Close();
         }
+
+        private void txt_Correo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

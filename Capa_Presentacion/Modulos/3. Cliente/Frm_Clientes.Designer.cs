@@ -57,7 +57,7 @@
             this.pn_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Container.Location = new System.Drawing.Point(0, 0);
             this.pn_Container.Name = "pn_Container";
-            this.pn_Container.Size = new System.Drawing.Size(950, 471);
+            this.pn_Container.Size = new System.Drawing.Size(957, 471);
             this.pn_Container.TabIndex = 18;
             // 
             // cmb_Filtro_Pago
@@ -191,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(950, 471);
+            this.ClientSize = new System.Drawing.Size(957, 471);
             this.Controls.Add(this.pn_Container);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Clientes";

@@ -162,6 +162,9 @@
     <EmbeddedResource Include="Modulos\2. Pago\FrmPagos.resx">
       <DependentUpon>FrmPagos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulos\2. Pago\Frm_Actualizar_Pago.resx">
+      <DependentUpon>Frm_Actualizar_Pago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulos\2. Pago\Frm_Nuevo_Pago.resx">
       <DependentUpon>Frm_Nuevo_Pago.cs</DependentUpon>
     </EmbeddedResource>
