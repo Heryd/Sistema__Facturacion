@@ -208,7 +208,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(608, 169);
+            this.rjButton1.Location = new System.Drawing.Point(608, 159);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(150, 40);
             this.rjButton1.TabIndex = 17;
@@ -297,12 +297,13 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
+            this.radioButton6.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.radioButton6.Location = new System.Drawing.Point(608, 304);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(14, 13);
             this.radioButton6.TabIndex = 25;
             this.radioButton6.TabStop = true;
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.UseVisualStyleBackColor = false;
             // 
             // Frm_Nuevo_Pago
             // 
