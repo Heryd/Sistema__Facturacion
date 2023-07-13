@@ -15,6 +15,24 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
         public Frm_Reembolsos()
         {
             InitializeComponent();
+            CargarElementos();
+        }
+
+        private void btn_CloseForm_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_Actualizar_Click(object sender, EventArgs e)
+        {
+            Frm_Actualizar_Reembolso frm_update_Reembolso = new Frm_Actualizar_Reembolso();
+            frm_update_Reembolso.ShowDialog();
+        }
+
+        private void CargarElementos()
+        {
+            cmb_Filtro_Pago.SelectedIndex = 0;
+            cmb_Filtro_Reembolso.SelectedIndex = 0;
         }
     }
 }

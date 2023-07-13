@@ -41,10 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txt_Fecha_Pago = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
-            this.rjButton3 = new Capa_Presentacion.user_controls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -52,6 +50,8 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.rjButton3 = new Capa_Presentacion.user_controls.RJButton();
+            this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -82,7 +82,6 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Capa_Presentacion.Properties.Resources.Fondo_OPC_Elegida;
             this.pictureBox3.Location = new System.Drawing.Point(12, 7);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(876, 446);
@@ -182,14 +181,14 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 14;
             // 
-            // label8
+            // txt_Fecha_Pago
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(195, 161);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "------------------";
+            this.txt_Fecha_Pago.AutoSize = true;
+            this.txt_Fecha_Pago.Location = new System.Drawing.Point(195, 161);
+            this.txt_Fecha_Pago.Name = "txt_Fecha_Pago";
+            this.txt_Fecha_Pago.Size = new System.Drawing.Size(61, 13);
+            this.txt_Fecha_Pago.TabIndex = 15;
+            this.txt_Fecha_Pago.Text = "------------------";
             // 
             // textBox1
             // 
@@ -234,7 +233,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(120, 280);
@@ -305,10 +304,45 @@
             this.radioButton6.TabStop = true;
             this.radioButton6.UseVisualStyleBackColor = false;
             // 
+            // rjButton3
+            // 
+            this.rjButton3.BackColor = System.Drawing.Color.Red;
+            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton3.BorderRadius = 15;
+            this.rjButton3.BorderSize = 0;
+            this.rjButton3.FlatAppearance.BorderSize = 0;
+            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton3.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton3.ForeColor = System.Drawing.Color.White;
+            this.rjButton3.Location = new System.Drawing.Point(608, 215);
+            this.rjButton3.Name = "rjButton3";
+            this.rjButton3.Size = new System.Drawing.Size(150, 40);
+            this.rjButton3.TabIndex = 18;
+            this.rjButton3.Text = "CANCELAR";
+            this.rjButton3.UseVisualStyleBackColor = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 15;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(608, 169);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(150, 40);
+            this.rjButton1.TabIndex = 17;
+            this.rjButton1.Text = "REGISTRAR";
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
             // Frm_Nuevo_Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 465);
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.radioButton5);
@@ -320,7 +354,7 @@
             this.Controls.Add(this.rjButton3);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txt_Fecha_Pago);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -360,7 +394,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label txt_Fecha_Pago;
         private System.Windows.Forms.TextBox textBox1;
         private user_controls.RJButton rjButton1;
         private user_controls.RJButton rjButton3;

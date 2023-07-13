@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+/*GRUPO G03 - INTEGRANTES
+ * Morla Gordillo Heryd Xavier (Líder)
+ * Sánchez Vargas Bryan Jonas
+ * Solorzano Terán Petter Max
+ * Valencia Quintero Angelo Jardel
+*/
 
 namespace Capa_Presentacion.Modulos._3._Cliente
 {
@@ -15,6 +17,11 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         public Frm_Actualizar_Cliente()
         {
             InitializeComponent();
+        }
+
+        private void btn_CloseForm_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

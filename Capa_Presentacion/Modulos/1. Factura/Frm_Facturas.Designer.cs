@@ -31,12 +31,12 @@
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.pn_Container = new System.Windows.Forms.Panel();
+            this.cmb_Filtro_Cliente = new System.Windows.Forms.ComboBox();
+            this.cmb_Filtro_Facturas = new System.Windows.Forms.ComboBox();
+            this.btn_Eliminar = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_Actualizar = new Capa_Presentacion.user_controls.RJButton();
+            this.txt_Busqueda = new Capa_Presentacion.user_controls.TextBox_Control();
             this.dtgV_Facturas = new System.Windows.Forms.DataGridView();
-            this.textBox_Control1 = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
-            this.rjButton2 = new Capa_Presentacion.user_controls.RJButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             this.pn_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).BeginInit();
@@ -76,11 +76,11 @@
             // 
             this.pn_Container.BackgroundImage = global::Capa_Presentacion.Properties.Resources.CENTER__1_;
             this.pn_Container.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pn_Container.Controls.Add(this.comboBox2);
-            this.pn_Container.Controls.Add(this.comboBox1);
-            this.pn_Container.Controls.Add(this.rjButton2);
-            this.pn_Container.Controls.Add(this.rjButton1);
-            this.pn_Container.Controls.Add(this.textBox_Control1);
+            this.pn_Container.Controls.Add(this.cmb_Filtro_Cliente);
+            this.pn_Container.Controls.Add(this.cmb_Filtro_Facturas);
+            this.pn_Container.Controls.Add(this.btn_Eliminar);
+            this.pn_Container.Controls.Add(this.btn_Actualizar);
+            this.pn_Container.Controls.Add(this.txt_Busqueda);
             this.pn_Container.Controls.Add(this.dtgV_Facturas);
             this.pn_Container.Controls.Add(this.btn_CloseForm);
             this.pn_Container.Controls.Add(this.lbl_TOP);
@@ -90,6 +90,94 @@
             this.pn_Container.Size = new System.Drawing.Size(950, 471);
             this.pn_Container.TabIndex = 16;
             // 
+            // cmb_Filtro_Cliente
+            // 
+            this.cmb_Filtro_Cliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_Filtro_Cliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_Filtro_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Filtro_Cliente.FormattingEnabled = true;
+            this.cmb_Filtro_Cliente.Items.AddRange(new object[] {
+            "Pago (all)",
+            "Monto",
+            "Método de Pago"});
+            this.cmb_Filtro_Cliente.Location = new System.Drawing.Point(488, 109);
+            this.cmb_Filtro_Cliente.Name = "cmb_Filtro_Cliente";
+            this.cmb_Filtro_Cliente.Size = new System.Drawing.Size(116, 21);
+            this.cmb_Filtro_Cliente.TabIndex = 21;
+            // 
+            // cmb_Filtro_Facturas
+            // 
+            this.cmb_Filtro_Facturas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmb_Filtro_Facturas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_Filtro_Facturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Filtro_Facturas.FormattingEnabled = true;
+            this.cmb_Filtro_Facturas.Items.AddRange(new object[] {
+            "Reembolso (all)",
+            "Código",
+            "Fecha de Emisión",
+            "Estado"});
+            this.cmb_Filtro_Facturas.Location = new System.Drawing.Point(366, 109);
+            this.cmb_Filtro_Facturas.Name = "cmb_Filtro_Facturas";
+            this.cmb_Filtro_Facturas.Size = new System.Drawing.Size(116, 21);
+            this.cmb_Filtro_Facturas.TabIndex = 20;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.BackColor = System.Drawing.Color.Tomato;
+            this.btn_Eliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Eliminar.BorderRadius = 5;
+            this.btn_Eliminar.BorderSize = 0;
+            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_Eliminar.Location = new System.Drawing.Point(797, 99);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(118, 31);
+            this.btn_Eliminar.TabIndex = 19;
+            this.btn_Eliminar.Text = "ELIMINAR";
+            this.btn_Eliminar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Actualizar
+            // 
+            this.btn_Actualizar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_Actualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Actualizar.BorderRadius = 5;
+            this.btn_Actualizar.BorderSize = 0;
+            this.btn_Actualizar.FlatAppearance.BorderSize = 0;
+            this.btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Actualizar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Actualizar.ForeColor = System.Drawing.Color.White;
+            this.btn_Actualizar.Location = new System.Drawing.Point(673, 99);
+            this.btn_Actualizar.Name = "btn_Actualizar";
+            this.btn_Actualizar.Size = new System.Drawing.Size(118, 31);
+            this.btn_Actualizar.TabIndex = 18;
+            this.btn_Actualizar.Text = "ACTUALIZAR";
+            this.btn_Actualizar.UseVisualStyleBackColor = false;
+            this.btn_Actualizar.Click += new System.EventHandler(this.rjButton1_Click);
+            // 
+            // txt_Busqueda
+            // 
+            this.txt_Busqueda.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Busqueda.BorderColor = System.Drawing.Color.DarkGray;
+            this.txt_Busqueda.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Busqueda.BorderRadius = 5;
+            this.txt_Busqueda.BorderSize = 4;
+            this.txt_Busqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Busqueda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Busqueda.Location = new System.Drawing.Point(28, 99);
+            this.txt_Busqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Busqueda.Multiline = false;
+            this.txt_Busqueda.Name = "txt_Busqueda";
+            this.txt_Busqueda.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Busqueda.PasswordChar = false;
+            this.txt_Busqueda.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.txt_Busqueda.PlaceholderText = "Buscar";
+            this.txt_Busqueda.Size = new System.Drawing.Size(322, 31);
+            this.txt_Busqueda.TabIndex = 17;
+            this.txt_Busqueda.Texts = "";
+            this.txt_Busqueda.UnderlinedStyle = true;
+            // 
             // dtgV_Facturas
             // 
             this.dtgV_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -97,93 +185,6 @@
             this.dtgV_Facturas.Name = "dtgV_Facturas";
             this.dtgV_Facturas.Size = new System.Drawing.Size(887, 283);
             this.dtgV_Facturas.TabIndex = 16;
-            // 
-            // textBox_Control1
-            // 
-            this.textBox_Control1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox_Control1.BorderColor = System.Drawing.Color.DarkGray;
-            this.textBox_Control1.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.textBox_Control1.BorderRadius = 5;
-            this.textBox_Control1.BorderSize = 4;
-            this.textBox_Control1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Control1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox_Control1.Location = new System.Drawing.Point(28, 99);
-            this.textBox_Control1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_Control1.Multiline = false;
-            this.textBox_Control1.Name = "textBox_Control1";
-            this.textBox_Control1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBox_Control1.PasswordChar = false;
-            this.textBox_Control1.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.textBox_Control1.PlaceholderText = "Buscar";
-            this.textBox_Control1.Size = new System.Drawing.Size(322, 31);
-            this.textBox_Control1.TabIndex = 17;
-            this.textBox_Control1.Texts = "";
-            this.textBox_Control1.UnderlinedStyle = true;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.SteelBlue;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 5;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(673, 99);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(118, 31);
-            this.rjButton1.TabIndex = 18;
-            this.rjButton1.Text = "ACTUALIZAR";
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
-            // 
-            // rjButton2
-            // 
-            this.rjButton2.BackColor = System.Drawing.Color.Tomato;
-            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton2.BorderRadius = 5;
-            this.rjButton2.BorderSize = 0;
-            this.rjButton2.FlatAppearance.BorderSize = 0;
-            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton2.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(797, 99);
-            this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(118, 31);
-            this.rjButton2.TabIndex = 19;
-            this.rjButton2.Text = "ELIMINAR";
-            this.rjButton2.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Factura (all)",
-            "Código",
-            "Fecha"});
-            this.comboBox1.Location = new System.Drawing.Point(366, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(116, 21);
-            this.comboBox1.TabIndex = 20;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Cliente (all)",
-            "Cédula",
-            "Género"});
-            this.comboBox2.Location = new System.Drawing.Point(488, 109);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(116, 21);
-            this.comboBox2.TabIndex = 21;
             // 
             // Frm_Facturas
             // 
@@ -208,10 +209,10 @@
         private user_controls.Gradient_Label_Bounds lbl_TOP;
         private System.Windows.Forms.Panel pn_Container;
         private System.Windows.Forms.DataGridView dtgV_Facturas;
-        private user_controls.TextBox_Control textBox_Control1;
-        private user_controls.RJButton rjButton2;
-        private user_controls.RJButton rjButton1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private user_controls.TextBox_Control txt_Busqueda;
+        private user_controls.RJButton btn_Eliminar;
+        private user_controls.RJButton btn_Actualizar;
+        private System.Windows.Forms.ComboBox cmb_Filtro_Cliente;
+        private System.Windows.Forms.ComboBox cmb_Filtro_Facturas;
     }
 }

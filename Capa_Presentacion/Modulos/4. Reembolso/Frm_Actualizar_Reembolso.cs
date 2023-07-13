@@ -16,5 +16,10 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
         {
             InitializeComponent();
         }
+
+        private void btn_CloseForm_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
