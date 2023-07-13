@@ -28,12 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btn_CloseForm = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btn_CloseForm
+            // 
+            this.btn_CloseForm.BackColor = System.Drawing.Color.White;
+            this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
+            this.btn_CloseForm.Location = new System.Drawing.Point(651, 12);
+            this.btn_CloseForm.Name = "btn_CloseForm";
+            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
+            this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_CloseForm.TabIndex = 15;
+            this.btn_CloseForm.TabStop = false;
+            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
+            // 
+            // Frm_Actualizar_Reembolso
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(698, 442);
+            this.Controls.Add(this.btn_CloseForm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Frm_Actualizar_Reembolso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Actualizar_Reembolso";
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox btn_CloseForm;
     }
 }

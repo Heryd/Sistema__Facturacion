@@ -1,6 +1,7 @@
 ﻿using Capa_Presentacion.Modulos._1._Factura;
 using Capa_Presentacion.Modulos._2._Pago;
 using Capa_Presentacion.Modulos._3._Cliente;
+using Capa_Presentacion.Modulos._4._Reembolso;
 using Capa_Presentacion.Properties;
 using Capa_Presentacion.user_controls;
 using System;
@@ -224,17 +225,14 @@ namespace Capa_Presentacion
         {
             confirm_Create();
             Atenuar_Opc_Modulo(btn_Registro_Factura);
-            //AbrirFormularioHijo(new Frm_MFactura_Registro());
             Close_Active_Form();
             AbrirFormulario<Frm_Nueva_Factura>();
-
         }
 
         private void btn_Consulta_Factura_Click(object sender, EventArgs e)
         {
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Factura);
-            //AbrirFormularioHijo(new Frm_MFactura_Facturas());
             Close_Active_Form();
             AbrirFormulario<Frm_Facturas>();
         }
@@ -300,7 +298,6 @@ namespace Capa_Presentacion
         {
             confirm_Create();
             Atenuar_Opc_Modulo(btn_Registro_Pago);
-            //AbrirFormularioHijo(new Frm_MFactura_Facturas());
             Close_Active_Form();
             AbrirFormulario<Frm_Nuevo_Pago>();
         }
@@ -308,6 +305,9 @@ namespace Capa_Presentacion
         {
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Pago);
+            Close_Active_Form();
+            AbrirFormulario<FrmPagos>();
+
         }
         #endregion
 
@@ -338,11 +338,16 @@ namespace Capa_Presentacion
         {
             confirm_Create();
             Atenuar_Opc_Modulo(btn_Registrar_Reembolso);
+            Close_Active_Form();
+            AbrirFormulario<Frm_Nuevo_Reembolso>();
+
         }
         private void btn_Consultar_Reembolso_Click(object sender, EventArgs e)
         {
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Reembolso);
+            Close_Active_Form();
+            AbrirFormulario<Frm_Reembolsos>();
         }
         #endregion
 

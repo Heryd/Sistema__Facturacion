@@ -22,8 +22,8 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void Select_First_Index_ComboBox()
         {
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            cmb_Filtro_Facturas.SelectedIndex = 0;
+            cmb_Filtro_Cliente.SelectedIndex = 0;
         }
 
         private void btn_CloseForm_Click(object sender, EventArgs e)

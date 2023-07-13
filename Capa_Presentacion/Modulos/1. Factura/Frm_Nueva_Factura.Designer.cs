@@ -252,7 +252,7 @@
             // 
             // txt_Codigo_Factura
             // 
-            this.txt_Codigo_Factura.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Codigo_Factura.BackColor = System.Drawing.Color.White;
             this.txt_Codigo_Factura.BorderColor = System.Drawing.Color.Silver;
             this.txt_Codigo_Factura.BorderFocusColor = System.Drawing.Color.Goldenrod;
             this.txt_Codigo_Factura.BorderRadius = 0;
@@ -271,11 +271,11 @@
             this.txt_Codigo_Factura.Size = new System.Drawing.Size(180, 31);
             this.txt_Codigo_Factura.TabIndex = 25;
             this.txt_Codigo_Factura.Texts = "";
-            this.txt_Codigo_Factura.UnderlinedStyle = false;
+            this.txt_Codigo_Factura.UnderlinedStyle = true;
             // 
             // txt_Telefono
             // 
-            this.txt_Telefono.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Telefono.BackColor = System.Drawing.Color.White;
             this.txt_Telefono.BorderColor = System.Drawing.Color.Silver;
             this.txt_Telefono.BorderFocusColor = System.Drawing.Color.Goldenrod;
             this.txt_Telefono.BorderRadius = 0;
@@ -294,11 +294,11 @@
             this.txt_Telefono.Size = new System.Drawing.Size(180, 31);
             this.txt_Telefono.TabIndex = 24;
             this.txt_Telefono.Texts = "";
-            this.txt_Telefono.UnderlinedStyle = false;
+            this.txt_Telefono.UnderlinedStyle = true;
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Nombre.BackColor = System.Drawing.Color.White;
             this.txt_Nombre.BorderColor = System.Drawing.Color.Silver;
             this.txt_Nombre.BorderFocusColor = System.Drawing.Color.Goldenrod;
             this.txt_Nombre.BorderRadius = 0;
@@ -317,11 +317,11 @@
             this.txt_Nombre.Size = new System.Drawing.Size(180, 31);
             this.txt_Nombre.TabIndex = 23;
             this.txt_Nombre.Texts = "";
-            this.txt_Nombre.UnderlinedStyle = false;
+            this.txt_Nombre.UnderlinedStyle = true;
             // 
             // txt_Cedula
             // 
-            this.txt_Cedula.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Cedula.BackColor = System.Drawing.Color.White;
             this.txt_Cedula.BorderColor = System.Drawing.Color.Silver;
             this.txt_Cedula.BorderFocusColor = System.Drawing.Color.Goldenrod;
             this.txt_Cedula.BorderRadius = 0;
@@ -340,7 +340,7 @@
             this.txt_Cedula.Size = new System.Drawing.Size(180, 31);
             this.txt_Cedula.TabIndex = 22;
             this.txt_Cedula.Texts = "";
-            this.txt_Cedula.UnderlinedStyle = false;
+            this.txt_Cedula.UnderlinedStyle = true;
             // 
             // txt_Codigo_Cliente
             // 
