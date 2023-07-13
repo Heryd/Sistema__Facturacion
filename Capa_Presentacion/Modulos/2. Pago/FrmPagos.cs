@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Capa_Presentacion.Modulos._2._Pago
 {
-    public partial class PruebaPago : Form
+    public partial class FrmPagos : Form
     {
-        public PruebaPago()
+        public FrmPagos()
         {
             InitializeComponent();
         }
+
+     
     }
 }
