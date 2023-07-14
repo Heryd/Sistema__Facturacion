@@ -117,9 +117,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(31, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 15);
+            this.label3.Size = new System.Drawing.Size(90, 15);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Importe de Pago";
+            this.label3.Text = "Valor del Pago:";
             // 
             // label4
             // 
@@ -151,7 +151,7 @@
             this.txtActImportePago.PlaceholderText = "";
             this.txtActImportePago.Size = new System.Drawing.Size(132, 31);
             this.txtActImportePago.TabIndex = 27;
-            this.txtActImportePago.Texts = "Actualizar Importe";
+            this.txtActImportePago.Texts = "Actualizar valor";
             this.txtActImportePago.UnderlinedStyle = true;
             // 
             // CmbActPago

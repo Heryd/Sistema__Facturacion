@@ -48,7 +48,6 @@
             this.txt_Subtotal = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.lbl_IVA_Value = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.txt_Total = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.lbl_pago_cliente = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.lbl_Total = new System.Windows.Forms.Label();
             this.lbl_Subtotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.dtgV_Registro_Factura = new System.Windows.Forms.DataGridView();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.txt_Valor_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
             this.pn_Container_border.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmUD_Cantidad)).BeginInit();
@@ -89,6 +89,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txt_Valor_Pago);
             this.panel1.Controls.Add(this.chb_IVA);
             this.panel1.Controls.Add(this.txt_Nombre_Encargado);
             this.panel1.Controls.Add(this.nmUD_Cantidad);
@@ -107,7 +108,6 @@
             this.panel1.Controls.Add(this.txt_Subtotal);
             this.panel1.Controls.Add(this.lbl_IVA_Value);
             this.panel1.Controls.Add(this.txt_Total);
-            this.panel1.Controls.Add(this.lbl_pago_cliente);
             this.panel1.Controls.Add(this.lbl_Total);
             this.panel1.Controls.Add(this.lbl_Subtotal);
             this.panel1.Controls.Add(this.label9);
@@ -433,23 +433,6 @@
             this.txt_Total.Text = "0.00";
             this.txt_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl_pago_cliente
-            // 
-            this.lbl_pago_cliente.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.lbl_pago_cliente.BorderRadius = 5;
-            this.lbl_pago_cliente.BorderSize = 0;
-            this.lbl_pago_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_pago_cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_pago_cliente.ForeColor = System.Drawing.Color.Black;
-            this.lbl_pago_cliente.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lbl_pago_cliente.Location = new System.Drawing.Point(764, 32);
-            this.lbl_pago_cliente.Name = "lbl_pago_cliente";
-            this.lbl_pago_cliente.RightColor = System.Drawing.Color.LightBlue;
-            this.lbl_pago_cliente.Size = new System.Drawing.Size(127, 31);
-            this.lbl_pago_cliente.TabIndex = 16;
-            this.lbl_pago_cliente.Text = "0.00";
-            this.lbl_pago_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lbl_Total
             // 
             this.lbl_Total.AutoSize = true;
@@ -680,6 +663,28 @@
             this.lbl_TOP.Text = "      NUEVA FACTURA";
             this.lbl_TOP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txt_Valor_Pago
+            // 
+            this.txt_Valor_Pago.BackColor = System.Drawing.Color.White;
+            this.txt_Valor_Pago.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txt_Valor_Pago.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.txt_Valor_Pago.BorderRadius = 5;
+            this.txt_Valor_Pago.BorderSize = 2;
+            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Valor_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Valor_Pago.Location = new System.Drawing.Point(764, 31);
+            this.txt_Valor_Pago.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Valor_Pago.Multiline = false;
+            this.txt_Valor_Pago.Name = "txt_Valor_Pago";
+            this.txt_Valor_Pago.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Valor_Pago.PasswordChar = false;
+            this.txt_Valor_Pago.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Valor_Pago.PlaceholderText = "Ingrese el valor";
+            this.txt_Valor_Pago.Size = new System.Drawing.Size(127, 31);
+            this.txt_Valor_Pago.TabIndex = 35;
+            this.txt_Valor_Pago.Texts = "";
+            this.txt_Valor_Pago.UnderlinedStyle = true;
+            // 
             // Frm_Nueva_Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,6 +745,6 @@
         private System.Windows.Forms.Label lbl_Encargado;
         private System.Windows.Forms.Label lbl_Descripcion;
         private System.Windows.Forms.CheckBox chb_IVA;
-        private user_controls.Gradient_Label_Bounds lbl_pago_cliente;
+        private user_controls.TextBox_Control txt_Valor_Pago;
     }
 }

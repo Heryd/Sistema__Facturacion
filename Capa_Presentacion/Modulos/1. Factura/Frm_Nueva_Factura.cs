@@ -61,7 +61,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
             txt_Descripcion.Text = "";
             nmUD_Cantidad.Value = 1;
             txt_Nombre_Encargado.Texts = "";
-            lbl_pago_cliente.Text = "0.00";
+            txt_Valor_Pago.Text = "";
             chb_IVA.Checked = false;
             lbl_IVA_Value.Text = "0.00";
             txt_Subtotal.Text = "0.00";
