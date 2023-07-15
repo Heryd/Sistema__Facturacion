@@ -383,9 +383,29 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search_file_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("search-file-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_square_svgrepo_com {
             get {
                 object obj = ResourceManager.GetObject("search-square-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap update_page_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("update-page-svgrepo-com", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,32 +30,19 @@
         {
             this.pn_Container_border = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.chb_IVA = new System.Windows.Forms.CheckBox();
-            this.txt_Nombre_Encargado = new Capa_Presentacion.user_controls.TextBox_Control();
             this.nmUD_Cantidad = new System.Windows.Forms.NumericUpDown();
             this.txt_Descripcion = new System.Windows.Forms.RichTextBox();
-            this.cmb_Metodo_Pago = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.lbl_Encargado = new System.Windows.Forms.Label();
             this.lbl_Descripcion = new System.Windows.Forms.Label();
             this.lbl_Metodo_Pago = new System.Windows.Forms.Label();
-            this.txt_Codigo_Factura = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Telefono = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Nombre = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Cedula = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Codigo_Cliente = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Vuelto = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.txt_Subtotal = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.lbl_IVA_Value = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.txt_Total = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.lbl_Total = new System.Windows.Forms.Label();
             this.lbl_Subtotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_Vuelto = new System.Windows.Forms.Label();
             this.lbl_Pago = new System.Windows.Forms.Label();
-            this.btn_Limpiar = new Capa_Presentacion.user_controls.RJButton();
-            this.btn_Imprimir = new Capa_Presentacion.user_controls.RJButton();
-            this.btn_Registrar = new Capa_Presentacion.user_controls.RJButton();
             this.txt_fecha = new System.Windows.Forms.Label();
             this.lbl_Fecha = new System.Windows.Forms.Label();
             this.lbl_Telefono = new System.Windows.Forms.Label();
@@ -65,8 +52,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtgV_Registro_Factura = new System.Windows.Forms.DataGridView();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
-            this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.txt_Metodo_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Precio_Unitario = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.btn_Search_Cliente = new Capa_Presentacion.user_controls.RJButton();
             this.txt_Valor_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Nombre_Encargado = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Codigo_Factura = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Telefono = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Nombre = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Cedula = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Codigo_Cliente = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Vuelto = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.txt_Subtotal = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.lbl_IVA_Value = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.txt_Total = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.btn_Limpiar = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_Imprimir = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_Registrar = new Capa_Presentacion.user_controls.RJButton();
+            this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.pn_Container_border.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmUD_Cantidad)).BeginInit();
@@ -89,12 +92,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txt_Metodo_Pago);
+            this.panel1.Controls.Add(this.txt_Precio_Unitario);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btn_Search_Cliente);
             this.panel1.Controls.Add(this.txt_Valor_Pago);
             this.panel1.Controls.Add(this.chb_IVA);
             this.panel1.Controls.Add(this.txt_Nombre_Encargado);
             this.panel1.Controls.Add(this.nmUD_Cantidad);
             this.panel1.Controls.Add(this.txt_Descripcion);
-            this.panel1.Controls.Add(this.cmb_Metodo_Pago);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.lbl_Encargado);
             this.panel1.Controls.Add(this.lbl_Descripcion);
@@ -128,7 +134,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(913, 351);
             this.panel1.TabIndex = 14;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(507, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 15);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Prec. Unit:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // chb_IVA
             // 
@@ -143,38 +159,16 @@
             this.chb_IVA.UseVisualStyleBackColor = false;
             this.chb_IVA.CheckedChanged += new System.EventHandler(this.chb_IVA_CheckedChanged);
             // 
-            // txt_Nombre_Encargado
-            // 
-            this.txt_Nombre_Encargado.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Nombre_Encargado.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Nombre_Encargado.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Nombre_Encargado.BorderRadius = 0;
-            this.txt_Nombre_Encargado.BorderSize = 2;
-            this.txt_Nombre_Encargado.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nombre_Encargado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Nombre_Encargado.Location = new System.Drawing.Point(458, 160);
-            this.txt_Nombre_Encargado.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Nombre_Encargado.Multiline = false;
-            this.txt_Nombre_Encargado.Name = "txt_Nombre_Encargado";
-            this.txt_Nombre_Encargado.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Nombre_Encargado.PasswordChar = false;
-            this.txt_Nombre_Encargado.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Nombre_Encargado.PlaceholderText = "Nombre del Encargado";
-            this.txt_Nombre_Encargado.Size = new System.Drawing.Size(192, 31);
-            this.txt_Nombre_Encargado.TabIndex = 33;
-            this.txt_Nombre_Encargado.Texts = "";
-            this.txt_Nombre_Encargado.UnderlinedStyle = true;
-            // 
             // nmUD_Cantidad
             // 
-            this.nmUD_Cantidad.Location = new System.Drawing.Point(458, 132);
+            this.nmUD_Cantidad.Location = new System.Drawing.Point(425, 135);
             this.nmUD_Cantidad.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nmUD_Cantidad.Name = "nmUD_Cantidad";
-            this.nmUD_Cantidad.Size = new System.Drawing.Size(192, 20);
+            this.nmUD_Cantidad.Size = new System.Drawing.Size(71, 20);
             this.nmUD_Cantidad.TabIndex = 32;
             this.nmUD_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nmUD_Cantidad.Value = new decimal(new int[] {
@@ -185,27 +179,12 @@
             // 
             // txt_Descripcion
             // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(458, 43);
+            this.txt_Descripcion.Location = new System.Drawing.Point(425, 43);
             this.txt_Descripcion.Name = "txt_Descripcion";
-            this.txt_Descripcion.Size = new System.Drawing.Size(192, 83);
+            this.txt_Descripcion.Size = new System.Drawing.Size(225, 83);
             this.txt_Descripcion.TabIndex = 31;
             this.txt_Descripcion.Text = "";
-            // 
-            // cmb_Metodo_Pago
-            // 
-            this.cmb_Metodo_Pago.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmb_Metodo_Pago.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_Metodo_Pago.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_Metodo_Pago.FormattingEnabled = true;
-            this.cmb_Metodo_Pago.Items.AddRange(new object[] {
-            "Seleccionar",
-            "Débito",
-            "Crédito",
-            "Efectivo"});
-            this.cmb_Metodo_Pago.Location = new System.Drawing.Point(458, 6);
-            this.cmb_Metodo_Pago.Name = "cmb_Metodo_Pago";
-            this.cmb_Metodo_Pago.Size = new System.Drawing.Size(192, 24);
-            this.cmb_Metodo_Pago.TabIndex = 30;
+            this.txt_Descripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Descripcion_KeyPress);
             // 
             // label15
             // 
@@ -249,6 +228,278 @@
             this.lbl_Metodo_Pago.TabIndex = 26;
             this.lbl_Metodo_Pago.Text = "Método de Pago:";
             this.lbl_Metodo_Pago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Total
+            // 
+            this.lbl_Total.AutoSize = true;
+            this.lbl_Total.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Total.Location = new System.Drawing.Point(666, 176);
+            this.lbl_Total.Name = "lbl_Total";
+            this.lbl_Total.Size = new System.Drawing.Size(36, 15);
+            this.lbl_Total.TabIndex = 15;
+            this.lbl_Total.Text = "Total:";
+            this.lbl_Total.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Subtotal
+            // 
+            this.lbl_Subtotal.AutoSize = true;
+            this.lbl_Subtotal.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Subtotal.Location = new System.Drawing.Point(666, 108);
+            this.lbl_Subtotal.Name = "lbl_Subtotal";
+            this.lbl_Subtotal.Size = new System.Drawing.Size(54, 15);
+            this.lbl_Subtotal.TabIndex = 14;
+            this.lbl_Subtotal.Text = "Subtotal:";
+            this.lbl_Subtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(666, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 15);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "IVA 12%:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Vuelto
+            // 
+            this.lbl_Vuelto.AutoSize = true;
+            this.lbl_Vuelto.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Vuelto.Location = new System.Drawing.Point(666, 142);
+            this.lbl_Vuelto.Name = "lbl_Vuelto";
+            this.lbl_Vuelto.Size = new System.Drawing.Size(56, 15);
+            this.lbl_Vuelto.TabIndex = 12;
+            this.lbl_Vuelto.Text = "Devolver:";
+            this.lbl_Vuelto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Pago
+            // 
+            this.lbl_Pago.AutoSize = true;
+            this.lbl_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Pago.Location = new System.Drawing.Point(666, 40);
+            this.lbl_Pago.Name = "lbl_Pago";
+            this.lbl_Pago.Size = new System.Drawing.Size(59, 15);
+            this.lbl_Pago.TabIndex = 11;
+            this.lbl_Pago.Text = "Pagó con:";
+            this.lbl_Pago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.AutoSize = true;
+            this.txt_fecha.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_fecha.Location = new System.Drawing.Point(743, 9);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(87, 14);
+            this.txt_fecha.TabIndex = 7;
+            this.txt_fecha.Text = "Esta es la Fecha";
+            this.txt_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Fecha
+            // 
+            this.lbl_Fecha.AutoSize = true;
+            this.lbl_Fecha.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Fecha.Location = new System.Drawing.Point(666, 9);
+            this.lbl_Fecha.Name = "lbl_Fecha";
+            this.lbl_Fecha.Size = new System.Drawing.Size(40, 15);
+            this.lbl_Fecha.TabIndex = 6;
+            this.lbl_Fecha.Text = "Fecha:";
+            this.lbl_Fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Telefono
+            // 
+            this.lbl_Telefono.AutoSize = true;
+            this.lbl_Telefono.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Telefono.Location = new System.Drawing.Point(13, 165);
+            this.lbl_Telefono.Name = "lbl_Telefono";
+            this.lbl_Telefono.Size = new System.Drawing.Size(56, 15);
+            this.lbl_Telefono.TabIndex = 5;
+            this.lbl_Telefono.Text = "Teléfono:";
+            this.lbl_Telefono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Nombre
+            // 
+            this.lbl_Nombre.AutoSize = true;
+            this.lbl_Nombre.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Nombre.Location = new System.Drawing.Point(13, 126);
+            this.lbl_Nombre.Name = "lbl_Nombre";
+            this.lbl_Nombre.Size = new System.Drawing.Size(58, 15);
+            this.lbl_Nombre.TabIndex = 4;
+            this.lbl_Nombre.Text = "Nombres:";
+            this.lbl_Nombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Cédula:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 15);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Código de Cliente:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Código de Factura:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dtgV_Registro_Factura
+            // 
+            this.dtgV_Registro_Factura.AllowUserToAddRows = false;
+            this.dtgV_Registro_Factura.AllowUserToDeleteRows = false;
+            this.dtgV_Registro_Factura.AllowUserToResizeColumns = false;
+            this.dtgV_Registro_Factura.AllowUserToResizeRows = false;
+            this.dtgV_Registro_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgV_Registro_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgV_Registro_Factura.Location = new System.Drawing.Point(16, 208);
+            this.dtgV_Registro_Factura.Name = "dtgV_Registro_Factura";
+            this.dtgV_Registro_Factura.ReadOnly = true;
+            this.dtgV_Registro_Factura.RowHeadersVisible = false;
+            this.dtgV_Registro_Factura.RowHeadersWidth = 62;
+            this.dtgV_Registro_Factura.RowTemplate.Height = 28;
+            this.dtgV_Registro_Factura.Size = new System.Drawing.Size(634, 140);
+            this.dtgV_Registro_Factura.TabIndex = 0;
+            // 
+            // btn_CloseForm
+            // 
+            this.btn_CloseForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
+            this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
+            this.btn_CloseForm.Location = new System.Drawing.Point(877, 35);
+            this.btn_CloseForm.Name = "btn_CloseForm";
+            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
+            this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_CloseForm.TabIndex = 13;
+            this.btn_CloseForm.TabStop = false;
+            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
+            // 
+            // txt_Metodo_Pago
+            // 
+            this.txt_Metodo_Pago.BackColor = System.Drawing.Color.White;
+            this.txt_Metodo_Pago.BorderColor = System.Drawing.Color.Silver;
+            this.txt_Metodo_Pago.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Metodo_Pago.BorderRadius = 0;
+            this.txt_Metodo_Pago.BorderSize = 2;
+            this.txt_Metodo_Pago.Enabled = false;
+            this.txt_Metodo_Pago.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Metodo_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Metodo_Pago.Location = new System.Drawing.Point(425, 1);
+            this.txt_Metodo_Pago.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Metodo_Pago.Multiline = false;
+            this.txt_Metodo_Pago.Name = "txt_Metodo_Pago";
+            this.txt_Metodo_Pago.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Metodo_Pago.PasswordChar = false;
+            this.txt_Metodo_Pago.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Metodo_Pago.PlaceholderText = "";
+            this.txt_Metodo_Pago.Size = new System.Drawing.Size(224, 31);
+            this.txt_Metodo_Pago.TabIndex = 39;
+            this.txt_Metodo_Pago.Texts = "";
+            this.txt_Metodo_Pago.UnderlinedStyle = true;
+            // 
+            // txt_Precio_Unitario
+            // 
+            this.txt_Precio_Unitario.BackColor = System.Drawing.Color.White;
+            this.txt_Precio_Unitario.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txt_Precio_Unitario.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.txt_Precio_Unitario.BorderRadius = 5;
+            this.txt_Precio_Unitario.BorderSize = 2;
+            this.txt_Precio_Unitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Precio_Unitario.ForeColor = System.Drawing.Color.Black;
+            this.txt_Precio_Unitario.Location = new System.Drawing.Point(575, 127);
+            this.txt_Precio_Unitario.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Precio_Unitario.Multiline = false;
+            this.txt_Precio_Unitario.Name = "txt_Precio_Unitario";
+            this.txt_Precio_Unitario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Precio_Unitario.PasswordChar = false;
+            this.txt_Precio_Unitario.PlaceholderColor = System.Drawing.Color.Silver;
+            this.txt_Precio_Unitario.PlaceholderText = "0.00";
+            this.txt_Precio_Unitario.Size = new System.Drawing.Size(74, 31);
+            this.txt_Precio_Unitario.TabIndex = 38;
+            this.txt_Precio_Unitario.Texts = "";
+            this.txt_Precio_Unitario.UnderlinedStyle = true;
+            // 
+            // btn_Search_Cliente
+            // 
+            this.btn_Search_Cliente.BackColor = System.Drawing.Color.White;
+            this.btn_Search_Cliente.BackgroundImage = global::Capa_Presentacion.Properties.Resources.search_file_svgrepo_com;
+            this.btn_Search_Cliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Search_Cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Search_Cliente.BorderRadius = 5;
+            this.btn_Search_Cliente.BorderSize = 0;
+            this.btn_Search_Cliente.FlatAppearance.BorderSize = 0;
+            this.btn_Search_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Search_Cliente.ForeColor = System.Drawing.Color.White;
+            this.btn_Search_Cliente.Location = new System.Drawing.Point(275, 43);
+            this.btn_Search_Cliente.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_Search_Cliente.Name = "btn_Search_Cliente";
+            this.btn_Search_Cliente.Size = new System.Drawing.Size(31, 30);
+            this.btn_Search_Cliente.TabIndex = 36;
+            this.btn_Search_Cliente.UseVisualStyleBackColor = false;
+            this.btn_Search_Cliente.Click += new System.EventHandler(this.btn_Search_Cliente_Click);
+            // 
+            // txt_Valor_Pago
+            // 
+            this.txt_Valor_Pago.BackColor = System.Drawing.Color.White;
+            this.txt_Valor_Pago.BorderColor = System.Drawing.Color.Gray;
+            this.txt_Valor_Pago.BorderFocusColor = System.Drawing.Color.LawnGreen;
+            this.txt_Valor_Pago.BorderRadius = 5;
+            this.txt_Valor_Pago.BorderSize = 2;
+            this.txt_Valor_Pago.Enabled = false;
+            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Valor_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Valor_Pago.Location = new System.Drawing.Point(764, 31);
+            this.txt_Valor_Pago.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Valor_Pago.Multiline = false;
+            this.txt_Valor_Pago.Name = "txt_Valor_Pago";
+            this.txt_Valor_Pago.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Valor_Pago.PasswordChar = false;
+            this.txt_Valor_Pago.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Valor_Pago.PlaceholderText = "0.00";
+            this.txt_Valor_Pago.Size = new System.Drawing.Size(127, 31);
+            this.txt_Valor_Pago.TabIndex = 35;
+            this.txt_Valor_Pago.Texts = "";
+            this.txt_Valor_Pago.UnderlinedStyle = true;
+            // 
+            // txt_Nombre_Encargado
+            // 
+            this.txt_Nombre_Encargado.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Nombre_Encargado.BorderColor = System.Drawing.Color.Silver;
+            this.txt_Nombre_Encargado.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Nombre_Encargado.BorderRadius = 0;
+            this.txt_Nombre_Encargado.BorderSize = 2;
+            this.txt_Nombre_Encargado.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nombre_Encargado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Nombre_Encargado.Location = new System.Drawing.Point(425, 160);
+            this.txt_Nombre_Encargado.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Nombre_Encargado.Multiline = false;
+            this.txt_Nombre_Encargado.Name = "txt_Nombre_Encargado";
+            this.txt_Nombre_Encargado.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Nombre_Encargado.PasswordChar = false;
+            this.txt_Nombre_Encargado.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Nombre_Encargado.PlaceholderText = "Nombre del Encargado";
+            this.txt_Nombre_Encargado.Size = new System.Drawing.Size(225, 31);
+            this.txt_Nombre_Encargado.TabIndex = 33;
+            this.txt_Nombre_Encargado.Texts = "";
+            this.txt_Nombre_Encargado.UnderlinedStyle = true;
+            this.txt_Nombre_Encargado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_Encargado_KeyPress);
             // 
             // txt_Codigo_Factura
             // 
@@ -358,8 +609,8 @@
             this.txt_Codigo_Cliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txt_Codigo_Cliente.PasswordChar = false;
             this.txt_Codigo_Cliente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Codigo_Cliente.PlaceholderText = "Ingrese el código del cliente";
-            this.txt_Codigo_Cliente.Size = new System.Drawing.Size(180, 31);
+            this.txt_Codigo_Cliente.PlaceholderText = "Ingrese el código";
+            this.txt_Codigo_Cliente.Size = new System.Drawing.Size(135, 31);
             this.txt_Codigo_Cliente.TabIndex = 21;
             this.txt_Codigo_Cliente.Texts = "";
             this.txt_Codigo_Cliente.UnderlinedStyle = true;
@@ -433,61 +684,6 @@
             this.txt_Total.Text = "0.00";
             this.txt_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl_Total
-            // 
-            this.lbl_Total.AutoSize = true;
-            this.lbl_Total.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Total.Location = new System.Drawing.Point(666, 176);
-            this.lbl_Total.Name = "lbl_Total";
-            this.lbl_Total.Size = new System.Drawing.Size(36, 15);
-            this.lbl_Total.TabIndex = 15;
-            this.lbl_Total.Text = "Total:";
-            this.lbl_Total.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Subtotal
-            // 
-            this.lbl_Subtotal.AutoSize = true;
-            this.lbl_Subtotal.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Subtotal.Location = new System.Drawing.Point(666, 108);
-            this.lbl_Subtotal.Name = "lbl_Subtotal";
-            this.lbl_Subtotal.Size = new System.Drawing.Size(54, 15);
-            this.lbl_Subtotal.TabIndex = 14;
-            this.lbl_Subtotal.Text = "Subtotal:";
-            this.lbl_Subtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(666, 74);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 15);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "IVA 12%:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Vuelto
-            // 
-            this.lbl_Vuelto.AutoSize = true;
-            this.lbl_Vuelto.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Vuelto.Location = new System.Drawing.Point(666, 142);
-            this.lbl_Vuelto.Name = "lbl_Vuelto";
-            this.lbl_Vuelto.Size = new System.Drawing.Size(56, 15);
-            this.lbl_Vuelto.TabIndex = 12;
-            this.lbl_Vuelto.Text = "Devolver:";
-            this.lbl_Vuelto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Pago
-            // 
-            this.lbl_Pago.AutoSize = true;
-            this.lbl_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Pago.Location = new System.Drawing.Point(666, 40);
-            this.lbl_Pago.Name = "lbl_Pago";
-            this.lbl_Pago.Size = new System.Drawing.Size(59, 15);
-            this.lbl_Pago.TabIndex = 11;
-            this.lbl_Pago.Text = "Pagó con:";
-            this.lbl_Pago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // btn_Limpiar
             // 
             this.btn_Limpiar.BackColor = System.Drawing.Color.DarkGray;
@@ -498,7 +694,7 @@
             this.btn_Limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Limpiar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Limpiar.ForeColor = System.Drawing.Color.White;
-            this.btn_Limpiar.Location = new System.Drawing.Point(767, 302);
+            this.btn_Limpiar.Location = new System.Drawing.Point(656, 318);
             this.btn_Limpiar.Name = "btn_Limpiar";
             this.btn_Limpiar.Size = new System.Drawing.Size(124, 31);
             this.btn_Limpiar.TabIndex = 10;
@@ -516,7 +712,7 @@
             this.btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Imprimir.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_Imprimir.Location = new System.Drawing.Point(767, 265);
+            this.btn_Imprimir.Location = new System.Drawing.Point(656, 281);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.Size = new System.Drawing.Size(124, 31);
             this.btn_Imprimir.TabIndex = 9;
@@ -533,118 +729,13 @@
             this.btn_Registrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Registrar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Registrar.ForeColor = System.Drawing.Color.White;
-            this.btn_Registrar.Location = new System.Drawing.Point(767, 228);
+            this.btn_Registrar.Location = new System.Drawing.Point(656, 244);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(124, 31);
             this.btn_Registrar.TabIndex = 8;
             this.btn_Registrar.Text = "REGISTRAR";
             this.btn_Registrar.UseVisualStyleBackColor = false;
-            // 
-            // txt_fecha
-            // 
-            this.txt_fecha.AutoSize = true;
-            this.txt_fecha.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_fecha.Location = new System.Drawing.Point(743, 9);
-            this.txt_fecha.Name = "txt_fecha";
-            this.txt_fecha.Size = new System.Drawing.Size(87, 14);
-            this.txt_fecha.TabIndex = 7;
-            this.txt_fecha.Text = "Esta es la Fecha";
-            this.txt_fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Fecha
-            // 
-            this.lbl_Fecha.AutoSize = true;
-            this.lbl_Fecha.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Fecha.Location = new System.Drawing.Point(666, 9);
-            this.lbl_Fecha.Name = "lbl_Fecha";
-            this.lbl_Fecha.Size = new System.Drawing.Size(40, 15);
-            this.lbl_Fecha.TabIndex = 6;
-            this.lbl_Fecha.Text = "Fecha:";
-            this.lbl_Fecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Telefono
-            // 
-            this.lbl_Telefono.AutoSize = true;
-            this.lbl_Telefono.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Telefono.Location = new System.Drawing.Point(13, 165);
-            this.lbl_Telefono.Name = "lbl_Telefono";
-            this.lbl_Telefono.Size = new System.Drawing.Size(56, 15);
-            this.lbl_Telefono.TabIndex = 5;
-            this.lbl_Telefono.Text = "Teléfono:";
-            this.lbl_Telefono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Nombre
-            // 
-            this.lbl_Nombre.AutoSize = true;
-            this.lbl_Nombre.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombre.Location = new System.Drawing.Point(13, 126);
-            this.lbl_Nombre.Name = "lbl_Nombre";
-            this.lbl_Nombre.Size = new System.Drawing.Size(58, 15);
-            this.lbl_Nombre.TabIndex = 4;
-            this.lbl_Nombre.Text = "Nombres:";
-            this.lbl_Nombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Cédula:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Código de Cliente:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Código de Factura:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // dtgV_Registro_Factura
-            // 
-            this.dtgV_Registro_Factura.AllowUserToAddRows = false;
-            this.dtgV_Registro_Factura.AllowUserToDeleteRows = false;
-            this.dtgV_Registro_Factura.AllowUserToResizeColumns = false;
-            this.dtgV_Registro_Factura.AllowUserToResizeRows = false;
-            this.dtgV_Registro_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgV_Registro_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgV_Registro_Factura.Location = new System.Drawing.Point(16, 208);
-            this.dtgV_Registro_Factura.Name = "dtgV_Registro_Factura";
-            this.dtgV_Registro_Factura.ReadOnly = true;
-            this.dtgV_Registro_Factura.RowHeadersWidth = 62;
-            this.dtgV_Registro_Factura.RowTemplate.Height = 28;
-            this.dtgV_Registro_Factura.Size = new System.Drawing.Size(737, 128);
-            this.dtgV_Registro_Factura.TabIndex = 0;
-            // 
-            // btn_CloseForm
-            // 
-            this.btn_CloseForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
-            this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
-            this.btn_CloseForm.Location = new System.Drawing.Point(877, 35);
-            this.btn_CloseForm.Name = "btn_CloseForm";
-            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
-            this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_CloseForm.TabIndex = 13;
-            this.btn_CloseForm.TabStop = false;
-            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
+            this.btn_Registrar.Click += new System.EventHandler(this.btn_Registrar_Click);
             // 
             // lbl_TOP
             // 
@@ -662,28 +753,6 @@
             this.lbl_TOP.TabIndex = 0;
             this.lbl_TOP.Text = "      NUEVA FACTURA";
             this.lbl_TOP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_Valor_Pago
-            // 
-            this.txt_Valor_Pago.BackColor = System.Drawing.Color.White;
-            this.txt_Valor_Pago.BorderColor = System.Drawing.Color.SteelBlue;
-            this.txt_Valor_Pago.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.txt_Valor_Pago.BorderRadius = 5;
-            this.txt_Valor_Pago.BorderSize = 2;
-            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Valor_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Valor_Pago.Location = new System.Drawing.Point(764, 31);
-            this.txt_Valor_Pago.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Valor_Pago.Multiline = false;
-            this.txt_Valor_Pago.Name = "txt_Valor_Pago";
-            this.txt_Valor_Pago.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Valor_Pago.PasswordChar = false;
-            this.txt_Valor_Pago.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Valor_Pago.PlaceholderText = "Ingrese el valor";
-            this.txt_Valor_Pago.Size = new System.Drawing.Size(127, 31);
-            this.txt_Valor_Pago.TabIndex = 35;
-            this.txt_Valor_Pago.Texts = "";
-            this.txt_Valor_Pago.UnderlinedStyle = true;
             // 
             // Frm_Nueva_Factura
             // 
@@ -740,11 +809,14 @@
         private user_controls.TextBox_Control txt_Nombre_Encargado;
         private System.Windows.Forms.NumericUpDown nmUD_Cantidad;
         private System.Windows.Forms.RichTextBox txt_Descripcion;
-        private System.Windows.Forms.ComboBox cmb_Metodo_Pago;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lbl_Encargado;
         private System.Windows.Forms.Label lbl_Descripcion;
         private System.Windows.Forms.CheckBox chb_IVA;
         private user_controls.TextBox_Control txt_Valor_Pago;
+        private user_controls.RJButton btn_Search_Cliente;
+        private System.Windows.Forms.Label label4;
+        private user_controls.TextBox_Control txt_Precio_Unitario;
+        private user_controls.TextBox_Control txt_Metodo_Pago;
     }
 }

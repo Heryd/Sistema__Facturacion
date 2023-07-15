@@ -30,27 +30,27 @@
         {
             this.pn_Container_border = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_Nombres_Cliente = new System.Windows.Forms.Label();
+            this.txt_Cedula = new System.Windows.Forms.Label();
             this.lbl_Motivo = new System.Windows.Forms.Label();
             this.lbl_Separator = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_Metodo_Pago = new System.Windows.Forms.ComboBox();
             this.txt_Motivo_Reembolso = new System.Windows.Forms.RichTextBox();
+            this.txt_Fecha_Emision = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Codigo_Factura = new Capa_Presentacion.user_controls.TextBox_Control();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmb_Estado = new System.Windows.Forms.ComboBox();
+            this.txt_Codigo_Reembolso = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Monto_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.btn_Limpiar = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_Registrar = new Capa_Presentacion.user_controls.RJButton();
             this.lbl_Nombres = new System.Windows.Forms.Label();
             this.lbl_Apellidos = new System.Windows.Forms.Label();
             this.lbl_Cedula = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
-            this.txt_Cedula = new System.Windows.Forms.Label();
-            this.txt_Nombres_Cliente = new System.Windows.Forms.Label();
-            this.txt_Fecha_Emision = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Codigo_Factura = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Codigo_Reembolso = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Monto_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.btn_Limpiar = new Capa_Presentacion.user_controls.RJButton();
-            this.btn_Registrar = new Capa_Presentacion.user_controls.RJButton();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.pn_Container_border.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,11 +97,35 @@
             this.panel1.Size = new System.Drawing.Size(913, 360);
             this.panel1.TabIndex = 14;
             // 
+            // txt_Nombres_Cliente
+            // 
+            this.txt_Nombres_Cliente.AutoSize = true;
+            this.txt_Nombres_Cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nombres_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Nombres_Cliente.Location = new System.Drawing.Point(590, 63);
+            this.txt_Nombres_Cliente.Name = "txt_Nombres_Cliente";
+            this.txt_Nombres_Cliente.Size = new System.Drawing.Size(42, 16);
+            this.txt_Nombres_Cliente.TabIndex = 49;
+            this.txt_Nombres_Cliente.Text = "-------";
+            this.txt_Nombres_Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_Cedula
+            // 
+            this.txt_Cedula.AutoSize = true;
+            this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Cedula.Location = new System.Drawing.Point(489, 63);
+            this.txt_Cedula.Name = "txt_Cedula";
+            this.txt_Cedula.Size = new System.Drawing.Size(67, 16);
+            this.txt_Cedula.TabIndex = 48;
+            this.txt_Cedula.Text = "0000000000";
+            this.txt_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lbl_Motivo
             // 
             this.lbl_Motivo.AutoSize = true;
             this.lbl_Motivo.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Motivo.ForeColor = System.Drawing.Color.Coral;
+            this.lbl_Motivo.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.lbl_Motivo.Location = new System.Drawing.Point(19, 209);
             this.lbl_Motivo.Name = "lbl_Motivo";
             this.lbl_Motivo.Size = new System.Drawing.Size(128, 15);
@@ -158,6 +182,51 @@
             this.txt_Motivo_Reembolso.TabIndex = 42;
             this.txt_Motivo_Reembolso.Text = "";
             // 
+            // txt_Fecha_Emision
+            // 
+            this.txt_Fecha_Emision.BackColor = System.Drawing.Color.White;
+            this.txt_Fecha_Emision.BorderColor = System.Drawing.Color.Silver;
+            this.txt_Fecha_Emision.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Fecha_Emision.BorderRadius = 0;
+            this.txt_Fecha_Emision.BorderSize = 2;
+            this.txt_Fecha_Emision.Enabled = false;
+            this.txt_Fecha_Emision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Fecha_Emision.ForeColor = System.Drawing.Color.Goldenrod;
+            this.txt_Fecha_Emision.Location = new System.Drawing.Point(158, 108);
+            this.txt_Fecha_Emision.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Fecha_Emision.Multiline = false;
+            this.txt_Fecha_Emision.Name = "txt_Fecha_Emision";
+            this.txt_Fecha_Emision.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Fecha_Emision.PasswordChar = false;
+            this.txt_Fecha_Emision.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Fecha_Emision.PlaceholderText = "";
+            this.txt_Fecha_Emision.Size = new System.Drawing.Size(202, 31);
+            this.txt_Fecha_Emision.TabIndex = 41;
+            this.txt_Fecha_Emision.Texts = "";
+            this.txt_Fecha_Emision.UnderlinedStyle = true;
+            // 
+            // txt_Codigo_Factura
+            // 
+            this.txt_Codigo_Factura.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Codigo_Factura.BorderColor = System.Drawing.Color.PowderBlue;
+            this.txt_Codigo_Factura.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Codigo_Factura.BorderRadius = 0;
+            this.txt_Codigo_Factura.BorderSize = 2;
+            this.txt_Codigo_Factura.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Codigo_Factura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Codigo_Factura.Location = new System.Drawing.Point(158, 56);
+            this.txt_Codigo_Factura.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Codigo_Factura.Multiline = false;
+            this.txt_Codigo_Factura.Name = "txt_Codigo_Factura";
+            this.txt_Codigo_Factura.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Codigo_Factura.PasswordChar = false;
+            this.txt_Codigo_Factura.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Codigo_Factura.PlaceholderText = "Ingrese el código de su factura";
+            this.txt_Codigo_Factura.Size = new System.Drawing.Size(202, 31);
+            this.txt_Codigo_Factura.TabIndex = 40;
+            this.txt_Codigo_Factura.Texts = "";
+            this.txt_Codigo_Factura.UnderlinedStyle = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -185,7 +254,6 @@
             this.cmb_Estado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_Estado.BackColor = System.Drawing.SystemColors.Control;
-            this.cmb_Estado.Enabled = false;
             this.cmb_Estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmb_Estado.FormattingEnabled = true;
             this.cmb_Estado.Items.AddRange(new object[] {
@@ -197,132 +265,6 @@
             this.cmb_Estado.Name = "cmb_Estado";
             this.cmb_Estado.Size = new System.Drawing.Size(202, 21);
             this.cmb_Estado.TabIndex = 37;
-            // 
-            // lbl_Nombres
-            // 
-            this.lbl_Nombres.AutoSize = true;
-            this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombres.Location = new System.Drawing.Point(388, 116);
-            this.lbl_Nombres.Name = "lbl_Nombres";
-            this.lbl_Nombres.Size = new System.Drawing.Size(46, 15);
-            this.lbl_Nombres.TabIndex = 4;
-            this.lbl_Nombres.Text = "Monto:";
-            this.lbl_Nombres.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Apellidos
-            // 
-            this.lbl_Apellidos.AutoSize = true;
-            this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Apellidos.Location = new System.Drawing.Point(388, 64);
-            this.lbl_Apellidos.Name = "lbl_Apellidos";
-            this.lbl_Apellidos.Size = new System.Drawing.Size(46, 15);
-            this.lbl_Apellidos.TabIndex = 3;
-            this.lbl_Apellidos.Text = "Cliente:";
-            this.lbl_Apellidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_Cedula
-            // 
-            this.lbl_Cedula.AutoSize = true;
-            this.lbl_Cedula.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Cedula.Location = new System.Drawing.Point(13, 116);
-            this.lbl_Cedula.Name = "lbl_Cedula";
-            this.lbl_Cedula.Size = new System.Drawing.Size(100, 15);
-            this.lbl_Cedula.TabIndex = 2;
-            this.lbl_Cedula.Text = "Fecha de emisión:";
-            this.lbl_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Código de Reembolso:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btn_CloseForm
-            // 
-            this.btn_CloseForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
-            this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
-            this.btn_CloseForm.Location = new System.Drawing.Point(877, 35);
-            this.btn_CloseForm.Name = "btn_CloseForm";
-            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
-            this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_CloseForm.TabIndex = 13;
-            this.btn_CloseForm.TabStop = false;
-            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
-            // 
-            // txt_Cedula
-            // 
-            this.txt_Cedula.AutoSize = true;
-            this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Cedula.Location = new System.Drawing.Point(489, 63);
-            this.txt_Cedula.Name = "txt_Cedula";
-            this.txt_Cedula.Size = new System.Drawing.Size(67, 16);
-            this.txt_Cedula.TabIndex = 48;
-            this.txt_Cedula.Text = "0000000000";
-            this.txt_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_Nombres_Cliente
-            // 
-            this.txt_Nombres_Cliente.AutoSize = true;
-            this.txt_Nombres_Cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nombres_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Nombres_Cliente.Location = new System.Drawing.Point(590, 63);
-            this.txt_Nombres_Cliente.Name = "txt_Nombres_Cliente";
-            this.txt_Nombres_Cliente.Size = new System.Drawing.Size(42, 16);
-            this.txt_Nombres_Cliente.TabIndex = 49;
-            this.txt_Nombres_Cliente.Text = "-------";
-            this.txt_Nombres_Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_Fecha_Emision
-            // 
-            this.txt_Fecha_Emision.BackColor = System.Drawing.Color.White;
-            this.txt_Fecha_Emision.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Fecha_Emision.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Fecha_Emision.BorderRadius = 0;
-            this.txt_Fecha_Emision.BorderSize = 2;
-            this.txt_Fecha_Emision.Enabled = false;
-            this.txt_Fecha_Emision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Fecha_Emision.ForeColor = System.Drawing.Color.Goldenrod;
-            this.txt_Fecha_Emision.Location = new System.Drawing.Point(158, 108);
-            this.txt_Fecha_Emision.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Fecha_Emision.Multiline = false;
-            this.txt_Fecha_Emision.Name = "txt_Fecha_Emision";
-            this.txt_Fecha_Emision.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Fecha_Emision.PasswordChar = false;
-            this.txt_Fecha_Emision.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Fecha_Emision.PlaceholderText = "";
-            this.txt_Fecha_Emision.Size = new System.Drawing.Size(202, 31);
-            this.txt_Fecha_Emision.TabIndex = 41;
-            this.txt_Fecha_Emision.Texts = "";
-            this.txt_Fecha_Emision.UnderlinedStyle = true;
-            // 
-            // txt_Codigo_Factura
-            // 
-            this.txt_Codigo_Factura.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Codigo_Factura.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Codigo_Factura.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Codigo_Factura.BorderRadius = 0;
-            this.txt_Codigo_Factura.BorderSize = 2;
-            this.txt_Codigo_Factura.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Codigo_Factura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Codigo_Factura.Location = new System.Drawing.Point(158, 56);
-            this.txt_Codigo_Factura.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Codigo_Factura.Multiline = false;
-            this.txt_Codigo_Factura.Name = "txt_Codigo_Factura";
-            this.txt_Codigo_Factura.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Codigo_Factura.PasswordChar = false;
-            this.txt_Codigo_Factura.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Codigo_Factura.PlaceholderText = "Ingrese el código de su factura";
-            this.txt_Codigo_Factura.Size = new System.Drawing.Size(202, 31);
-            this.txt_Codigo_Factura.TabIndex = 40;
-            this.txt_Codigo_Factura.Texts = "";
-            this.txt_Codigo_Factura.UnderlinedStyle = true;
             // 
             // txt_Codigo_Reembolso
             // 
@@ -404,6 +346,63 @@
             this.btn_Registrar.TabIndex = 8;
             this.btn_Registrar.Text = "REGISTRAR";
             this.btn_Registrar.UseVisualStyleBackColor = false;
+            // 
+            // lbl_Nombres
+            // 
+            this.lbl_Nombres.AutoSize = true;
+            this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Nombres.Location = new System.Drawing.Point(388, 116);
+            this.lbl_Nombres.Name = "lbl_Nombres";
+            this.lbl_Nombres.Size = new System.Drawing.Size(46, 15);
+            this.lbl_Nombres.TabIndex = 4;
+            this.lbl_Nombres.Text = "Monto:";
+            this.lbl_Nombres.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Apellidos
+            // 
+            this.lbl_Apellidos.AutoSize = true;
+            this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Apellidos.Location = new System.Drawing.Point(388, 64);
+            this.lbl_Apellidos.Name = "lbl_Apellidos";
+            this.lbl_Apellidos.Size = new System.Drawing.Size(46, 15);
+            this.lbl_Apellidos.TabIndex = 3;
+            this.lbl_Apellidos.Text = "Cliente:";
+            this.lbl_Apellidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_Cedula
+            // 
+            this.lbl_Cedula.AutoSize = true;
+            this.lbl_Cedula.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Cedula.Location = new System.Drawing.Point(13, 116);
+            this.lbl_Cedula.Name = "lbl_Cedula";
+            this.lbl_Cedula.Size = new System.Drawing.Size(100, 15);
+            this.lbl_Cedula.TabIndex = 2;
+            this.lbl_Cedula.Text = "Fecha de emisión:";
+            this.lbl_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Código de Reembolso:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_CloseForm
+            // 
+            this.btn_CloseForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
+            this.btn_CloseForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CloseForm.Image = global::Capa_Presentacion.Properties.Resources.cerca;
+            this.btn_CloseForm.Location = new System.Drawing.Point(877, 35);
+            this.btn_CloseForm.Name = "btn_CloseForm";
+            this.btn_CloseForm.Size = new System.Drawing.Size(35, 35);
+            this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btn_CloseForm.TabIndex = 13;
+            this.btn_CloseForm.TabStop = false;
+            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click);
             // 
             // lbl_TOP
             // 

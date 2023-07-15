@@ -311,6 +311,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\home_5_line.png" />
+    <None Include="Resources\update-page-svgrepo-com.png" />
+    <None Include="Resources\search-file-svgrepo-com.png" />
     <None Include="Resources\home_5_line1.png" />
   </ItemGroup>
   <ItemGroup>
