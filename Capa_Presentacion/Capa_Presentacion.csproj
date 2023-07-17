@@ -310,7 +310,11 @@
     <None Include="Resources\help.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\edit-svgrepo-com.png" />
+    <None Include="Resources\edit_min_20x20.png" />
+    <None Include="Resources\delete_min_20x20.png" />
     <Content Include="Resources\home_5_line.png" />
+    <None Include="Resources\trash-bin-minimalistic-svgrepo-com.png" />
     <None Include="Resources\update-page-svgrepo-com.png" />
     <None Include="Resources\search-file-svgrepo-com.png" />
     <None Include="Resources\home_5_line1.png" />

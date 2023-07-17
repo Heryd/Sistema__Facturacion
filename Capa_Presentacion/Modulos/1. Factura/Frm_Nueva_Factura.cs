@@ -23,7 +23,6 @@ namespace Capa_Presentacion.Modulos._1._Factura
             InitializeComponent();
             txt_fecha.Text = Get_Date();
             chb_IVA.Checked = false;
-            DesignDataGridView();
         }
 
         //Cerar el Formulario
@@ -94,22 +93,6 @@ namespace Capa_Presentacion.Modulos._1._Factura
         private void btn_Search_Cliente_Click(object sender, EventArgs e)
         {
 
-        }
-
-        //Aplicar estilo al DataGridView
-        private void DesignDataGridView()
-        {
-            //Estilo de bordes, centrado y fondo
-            dtgV_Registro_Factura.BorderStyle = BorderStyle.None;
-            dtgV_Registro_Factura.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dtgV_Registro_Factura.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dtgV_Registro_Factura.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtgV_Registro_Factura.AlternatingRowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtgV_Registro_Factura.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtgV_Registro_Factura.BackgroundColor = Color.White;
-
-            //Color de Filas y Columnas
-            dtgV_Registro_Factura.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
         }
 
         //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta

@@ -34,22 +34,21 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_Cedula = new System.Windows.Forms.Label();
-            this.txt_Cedula = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.txt_Codigo_Cliente = new Capa_Presentacion.user_controls.TextBox_Control();
             this.lbl_Apellidos = new System.Windows.Forms.Label();
-            this.txt_Apellidos = new Capa_Presentacion.user_controls.TextBox_Control();
             this.lbl_Nombres = new System.Windows.Forms.Label();
-            this.txt_Nombres = new Capa_Presentacion.user_controls.TextBox_Control();
             this.label2 = new System.Windows.Forms.Label();
             this.cmb_Genero = new System.Windows.Forms.ComboBox();
             this.lbl_Correo = new System.Windows.Forms.Label();
-            this.txt_Correo = new Capa_Presentacion.user_controls.TextBox_Control();
             this.lbl_Direccion = new System.Windows.Forms.Label();
-            this.txt_Direccion = new Capa_Presentacion.user_controls.TextBox_Control();
             this.lbl_Telefono = new System.Windows.Forms.Label();
-            this.txt_Telefono = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.btnCancelar = new Capa_Presentacion.user_controls.RJButton();
             this.btn_ActCliente = new Capa_Presentacion.user_controls.RJButton();
+            this.txt_Codigo_Cliente = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Cedula = new System.Windows.Forms.TextBox();
+            this.txt_Apellidos = new System.Windows.Forms.TextBox();
+            this.txt_Nombres = new System.Windows.Forms.TextBox();
+            this.txt_Correo = new System.Windows.Forms.TextBox();
+            this.txt_Direccion = new System.Windows.Forms.TextBox();
+            this.txt_Telefono = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
@@ -97,130 +96,40 @@
             this.btn_CloseForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_CloseForm.TabIndex = 20;
             this.btn_CloseForm.TabStop = false;
+            this.btn_CloseForm.Click += new System.EventHandler(this.btn_CloseForm_Click_1);
             // 
             // lbl_Cedula
             // 
             this.lbl_Cedula.AutoSize = true;
             this.lbl_Cedula.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Cedula.Location = new System.Drawing.Point(27, 199);
+            this.lbl_Cedula.Location = new System.Drawing.Point(27, 194);
             this.lbl_Cedula.Name = "lbl_Cedula";
             this.lbl_Cedula.Size = new System.Drawing.Size(43, 15);
             this.lbl_Cedula.TabIndex = 27;
             this.lbl_Cedula.Text = "Cédula";
             this.lbl_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_Cedula
-            // 
-            this.txt_Cedula.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Cedula.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Cedula.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Cedula.BorderRadius = 0;
-            this.txt_Cedula.BorderSize = 2;
-            this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Cedula.Location = new System.Drawing.Point(137, 183);
-            this.txt_Cedula.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Cedula.Multiline = false;
-            this.txt_Cedula.Name = "txt_Cedula";
-            this.txt_Cedula.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Cedula.PasswordChar = false;
-            this.txt_Cedula.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Cedula.PlaceholderText = "Ingrese los 10 dígitos";
-            this.txt_Cedula.Size = new System.Drawing.Size(180, 31);
-            this.txt_Cedula.TabIndex = 28;
-            this.txt_Cedula.Texts = "";
-            this.txt_Cedula.UnderlinedStyle = true;
-            this.txt_Cedula.Load += new System.EventHandler(this.txt_Cedula_Load);
-            // 
-            // txt_Codigo_Cliente
-            // 
-            this.txt_Codigo_Cliente.BackColor = System.Drawing.Color.White;
-            this.txt_Codigo_Cliente.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Codigo_Cliente.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Codigo_Cliente.BorderRadius = 0;
-            this.txt_Codigo_Cliente.BorderSize = 2;
-            this.txt_Codigo_Cliente.Enabled = false;
-            this.txt_Codigo_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Codigo_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Codigo_Cliente.Location = new System.Drawing.Point(137, 129);
-            this.txt_Codigo_Cliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Codigo_Cliente.Multiline = false;
-            this.txt_Codigo_Cliente.Name = "txt_Codigo_Cliente";
-            this.txt_Codigo_Cliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Codigo_Cliente.PasswordChar = false;
-            this.txt_Codigo_Cliente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Codigo_Cliente.PlaceholderText = "";
-            this.txt_Codigo_Cliente.Size = new System.Drawing.Size(180, 31);
-            this.txt_Codigo_Cliente.TabIndex = 26;
-            this.txt_Codigo_Cliente.Texts = "----";
-            this.txt_Codigo_Cliente.UnderlinedStyle = true;
-            this.txt_Codigo_Cliente.Load += new System.EventHandler(this.txt_Codigo_Cliente_Load);
-            // 
             // lbl_Apellidos
             // 
             this.lbl_Apellidos.AutoSize = true;
             this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Apellidos.Location = new System.Drawing.Point(26, 257);
+            this.lbl_Apellidos.Location = new System.Drawing.Point(26, 250);
             this.lbl_Apellidos.Name = "lbl_Apellidos";
             this.lbl_Apellidos.Size = new System.Drawing.Size(59, 15);
             this.lbl_Apellidos.TabIndex = 29;
             this.lbl_Apellidos.Text = "Apellidos:";
             this.lbl_Apellidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_Apellidos
-            // 
-            this.txt_Apellidos.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Apellidos.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Apellidos.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Apellidos.BorderRadius = 0;
-            this.txt_Apellidos.BorderSize = 2;
-            this.txt_Apellidos.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Apellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Apellidos.Location = new System.Drawing.Point(137, 241);
-            this.txt_Apellidos.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Apellidos.Multiline = false;
-            this.txt_Apellidos.Name = "txt_Apellidos";
-            this.txt_Apellidos.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Apellidos.PasswordChar = false;
-            this.txt_Apellidos.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Apellidos.PlaceholderText = "Ingrese sus 2 apellidos";
-            this.txt_Apellidos.Size = new System.Drawing.Size(180, 31);
-            this.txt_Apellidos.TabIndex = 30;
-            this.txt_Apellidos.Texts = "";
-            this.txt_Apellidos.UnderlinedStyle = true;
-            // 
             // lbl_Nombres
             // 
             this.lbl_Nombres.AutoSize = true;
             this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombres.Location = new System.Drawing.Point(27, 307);
+            this.lbl_Nombres.Location = new System.Drawing.Point(27, 306);
             this.lbl_Nombres.Name = "lbl_Nombres";
             this.lbl_Nombres.Size = new System.Drawing.Size(58, 15);
             this.lbl_Nombres.TabIndex = 31;
             this.lbl_Nombres.Text = "Nombres:";
             this.lbl_Nombres.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_Nombres
-            // 
-            this.txt_Nombres.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Nombres.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Nombres.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Nombres.BorderRadius = 0;
-            this.txt_Nombres.BorderSize = 2;
-            this.txt_Nombres.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Nombres.Location = new System.Drawing.Point(137, 291);
-            this.txt_Nombres.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Nombres.Multiline = false;
-            this.txt_Nombres.Name = "txt_Nombres";
-            this.txt_Nombres.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Nombres.PasswordChar = false;
-            this.txt_Nombres.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Nombres.PlaceholderText = "Ingrese sus 2 nombres";
-            this.txt_Nombres.Size = new System.Drawing.Size(180, 31);
-            this.txt_Nombres.TabIndex = 32;
-            this.txt_Nombres.Texts = "";
-            this.txt_Nombres.UnderlinedStyle = true;
             // 
             // label2
             // 
@@ -261,28 +170,6 @@
             this.lbl_Correo.Text = "Correo:";
             this.lbl_Correo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_Correo
-            // 
-            this.txt_Correo.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Correo.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Correo.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Correo.BorderRadius = 0;
-            this.txt_Correo.BorderSize = 2;
-            this.txt_Correo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Correo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Correo.Location = new System.Drawing.Point(420, 183);
-            this.txt_Correo.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Correo.Multiline = false;
-            this.txt_Correo.Name = "txt_Correo";
-            this.txt_Correo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Correo.PasswordChar = false;
-            this.txt_Correo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Correo.PlaceholderText = "Ingrese su email";
-            this.txt_Correo.Size = new System.Drawing.Size(180, 31);
-            this.txt_Correo.TabIndex = 42;
-            this.txt_Correo.Texts = "";
-            this.txt_Correo.UnderlinedStyle = true;
-            // 
             // lbl_Direccion
             // 
             this.lbl_Direccion.AutoSize = true;
@@ -293,28 +180,6 @@
             this.lbl_Direccion.TabIndex = 43;
             this.lbl_Direccion.Text = "Dirección:";
             this.lbl_Direccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txt_Direccion
-            // 
-            this.txt_Direccion.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Direccion.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Direccion.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Direccion.BorderRadius = 0;
-            this.txt_Direccion.BorderSize = 2;
-            this.txt_Direccion.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Direccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Direccion.Location = new System.Drawing.Point(420, 241);
-            this.txt_Direccion.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Direccion.Multiline = false;
-            this.txt_Direccion.Name = "txt_Direccion";
-            this.txt_Direccion.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Direccion.PasswordChar = false;
-            this.txt_Direccion.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Direccion.PlaceholderText = "Dirección domiciliaria";
-            this.txt_Direccion.Size = new System.Drawing.Size(180, 31);
-            this.txt_Direccion.TabIndex = 44;
-            this.txt_Direccion.Texts = "";
-            this.txt_Direccion.UnderlinedStyle = true;
             // 
             // lbl_Telefono
             // 
@@ -327,46 +192,6 @@
             this.lbl_Telefono.Text = "Teléfono:";
             this.lbl_Telefono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_Telefono
-            // 
-            this.txt_Telefono.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_Telefono.BorderColor = System.Drawing.Color.Silver;
-            this.txt_Telefono.BorderFocusColor = System.Drawing.Color.Goldenrod;
-            this.txt_Telefono.BorderRadius = 0;
-            this.txt_Telefono.BorderSize = 2;
-            this.txt_Telefono.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Telefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Telefono.Location = new System.Drawing.Point(420, 291);
-            this.txt_Telefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Telefono.Multiline = false;
-            this.txt_Telefono.Name = "txt_Telefono";
-            this.txt_Telefono.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Telefono.PasswordChar = false;
-            this.txt_Telefono.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Telefono.PlaceholderText = "Ingrese los 10 dígitos";
-            this.txt_Telefono.Size = new System.Drawing.Size(180, 31);
-            this.txt_Telefono.TabIndex = 46;
-            this.txt_Telefono.Texts = "";
-            this.txt_Telefono.UnderlinedStyle = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancelar.BorderRadius = 5;
-            this.btnCancelar.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(494, 357);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(124, 31);
-            this.btnCancelar.TabIndex = 48;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelarAtc);
-            // 
             // btn_ActCliente
             // 
             this.btn_ActCliente.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -377,13 +202,103 @@
             this.btn_ActCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ActCliente.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ActCliente.ForeColor = System.Drawing.Color.White;
-            this.btn_ActCliente.Location = new System.Drawing.Point(358, 357);
+            this.btn_ActCliente.Location = new System.Drawing.Point(358, 346);
             this.btn_ActCliente.Name = "btn_ActCliente";
-            this.btn_ActCliente.Size = new System.Drawing.Size(124, 31);
+            this.btn_ActCliente.Size = new System.Drawing.Size(260, 40);
             this.btn_ActCliente.TabIndex = 47;
             this.btn_ActCliente.Text = "Actualizar";
             this.btn_ActCliente.UseVisualStyleBackColor = false;
             this.btn_ActCliente.Click += new System.EventHandler(this.btnActCliente);
+            // 
+            // txt_Codigo_Cliente
+            // 
+            this.txt_Codigo_Cliente.BackColor = System.Drawing.Color.White;
+            this.txt_Codigo_Cliente.BorderColor = System.Drawing.Color.Silver;
+            this.txt_Codigo_Cliente.BorderFocusColor = System.Drawing.Color.Goldenrod;
+            this.txt_Codigo_Cliente.BorderRadius = 0;
+            this.txt_Codigo_Cliente.BorderSize = 2;
+            this.txt_Codigo_Cliente.Enabled = false;
+            this.txt_Codigo_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Codigo_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Codigo_Cliente.Location = new System.Drawing.Point(137, 129);
+            this.txt_Codigo_Cliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Codigo_Cliente.Multiline = false;
+            this.txt_Codigo_Cliente.Name = "txt_Codigo_Cliente";
+            this.txt_Codigo_Cliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Codigo_Cliente.PasswordChar = false;
+            this.txt_Codigo_Cliente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Codigo_Cliente.PlaceholderText = "";
+            this.txt_Codigo_Cliente.Size = new System.Drawing.Size(180, 31);
+            this.txt_Codigo_Cliente.TabIndex = 26;
+            this.txt_Codigo_Cliente.Texts = "----";
+            this.txt_Codigo_Cliente.UnderlinedStyle = true;
+            this.txt_Codigo_Cliente.Load += new System.EventHandler(this.txt_Codigo_Cliente_Load);
+            // 
+            // txt_Cedula
+            // 
+            this.txt_Cedula.BackColor = System.Drawing.Color.White;
+            this.txt_Cedula.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cedula.Location = new System.Drawing.Point(137, 194);
+            this.txt_Cedula.Name = "txt_Cedula";
+            this.txt_Cedula.Size = new System.Drawing.Size(180, 14);
+            this.txt_Cedula.TabIndex = 48;
+            this.txt_Cedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Apellidos
+            // 
+            this.txt_Apellidos.BackColor = System.Drawing.Color.White;
+            this.txt_Apellidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Apellidos.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Apellidos.Location = new System.Drawing.Point(137, 250);
+            this.txt_Apellidos.Name = "txt_Apellidos";
+            this.txt_Apellidos.Size = new System.Drawing.Size(180, 14);
+            this.txt_Apellidos.TabIndex = 49;
+            this.txt_Apellidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Nombres
+            // 
+            this.txt_Nombres.BackColor = System.Drawing.Color.White;
+            this.txt_Nombres.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Nombres.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nombres.Location = new System.Drawing.Point(137, 306);
+            this.txt_Nombres.Name = "txt_Nombres";
+            this.txt_Nombres.Size = new System.Drawing.Size(180, 14);
+            this.txt_Nombres.TabIndex = 50;
+            this.txt_Nombres.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Correo
+            // 
+            this.txt_Correo.BackColor = System.Drawing.Color.White;
+            this.txt_Correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Correo.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Correo.Location = new System.Drawing.Point(417, 199);
+            this.txt_Correo.Name = "txt_Correo";
+            this.txt_Correo.Size = new System.Drawing.Size(180, 14);
+            this.txt_Correo.TabIndex = 51;
+            this.txt_Correo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Direccion
+            // 
+            this.txt_Direccion.BackColor = System.Drawing.Color.White;
+            this.txt_Direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Direccion.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Direccion.Location = new System.Drawing.Point(417, 258);
+            this.txt_Direccion.Name = "txt_Direccion";
+            this.txt_Direccion.Size = new System.Drawing.Size(180, 14);
+            this.txt_Direccion.TabIndex = 52;
+            this.txt_Direccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Telefono
+            // 
+            this.txt_Telefono.BackColor = System.Drawing.Color.White;
+            this.txt_Telefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Telefono.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Telefono.Location = new System.Drawing.Point(417, 307);
+            this.txt_Telefono.Name = "txt_Telefono";
+            this.txt_Telefono.Size = new System.Drawing.Size(180, 14);
+            this.txt_Telefono.TabIndex = 53;
+            this.txt_Telefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Frm_Actualizar_Cliente
             // 
@@ -391,21 +306,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(677, 461);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btn_ActCliente);
             this.Controls.Add(this.txt_Telefono);
-            this.Controls.Add(this.lbl_Telefono);
             this.Controls.Add(this.txt_Direccion);
-            this.Controls.Add(this.lbl_Direccion);
             this.Controls.Add(this.txt_Correo);
+            this.Controls.Add(this.txt_Nombres);
+            this.Controls.Add(this.txt_Apellidos);
+            this.Controls.Add(this.txt_Cedula);
+            this.Controls.Add(this.btn_ActCliente);
+            this.Controls.Add(this.lbl_Telefono);
+            this.Controls.Add(this.lbl_Direccion);
             this.Controls.Add(this.lbl_Correo);
             this.Controls.Add(this.cmb_Genero);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_Nombres);
             this.Controls.Add(this.lbl_Nombres);
-            this.Controls.Add(this.txt_Apellidos);
             this.Controls.Add(this.lbl_Apellidos);
-            this.Controls.Add(this.txt_Cedula);
             this.Controls.Add(this.lbl_Cedula);
             this.Controls.Add(this.txt_Codigo_Cliente);
             this.Controls.Add(this.btn_CloseForm);
@@ -430,21 +344,20 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox btn_CloseForm;
         private System.Windows.Forms.Label lbl_Cedula;
-        private user_controls.TextBox_Control txt_Cedula;
         private user_controls.TextBox_Control txt_Codigo_Cliente;
         private System.Windows.Forms.Label lbl_Apellidos;
-        private user_controls.TextBox_Control txt_Apellidos;
         private System.Windows.Forms.Label lbl_Nombres;
-        private user_controls.TextBox_Control txt_Nombres;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmb_Genero;
         private System.Windows.Forms.Label lbl_Correo;
-        private user_controls.TextBox_Control txt_Correo;
         private System.Windows.Forms.Label lbl_Direccion;
-        private user_controls.TextBox_Control txt_Direccion;
         private System.Windows.Forms.Label lbl_Telefono;
-        private user_controls.TextBox_Control txt_Telefono;
-        private user_controls.RJButton btnCancelar;
         private user_controls.RJButton btn_ActCliente;
+        private System.Windows.Forms.TextBox txt_Cedula;
+        private System.Windows.Forms.TextBox txt_Apellidos;
+        private System.Windows.Forms.TextBox txt_Nombres;
+        private System.Windows.Forms.TextBox txt_Correo;
+        private System.Windows.Forms.TextBox txt_Direccion;
+        private System.Windows.Forms.TextBox txt_Telefono;
     }
 }

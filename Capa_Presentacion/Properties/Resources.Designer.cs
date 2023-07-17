@@ -233,6 +233,36 @@ namespace Capa_Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_min_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("delete_min_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_min_20x20 {
+            get {
+                object obj = ResourceManager.GetObject("edit_min_20x20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("edit-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_door_pink {
             get {
                 object obj = ResourceManager.GetObject("exit_door_pink", resourceCulture);
@@ -396,6 +426,16 @@ namespace Capa_Presentacion.Properties {
         internal static System.Drawing.Bitmap search_square_svgrepo_com {
             get {
                 object obj = ResourceManager.GetObject("search-square-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_bin_minimalistic_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("trash-bin-minimalistic-svgrepo-com", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

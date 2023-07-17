@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_Container = new System.Windows.Forms.Panel();
+            this.dtgV_Clientes = new System.Windows.Forms.DataGridView();
             this.cmb_Filtro_Pago = new System.Windows.Forms.ComboBox();
             this.cmb_Filtro_Cliente = new System.Windows.Forms.ComboBox();
-            this.btn_Eliminar = new Capa_Presentacion.user_controls.RJButton();
-            this.btn_Actualizar = new Capa_Presentacion.user_controls.RJButton();
             this.txt_Busqueda = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.dtgV_Facturas = new System.Windows.Forms.DataGridView();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.pn_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,12 +47,10 @@
             // 
             this.pn_Container.BackgroundImage = global::Capa_Presentacion.Properties.Resources.CENTER__1_;
             this.pn_Container.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pn_Container.Controls.Add(this.dtgV_Clientes);
             this.pn_Container.Controls.Add(this.cmb_Filtro_Pago);
             this.pn_Container.Controls.Add(this.cmb_Filtro_Cliente);
-            this.pn_Container.Controls.Add(this.btn_Eliminar);
-            this.pn_Container.Controls.Add(this.btn_Actualizar);
             this.pn_Container.Controls.Add(this.txt_Busqueda);
-            this.pn_Container.Controls.Add(this.dtgV_Facturas);
             this.pn_Container.Controls.Add(this.btn_CloseForm);
             this.pn_Container.Controls.Add(this.lbl_TOP);
             this.pn_Container.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,6 +58,57 @@
             this.pn_Container.Name = "pn_Container";
             this.pn_Container.Size = new System.Drawing.Size(957, 471);
             this.pn_Container.TabIndex = 18;
+            // 
+            // dtgV_Clientes
+            // 
+            this.dtgV_Clientes.AllowUserToAddRows = false;
+            this.dtgV_Clientes.AllowUserToDeleteRows = false;
+            this.dtgV_Clientes.AllowUserToResizeColumns = false;
+            this.dtgV_Clientes.AllowUserToResizeRows = false;
+            this.dtgV_Clientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgV_Clientes.BackgroundColor = System.Drawing.Color.White;
+            this.dtgV_Clientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgV_Clientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgV_Clientes.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dtgV_Clientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgV_Clientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgV_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgV_Clientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgV_Clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgV_Clientes.EnableHeadersVisualStyles = false;
+            this.dtgV_Clientes.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtgV_Clientes.Location = new System.Drawing.Point(28, 137);
+            this.dtgV_Clientes.Name = "dtgV_Clientes";
+            this.dtgV_Clientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgV_Clientes.RowHeadersVisible = false;
+            this.dtgV_Clientes.RowHeadersWidth = 62;
+            this.dtgV_Clientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.dtgV_Clientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgV_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgV_Clientes.Size = new System.Drawing.Size(897, 304);
+            this.dtgV_Clientes.TabIndex = 22;
+            this.dtgV_Clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgV_Clientes_CellContentClick);
+            this.dtgV_Clientes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgV_Clientes_CellPainting);
             // 
             // cmb_Filtro_Pago
             // 
@@ -91,41 +141,6 @@
             this.cmb_Filtro_Cliente.Size = new System.Drawing.Size(116, 21);
             this.cmb_Filtro_Cliente.TabIndex = 20;
             // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.BackColor = System.Drawing.Color.Tomato;
-            this.btn_Eliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Eliminar.BorderRadius = 5;
-            this.btn_Eliminar.BorderSize = 0;
-            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_Eliminar.Location = new System.Drawing.Point(797, 99);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(118, 31);
-            this.btn_Eliminar.TabIndex = 19;
-            this.btn_Eliminar.Text = "ELIMINAR";
-            this.btn_Eliminar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Actualizar
-            // 
-            this.btn_Actualizar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btn_Actualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Actualizar.BorderRadius = 5;
-            this.btn_Actualizar.BorderSize = 0;
-            this.btn_Actualizar.FlatAppearance.BorderSize = 0;
-            this.btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Actualizar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Actualizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Actualizar.Location = new System.Drawing.Point(673, 99);
-            this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(118, 31);
-            this.btn_Actualizar.TabIndex = 18;
-            this.btn_Actualizar.Text = "ACTUALIZAR";
-            this.btn_Actualizar.UseVisualStyleBackColor = false;
-            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
-            // 
             // txt_Busqueda
             // 
             this.txt_Busqueda.BackColor = System.Drawing.SystemColors.Window;
@@ -147,14 +162,6 @@
             this.txt_Busqueda.TabIndex = 17;
             this.txt_Busqueda.Texts = "";
             this.txt_Busqueda.UnderlinedStyle = true;
-            // 
-            // dtgV_Facturas
-            // 
-            this.dtgV_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgV_Facturas.Location = new System.Drawing.Point(28, 148);
-            this.dtgV_Facturas.Name = "dtgV_Facturas";
-            this.dtgV_Facturas.Size = new System.Drawing.Size(887, 283);
-            this.dtgV_Facturas.TabIndex = 16;
             // 
             // btn_CloseForm
             // 
@@ -196,8 +203,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Clientes";
             this.Text = "Frm_Clientes";
+            this.Load += new System.EventHandler(this.Frm_Clientes_Load);
             this.pn_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Clientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             this.ResumeLayout(false);
 
@@ -208,11 +216,9 @@
         private System.Windows.Forms.Panel pn_Container;
         private System.Windows.Forms.ComboBox cmb_Filtro_Pago;
         private System.Windows.Forms.ComboBox cmb_Filtro_Cliente;
-        private user_controls.RJButton btn_Eliminar;
-        private user_controls.RJButton btn_Actualizar;
         private user_controls.TextBox_Control txt_Busqueda;
-        private System.Windows.Forms.DataGridView dtgV_Facturas;
         private System.Windows.Forms.PictureBox btn_CloseForm;
         private user_controls.Gradient_Label_Bounds lbl_TOP;
+        private System.Windows.Forms.DataGridView dtgV_Clientes;
     }
 }

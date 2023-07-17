@@ -28,30 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_Container = new System.Windows.Forms.Panel();
             this.cmb_Filtro_Pago = new System.Windows.Forms.ComboBox();
             this.cmb_Filtro_Reembolso = new System.Windows.Forms.ComboBox();
-            this.btn_Eliminar = new Capa_Presentacion.user_controls.RJButton();
-            this.btn_Actualizar = new Capa_Presentacion.user_controls.RJButton();
             this.txt_Busqueda = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.dtgV_Facturas = new System.Windows.Forms.DataGridView();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.dtgV_Reembolsos = new System.Windows.Forms.DataGridView();
             this.pn_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Reembolsos)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_Container
             // 
             this.pn_Container.BackgroundImage = global::Capa_Presentacion.Properties.Resources.CENTER__1_;
             this.pn_Container.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pn_Container.Controls.Add(this.dtgV_Reembolsos);
             this.pn_Container.Controls.Add(this.cmb_Filtro_Pago);
             this.pn_Container.Controls.Add(this.cmb_Filtro_Reembolso);
-            this.pn_Container.Controls.Add(this.btn_Eliminar);
-            this.pn_Container.Controls.Add(this.btn_Actualizar);
             this.pn_Container.Controls.Add(this.txt_Busqueda);
-            this.pn_Container.Controls.Add(this.dtgV_Facturas);
             this.pn_Container.Controls.Add(this.btn_CloseForm);
             this.pn_Container.Controls.Add(this.lbl_TOP);
             this.pn_Container.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -91,41 +90,6 @@
             this.cmb_Filtro_Reembolso.Size = new System.Drawing.Size(116, 21);
             this.cmb_Filtro_Reembolso.TabIndex = 20;
             // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.BackColor = System.Drawing.Color.Tomato;
-            this.btn_Eliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Eliminar.BorderRadius = 5;
-            this.btn_Eliminar.BorderSize = 0;
-            this.btn_Eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_Eliminar.Location = new System.Drawing.Point(797, 99);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(118, 31);
-            this.btn_Eliminar.TabIndex = 19;
-            this.btn_Eliminar.Text = "ELIMINAR";
-            this.btn_Eliminar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Actualizar
-            // 
-            this.btn_Actualizar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btn_Actualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Actualizar.BorderRadius = 5;
-            this.btn_Actualizar.BorderSize = 0;
-            this.btn_Actualizar.FlatAppearance.BorderSize = 0;
-            this.btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Actualizar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Actualizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Actualizar.Location = new System.Drawing.Point(673, 99);
-            this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(118, 31);
-            this.btn_Actualizar.TabIndex = 18;
-            this.btn_Actualizar.Text = "ACTUALIZAR";
-            this.btn_Actualizar.UseVisualStyleBackColor = false;
-            this.btn_Actualizar.Click += new System.EventHandler(this.btn_Actualizar_Click);
-            // 
             // txt_Busqueda
             // 
             this.txt_Busqueda.BackColor = System.Drawing.SystemColors.Window;
@@ -147,14 +111,6 @@
             this.txt_Busqueda.TabIndex = 17;
             this.txt_Busqueda.Texts = "";
             this.txt_Busqueda.UnderlinedStyle = true;
-            // 
-            // dtgV_Facturas
-            // 
-            this.dtgV_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgV_Facturas.Location = new System.Drawing.Point(28, 148);
-            this.dtgV_Facturas.Name = "dtgV_Facturas";
-            this.dtgV_Facturas.Size = new System.Drawing.Size(887, 283);
-            this.dtgV_Facturas.TabIndex = 16;
             // 
             // btn_CloseForm
             // 
@@ -186,6 +142,55 @@
             this.lbl_TOP.Text = "      REEMBOLSOS";
             this.lbl_TOP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // dtgV_Reembolsos
+            // 
+            this.dtgV_Reembolsos.AllowUserToAddRows = false;
+            this.dtgV_Reembolsos.AllowUserToDeleteRows = false;
+            this.dtgV_Reembolsos.AllowUserToResizeColumns = false;
+            this.dtgV_Reembolsos.AllowUserToResizeRows = false;
+            this.dtgV_Reembolsos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgV_Reembolsos.BackgroundColor = System.Drawing.Color.White;
+            this.dtgV_Reembolsos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgV_Reembolsos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgV_Reembolsos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dtgV_Reembolsos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgV_Reembolsos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgV_Reembolsos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgV_Reembolsos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgV_Reembolsos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgV_Reembolsos.EnableHeadersVisualStyles = false;
+            this.dtgV_Reembolsos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtgV_Reembolsos.Location = new System.Drawing.Point(28, 137);
+            this.dtgV_Reembolsos.Name = "dtgV_Reembolsos";
+            this.dtgV_Reembolsos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgV_Reembolsos.RowHeadersVisible = false;
+            this.dtgV_Reembolsos.RowHeadersWidth = 62;
+            this.dtgV_Reembolsos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.dtgV_Reembolsos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgV_Reembolsos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgV_Reembolsos.Size = new System.Drawing.Size(897, 304);
+            this.dtgV_Reembolsos.TabIndex = 23;
+            // 
             // Frm_Reembolsos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,8 +205,8 @@
             this.Name = "Frm_Reembolsos";
             this.Text = "Frm_Reembolsos";
             this.pn_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgV_Reembolsos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,11 +216,9 @@
         private System.Windows.Forms.Panel pn_Container;
         private System.Windows.Forms.ComboBox cmb_Filtro_Pago;
         private System.Windows.Forms.ComboBox cmb_Filtro_Reembolso;
-        private user_controls.RJButton btn_Eliminar;
-        private user_controls.RJButton btn_Actualizar;
         private user_controls.TextBox_Control txt_Busqueda;
-        private System.Windows.Forms.DataGridView dtgV_Facturas;
         private System.Windows.Forms.PictureBox btn_CloseForm;
         private user_controls.Gradient_Label_Bounds lbl_TOP;
+        private System.Windows.Forms.DataGridView dtgV_Reembolsos;
     }
 }
