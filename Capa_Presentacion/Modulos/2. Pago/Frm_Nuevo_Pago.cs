@@ -25,5 +25,15 @@ namespace Capa_Presentacion.Modulos._2._Pago
         {
 
         }
+
+        private void btnCloseNuevoPago_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtImportePago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumerosDecimales(e);
+        }
     }
 }

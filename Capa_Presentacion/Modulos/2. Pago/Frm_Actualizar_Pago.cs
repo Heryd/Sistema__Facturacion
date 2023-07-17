@@ -16,5 +16,20 @@ namespace Capa_Presentacion.Modulos._2._Pago
         {
             InitializeComponent();
         }
+
+        private void btnCloseActPago_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtActImportePago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.NumerosDecimales(e);
+        }
+
+        private void btnActualizarPagos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

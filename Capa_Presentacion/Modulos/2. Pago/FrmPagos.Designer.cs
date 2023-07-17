@@ -91,6 +91,7 @@
             this.btnActualizarPagos.TabIndex = 18;
             this.btnActualizarPagos.Text = "ACTUALIZAR";
             this.btnActualizarPagos.UseVisualStyleBackColor = false;
+            this.btnActualizarPagos.Click += new System.EventHandler(this.btnActualizarPagos_Click);
             // 
             // btnEliminarPagos
             // 
@@ -127,6 +128,7 @@
             this.btnClosePagos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnClosePagos.TabIndex = 6;
             this.btnClosePagos.TabStop = false;
+            this.btnClosePagos.Click += new System.EventHandler(this.btnClosePagos_Click);
             // 
             // pictureBox2
             // 

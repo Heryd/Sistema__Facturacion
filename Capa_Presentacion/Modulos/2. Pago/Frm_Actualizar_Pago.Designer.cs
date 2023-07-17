@@ -41,6 +41,10 @@
             this.CmbActPago = new System.Windows.Forms.ComboBox();
             this.btnActualizarPagos = new Capa_Presentacion.user_controls.RJButton();
             this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
+            this.radioVisa = new System.Windows.Forms.RadioButton();
+            this.radioDiners = new System.Windows.Forms.RadioButton();
+            this.radioMaster = new System.Windows.Forms.RadioButton();
+            this.radioAmerican = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +93,7 @@
             this.btnCloseActPago.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCloseActPago.TabIndex = 22;
             this.btnCloseActPago.TabStop = false;
+            this.btnCloseActPago.Click += new System.EventHandler(this.btnCloseActPago_Click);
             // 
             // label1
             // 
@@ -153,6 +158,7 @@
             this.txtActImportePago.TabIndex = 27;
             this.txtActImportePago.Texts = "Actualizar valor";
             this.txtActImportePago.UnderlinedStyle = true;
+            this.txtActImportePago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtActImportePago_KeyPress);
             // 
             // CmbActPago
             // 
@@ -181,6 +187,7 @@
             this.btnActualizarPagos.TabIndex = 29;
             this.btnActualizarPagos.Text = "ACTUALIZAR";
             this.btnActualizarPagos.UseVisualStyleBackColor = false;
+            this.btnActualizarPagos.Click += new System.EventHandler(this.btnActualizarPagos_Click);
             // 
             // rjButton1
             // 
@@ -199,11 +206,55 @@
             this.rjButton1.Text = "CANCELAR";
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
+            // radioVisa
+            // 
+            this.radioVisa.AutoSize = true;
+            this.radioVisa.Location = new System.Drawing.Point(131, 306);
+            this.radioVisa.Name = "radioVisa";
+            this.radioVisa.Size = new System.Drawing.Size(14, 13);
+            this.radioVisa.TabIndex = 31;
+            this.radioVisa.TabStop = true;
+            this.radioVisa.UseVisualStyleBackColor = true;
+            // 
+            // radioDiners
+            // 
+            this.radioDiners.AutoSize = true;
+            this.radioDiners.Location = new System.Drawing.Point(392, 306);
+            this.radioDiners.Name = "radioDiners";
+            this.radioDiners.Size = new System.Drawing.Size(14, 13);
+            this.radioDiners.TabIndex = 32;
+            this.radioDiners.TabStop = true;
+            this.radioDiners.UseVisualStyleBackColor = true;
+            // 
+            // radioMaster
+            // 
+            this.radioMaster.AutoSize = true;
+            this.radioMaster.Location = new System.Drawing.Point(131, 381);
+            this.radioMaster.Name = "radioMaster";
+            this.radioMaster.Size = new System.Drawing.Size(14, 13);
+            this.radioMaster.TabIndex = 33;
+            this.radioMaster.TabStop = true;
+            this.radioMaster.UseVisualStyleBackColor = true;
+            // 
+            // radioAmerican
+            // 
+            this.radioAmerican.AutoSize = true;
+            this.radioAmerican.Location = new System.Drawing.Point(392, 381);
+            this.radioAmerican.Name = "radioAmerican";
+            this.radioAmerican.Size = new System.Drawing.Size(14, 13);
+            this.radioAmerican.TabIndex = 34;
+            this.radioAmerican.TabStop = true;
+            this.radioAmerican.UseVisualStyleBackColor = true;
+            // 
             // Frm_Actualizar_Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.radioAmerican);
+            this.Controls.Add(this.radioMaster);
+            this.Controls.Add(this.radioDiners);
+            this.Controls.Add(this.radioVisa);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.btnActualizarPagos);
             this.Controls.Add(this.CmbActPago);
@@ -242,5 +293,9 @@
         private System.Windows.Forms.ComboBox CmbActPago;
         private user_controls.RJButton btnActualizarPagos;
         private user_controls.RJButton rjButton1;
+        private System.Windows.Forms.RadioButton radioVisa;
+        private System.Windows.Forms.RadioButton radioDiners;
+        private System.Windows.Forms.RadioButton radioMaster;
+        private System.Windows.Forms.RadioButton radioAmerican;
     }
 }

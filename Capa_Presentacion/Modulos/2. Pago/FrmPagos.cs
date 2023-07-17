@@ -17,6 +17,15 @@ namespace Capa_Presentacion.Modulos._2._Pago
             InitializeComponent();
         }
 
-     
+        private void btnClosePagos_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnActualizarPagos_Click(object sender, EventArgs e)
+        {
+            Frm_Actualizar_Pago Acceso=new Frm_Actualizar_Pago();
+            Acceso.ShowDialog();
+        }
     }
 }

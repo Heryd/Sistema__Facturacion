@@ -69,5 +69,10 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         {
             Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

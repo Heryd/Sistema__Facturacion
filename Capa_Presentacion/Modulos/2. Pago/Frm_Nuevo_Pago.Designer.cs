@@ -38,10 +38,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
             this.txt_Fecha_Pago = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioVisa = new System.Windows.Forms.RadioButton();
+            this.radioDinners = new System.Windows.Forms.RadioButton();
+            this.radioMaster = new System.Windows.Forms.RadioButton();
+            this.radioAmerican = new System.Windows.Forms.RadioButton();
             this.rjButton3 = new Capa_Presentacion.user_controls.RJButton();
             this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -147,45 +147,45 @@
             this.txt_Fecha_Pago.TabIndex = 15;
             this.txt_Fecha_Pago.Text = "------------------";
             // 
-            // radioButton1
+            // radioVisa
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(242, 304);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 20;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioVisa.AutoSize = true;
+            this.radioVisa.Location = new System.Drawing.Point(242, 304);
+            this.radioVisa.Name = "radioVisa";
+            this.radioVisa.Size = new System.Drawing.Size(14, 13);
+            this.radioVisa.TabIndex = 20;
+            this.radioVisa.TabStop = true;
+            this.radioVisa.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioDinners
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(509, 304);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioDinners.AutoSize = true;
+            this.radioDinners.Location = new System.Drawing.Point(509, 304);
+            this.radioDinners.Name = "radioDinners";
+            this.radioDinners.Size = new System.Drawing.Size(14, 13);
+            this.radioDinners.TabIndex = 21;
+            this.radioDinners.TabStop = true;
+            this.radioDinners.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioMaster
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(242, 378);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(14, 13);
-            this.radioButton3.TabIndex = 22;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioMaster.AutoSize = true;
+            this.radioMaster.Location = new System.Drawing.Point(242, 378);
+            this.radioMaster.Name = "radioMaster";
+            this.radioMaster.Size = new System.Drawing.Size(14, 13);
+            this.radioMaster.TabIndex = 22;
+            this.radioMaster.TabStop = true;
+            this.radioMaster.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // radioAmerican
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(509, 378);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(14, 13);
-            this.radioButton4.TabIndex = 23;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioAmerican.AutoSize = true;
+            this.radioAmerican.Location = new System.Drawing.Point(509, 378);
+            this.radioAmerican.Name = "radioAmerican";
+            this.radioAmerican.Size = new System.Drawing.Size(14, 13);
+            this.radioAmerican.TabIndex = 23;
+            this.radioAmerican.TabStop = true;
+            this.radioAmerican.UseVisualStyleBackColor = true;
             // 
             // rjButton3
             // 
@@ -253,6 +253,7 @@
             this.btnCloseNuevoPago.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCloseNuevoPago.TabIndex = 2;
             this.btnCloseNuevoPago.TabStop = false;
+            this.btnCloseNuevoPago.Click += new System.EventHandler(this.btnCloseNuevoPago_Click);
             // 
             // pictureBox1
             // 
@@ -280,6 +281,7 @@
             this.txtImportePago.Name = "txtImportePago";
             this.txtImportePago.Size = new System.Drawing.Size(100, 20);
             this.txtImportePago.TabIndex = 16;
+            this.txtImportePago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportePago_KeyPress);
             // 
             // Frm_Nuevo_Pago
             // 
@@ -287,10 +289,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(900, 465);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioAmerican);
+            this.Controls.Add(this.radioMaster);
+            this.Controls.Add(this.radioDinners);
+            this.Controls.Add(this.radioVisa);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.rjButton3);
             this.Controls.Add(this.rjButton1);
@@ -339,10 +341,10 @@
         private user_controls.RJButton rjButton1;
         private user_controls.RJButton rjButton3;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioVisa;
+        private System.Windows.Forms.RadioButton radioDinners;
+        private System.Windows.Forms.RadioButton radioMaster;
+        private System.Windows.Forms.RadioButton radioAmerican;
         private System.Windows.Forms.TextBox txtImportePago;
     }
 }

@@ -144,6 +144,7 @@
     <Compile Include="user_controls\TextBox_Control.designer.cs">
       <DependentUpon>TextBox_Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validacion.cs" />
     <EmbeddedResource Include="Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
