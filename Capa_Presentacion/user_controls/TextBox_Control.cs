@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Capa_Presentacion.user_controls
 {
@@ -16,5 +17,21 @@ namespace Capa_Presentacion.user_controls
         {
             InitializeComponent();
         }
+        //
+        // Resumen:
+        //     Obtiene o establece el punto de inicio del texto seleccionado en el cuadro de
+        //     texto.
+        //
+        // Devuelve:
+        //     Posición de inicio del texto seleccionado en el cuadro de texto.
+        //
+        // Excepciones:
+        //   T:System.ArgumentOutOfRangeException:
+        //     El valor asignado es menor que cero.
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Category("CatAppearance")]
+        [IODescription("TextBoxSelectionStartDescr")]
+        public int SelectionStart { get; set; }
     }
 }

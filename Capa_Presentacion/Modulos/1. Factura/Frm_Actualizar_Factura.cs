@@ -37,7 +37,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         {
             string mensajeValidacion = "";
             int confirm = -1;
-            if (string.IsNullOrWhiteSpace(txt_Nombre_Encargado.Texts))
+            if (string.IsNullOrWhiteSpace(txt_Encargado.Text))
             {
                 mensajeValidacion += "\n\t- Nombre del Encargado";
                 confirm++;
@@ -47,7 +47,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 mensajeValidacion += "\n\t- Descripción del Servicio";
                 confirm++;
             }
-            if (string.IsNullOrWhiteSpace(txt_Precio_Unitario.Texts))
+            if (string.IsNullOrWhiteSpace(txt_Precio_Unitario1.Text))
             {
                 mensajeValidacion += "\n\t- Precio Unitario del Servicio";
                 confirm++;

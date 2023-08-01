@@ -1,4 +1,6 @@
-﻿using Capa_Presentacion.Modulos._1._Factura;
+﻿using Capa_Negocio;
+using Capa_Datos.Entidades;
+using Capa_Presentacion.Modulos._1._Factura;
 using Capa_Presentacion.Modulos._2._Pago;
 using Capa_Presentacion.Modulos._3._Cliente;
 using Capa_Presentacion.Modulos._4._Reembolso;
@@ -43,6 +45,7 @@ namespace Capa_Presentacion
         private Image icon_new_Register = Resources.btn_nuevo_registro_background;
         private Image icon_Records= Resources.btn_lista_entidades_background;
 
+        CN_GetData objCapaNegocio = new CN_GetData();
         #endregion
 
         public Frm_Menu()
@@ -234,7 +237,15 @@ namespace Capa_Presentacion
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Factura);
             Close_Active_Form();
-            AbrirFormulario<Frm_Facturas>();
+            if (objCapaNegocio.CN_DevolverFactura().Any())
+            {
+                //Llama al formulario 
+                AbrirFormulario<Frm_Facturas>();
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron registros de facturas.\nRegistre una nueva factura", "Obtener Registros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 
@@ -306,7 +317,15 @@ namespace Capa_Presentacion
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Pago);
             Close_Active_Form();
-            AbrirFormulario<FrmPagos>();
+            if (objCapaNegocio.CN_DevolverPago().Any())
+            {
+                //Llama al formulario 
+                AbrirFormulario<FrmPagos>();
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron registros de facturas.\nRegistre una nueva factura", "Obtener Registros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         #endregion
@@ -328,8 +347,16 @@ namespace Capa_Presentacion
             Atenuar_Opc_Modulo(btn_Consultar_Cliente);
             //Cierra el formulario activo en ese momento
             Close_Active_Form();
-            //Llama al formulario 
-            AbrirFormulario<Frm_Clientes>();
+
+            if (objCapaNegocio.CN_DevolverCliente().Any())
+            {
+                //Llama al formulario 
+                AbrirFormulario<Frm_Clientes>();
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron registros de clientes.\nRegistre un nuevo cliente", "Obtener Registros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 

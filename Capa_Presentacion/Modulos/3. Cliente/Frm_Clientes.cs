@@ -46,37 +46,25 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         private void dtgV_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Edita una fila seleccionada enviando los valores a otro formulario
-            if (this.dtgV_Clientes.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
+            if (dtgV_Clientes.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
             {
-                string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["ID_CLIENTE"].Value.ToString();
-                string cedula = dtgV_Clientes.Rows[e.RowIndex].Cells["CEDULA"].Value.ToString();
-                string nombres_completos = dtgV_Clientes.Rows[e.RowIndex].Cells["NOMBRES"].Value.ToString();
-                string[] valores = nombres_completos.Split('-');
-                string nombre = valores[0], apellido = valores[1];
-                string correo = dtgV_Clientes.Rows[e.RowIndex].Cells["CORREO"].Value.ToString();
-                string genero= dtgV_Clientes.Rows[e.RowIndex].Cells["GENERO"].Value.ToString();
-                Frm_Actualizar_Cliente frm_Update = new Frm_Actualizar_Cliente(indice,cedula,nombre,apellido,correo,genero);
+                string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["CEDULA"].Value.ToString();
+                Frm_Actualizar_Cliente frm_Update = new Frm_Actualizar_Cliente(indice);
                 frm_Update.ShowDialog();
+                CargarRegistrosDataGridView();
             }
 
             //Cambia el estado de un registro a "Eliminado"
-            if (this.dtgV_Clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
+            if (dtgV_Clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
             {
                 string verificar_Estado = dtgV_Clientes.Rows[e.RowIndex].Cells["ESTADO"].Value.ToString();
-                if (!string.Equals("Eliminado", verificar_Estado, StringComparison.OrdinalIgnoreCase))
+                DialogResult dg = MessageBox.Show("¿Está seguro de Eliminar a este Cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dg == DialogResult.OK)
                 {
-                    DialogResult dg = MessageBox.Show("¿Está seguro de Eliminar a este Cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dg == DialogResult.OK)
-                    {
-                        //obtienes el valor de la primer columna
-                        string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["ID_CLIENTE"].Value.ToString();
-                        objCapaNegocio.CN_EliminarCliente(indice);
-                    }
+                    //obtienes el valor de la primer columna
+                    string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["ID_CLIENTE"].Value.ToString();
+                    objCapaNegocio.CN_EliminarCliente(indice);
                     CargarRegistrosDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("El Cliente seleccionado se encuentra eliminado.\nPorfavor cambie su estado o seleccione otro.", "Verificar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }

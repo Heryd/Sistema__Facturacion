@@ -29,119 +29,97 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Nuevo_Pago));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_Valor_Pago = new System.Windows.Forms.Label();
+            this.lbl_Metodo_Pago = new System.Windows.Forms.Label();
+            this.lbl_Cliente = new System.Windows.Forms.Label();
             this.cmbMetodoPago = new System.Windows.Forms.ComboBox();
             this.txt_Fecha_Pago = new System.Windows.Forms.Label();
             this.radioVisa = new System.Windows.Forms.RadioButton();
             this.radioDinners = new System.Windows.Forms.RadioButton();
             this.radioMaster = new System.Windows.Forms.RadioButton();
             this.radioAmerican = new System.Windows.Forms.RadioButton();
-            this.rjButton3 = new Capa_Presentacion.user_controls.RJButton();
-            this.rjButton1 = new Capa_Presentacion.user_controls.RJButton();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pcb_Tarjetas_Bg = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnCloseNuevoPago = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.txtImportePago = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.txt_Valor_Pago = new System.Windows.Forms.TextBox();
+            this.txt_Cliente = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.btn_Limpiar = new Capa_Presentacion.user_controls.RJButton();
+            this.btn_Nuevo_Pago = new Capa_Presentacion.user_controls.RJButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_Tarjetas_Bg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseNuevoPago)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Identificador de Factura";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 159);
+            this.label2.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(518, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 15);
+            this.label2.Size = new System.Drawing.Size(97, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Fecha de Pago";
             // 
-            // label3
+            // lbl_Valor_Pago
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Valor a pagar:";
+            this.lbl_Valor_Pago.AutoSize = true;
+            this.lbl_Valor_Pago.BackColor = System.Drawing.Color.White;
+            this.lbl_Valor_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Valor_Pago.Location = new System.Drawing.Point(43, 187);
+            this.lbl_Valor_Pago.Name = "lbl_Valor_Pago";
+            this.lbl_Valor_Pago.Size = new System.Drawing.Size(95, 17);
+            this.lbl_Valor_Pago.TabIndex = 8;
+            this.lbl_Valor_Pago.Text = "Valor a pagar:";
             // 
-            // label4
+            // lbl_Metodo_Pago
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 228);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Metodo de Pago";
+            this.lbl_Metodo_Pago.AutoSize = true;
+            this.lbl_Metodo_Pago.BackColor = System.Drawing.Color.White;
+            this.lbl_Metodo_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Metodo_Pago.Location = new System.Drawing.Point(43, 228);
+            this.lbl_Metodo_Pago.Name = "lbl_Metodo_Pago";
+            this.lbl_Metodo_Pago.Size = new System.Drawing.Size(110, 17);
+            this.lbl_Metodo_Pago.TabIndex = 9;
+            this.lbl_Metodo_Pago.Text = "Metodo de Pago";
             // 
-            // label5
+            // lbl_Cliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(605, 125);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 15);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Cliente";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(656, 127);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "------------------------------";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(195, 127);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "------------------";
+            this.lbl_Cliente.AutoSize = true;
+            this.lbl_Cliente.BackColor = System.Drawing.Color.White;
+            this.lbl_Cliente.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Cliente.Location = new System.Drawing.Point(43, 146);
+            this.lbl_Cliente.Name = "lbl_Cliente";
+            this.lbl_Cliente.Size = new System.Drawing.Size(51, 17);
+            this.lbl_Cliente.TabIndex = 10;
+            this.lbl_Cliente.Text = "Cliente";
             // 
             // cmbMetodoPago
             // 
+            this.cmbMetodoPago.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbMetodoPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMetodoPago.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMetodoPago.FormattingEnabled = true;
-            this.cmbMetodoPago.Location = new System.Drawing.Point(194, 228);
+            this.cmbMetodoPago.Items.AddRange(new object[] {
+            "Seleccionar...",
+            "Credito",
+            "Debito",
+            "Efectivo"});
+            this.cmbMetodoPago.Location = new System.Drawing.Point(191, 226);
             this.cmbMetodoPago.Name = "cmbMetodoPago";
-            this.cmbMetodoPago.Size = new System.Drawing.Size(121, 21);
+            this.cmbMetodoPago.Size = new System.Drawing.Size(162, 29);
             this.cmbMetodoPago.TabIndex = 14;
+            this.cmbMetodoPago.SelectedIndexChanged += new System.EventHandler(this.cmbMetodoPago_SelectedIndexChanged);
             // 
             // txt_Fecha_Pago
             // 
             this.txt_Fecha_Pago.AutoSize = true;
-            this.txt_Fecha_Pago.Location = new System.Drawing.Point(195, 161);
+            this.txt_Fecha_Pago.Location = new System.Drawing.Point(670, 126);
             this.txt_Fecha_Pago.Name = "txt_Fecha_Pago";
             this.txt_Fecha_Pago.Size = new System.Drawing.Size(61, 13);
             this.txt_Fecha_Pago.TabIndex = 15;
@@ -187,51 +165,17 @@
             this.radioAmerican.TabStop = true;
             this.radioAmerican.UseVisualStyleBackColor = true;
             // 
-            // rjButton3
+            // pcb_Tarjetas_Bg
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.Red;
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 15;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(608, 215);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(150, 40);
-            this.rjButton3.TabIndex = 18;
-            this.rjButton3.Text = "CANCELAR";
-            this.rjButton3.UseVisualStyleBackColor = false;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 15;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(608, 169);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 40);
-            this.rjButton1.TabIndex = 17;
-            this.rjButton1.Text = "REGISTRAR";
-            this.rjButton1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(217, 281);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(433, 135);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 19;
-            this.pictureBox5.TabStop = false;
+            this.pcb_Tarjetas_Bg.BackColor = System.Drawing.Color.White;
+            this.pcb_Tarjetas_Bg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_Tarjetas_Bg.Image = ((System.Drawing.Image)(resources.GetObject("pcb_Tarjetas_Bg.Image")));
+            this.pcb_Tarjetas_Bg.Location = new System.Drawing.Point(217, 281);
+            this.pcb_Tarjetas_Bg.Name = "pcb_Tarjetas_Bg";
+            this.pcb_Tarjetas_Bg.Size = new System.Drawing.Size(433, 135);
+            this.pcb_Tarjetas_Bg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcb_Tarjetas_Bg.TabIndex = 19;
+            this.pcb_Tarjetas_Bg.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -245,7 +189,7 @@
             // 
             // btnCloseNuevoPago
             // 
-            this.btnCloseNuevoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCloseNuevoPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(179)))), ((int)(((byte)(5)))));
             this.btnCloseNuevoPago.Image = global::Capa_Presentacion.Properties.Resources.cerca;
             this.btnCloseNuevoPago.Location = new System.Drawing.Point(818, 31);
             this.btnCloseNuevoPago.Name = "btnCloseNuevoPago";
@@ -273,39 +217,99 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // txtImportePago
+            // txt_Valor_Pago
             // 
-            this.txtImportePago.Location = new System.Drawing.Point(194, 194);
-            this.txtImportePago.Name = "txtImportePago";
-            this.txtImportePago.Size = new System.Drawing.Size(100, 20);
-            this.txtImportePago.TabIndex = 16;
-            this.txtImportePago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportePago_KeyPress);
+            this.txt_Valor_Pago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Valor_Pago.Location = new System.Drawing.Point(191, 181);
+            this.txt_Valor_Pago.Name = "txt_Valor_Pago";
+            this.txt_Valor_Pago.Size = new System.Drawing.Size(162, 28);
+            this.txt_Valor_Pago.TabIndex = 16;
+            this.txt_Valor_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Valor_Pago.TextChanged += new System.EventHandler(this.txt_Valor_Pago_TextChanged);
+            this.txt_Valor_Pago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImportePago_KeyPress);
+            // 
+            // txt_Cliente
+            // 
+            this.txt_Cliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Cliente.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.txt_Cliente.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txt_Cliente.BorderRadius = 0;
+            this.txt_Cliente.BorderSize = 2;
+            this.txt_Cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txt_Cliente.Location = new System.Drawing.Point(191, 139);
+            this.txt_Cliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_Cliente.Multiline = false;
+            this.txt_Cliente.Name = "txt_Cliente";
+            this.txt_Cliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_Cliente.PasswordChar = false;
+            this.txt_Cliente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_Cliente.PlaceholderText = "Cédula o ID";
+            this.txt_Cliente.Size = new System.Drawing.Size(162, 31);
+            this.txt_Cliente.TabIndex = 24;
+            this.txt_Cliente.Texts = "";
+            this.txt_Cliente.UnderlinedStyle = true;
+            this.txt_Cliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cliente_KeyPress);
+            // 
+            // btn_Limpiar
+            // 
+            this.btn_Limpiar.BackColor = System.Drawing.Color.Gray;
+            this.btn_Limpiar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Limpiar.BorderRadius = 5;
+            this.btn_Limpiar.BorderSize = 0;
+            this.btn_Limpiar.FlatAppearance.BorderSize = 0;
+            this.btn_Limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Limpiar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Limpiar.ForeColor = System.Drawing.Color.White;
+            this.btn_Limpiar.Location = new System.Drawing.Point(694, 209);
+            this.btn_Limpiar.Name = "btn_Limpiar";
+            this.btn_Limpiar.Size = new System.Drawing.Size(150, 40);
+            this.btn_Limpiar.TabIndex = 18;
+            this.btn_Limpiar.Text = "LIMPIAR";
+            this.btn_Limpiar.UseVisualStyleBackColor = false;
+            this.btn_Limpiar.Click += new System.EventHandler(this.btn_Limpiar_Click);
+            // 
+            // btn_Nuevo_Pago
+            // 
+            this.btn_Nuevo_Pago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(177)))), ((int)(((byte)(3)))));
+            this.btn_Nuevo_Pago.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Nuevo_Pago.BorderRadius = 5;
+            this.btn_Nuevo_Pago.BorderSize = 0;
+            this.btn_Nuevo_Pago.FlatAppearance.BorderSize = 0;
+            this.btn_Nuevo_Pago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Nuevo_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Nuevo_Pago.ForeColor = System.Drawing.Color.White;
+            this.btn_Nuevo_Pago.Location = new System.Drawing.Point(694, 163);
+            this.btn_Nuevo_Pago.Name = "btn_Nuevo_Pago";
+            this.btn_Nuevo_Pago.Size = new System.Drawing.Size(150, 40);
+            this.btn_Nuevo_Pago.TabIndex = 17;
+            this.btn_Nuevo_Pago.Text = "REGISTRAR";
+            this.btn_Nuevo_Pago.UseVisualStyleBackColor = false;
+            this.btn_Nuevo_Pago.Click += new System.EventHandler(this.btn_Nuevo_Pago_Click);
             // 
             // Frm_Nuevo_Pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(900, 465);
+            this.ClientSize = new System.Drawing.Size(897, 465);
             this.Controls.Add(this.radioAmerican);
             this.Controls.Add(this.radioMaster);
             this.Controls.Add(this.radioDinners);
             this.Controls.Add(this.radioVisa);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.rjButton3);
-            this.Controls.Add(this.rjButton1);
-            this.Controls.Add(this.txtImportePago);
+            this.Controls.Add(this.txt_Cliente);
+            this.Controls.Add(this.pcb_Tarjetas_Bg);
+            this.Controls.Add(this.btn_Limpiar);
+            this.Controls.Add(this.btn_Nuevo_Pago);
+            this.Controls.Add(this.txt_Valor_Pago);
             this.Controls.Add(this.txt_Fecha_Pago);
             this.Controls.Add(this.cmbMetodoPago);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbl_Cliente);
+            this.Controls.Add(this.lbl_Metodo_Pago);
+            this.Controls.Add(this.lbl_Valor_Pago);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnCloseNuevoPago);
             this.Controls.Add(this.pictureBox1);
@@ -313,7 +317,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Nuevo_Pago";
             this.Text = "Frm_Nuevo_Pago";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_Tarjetas_Bg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCloseNuevoPago)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -329,22 +333,20 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_Valor_Pago;
+        private System.Windows.Forms.Label lbl_Metodo_Pago;
+        private System.Windows.Forms.Label lbl_Cliente;
         private System.Windows.Forms.ComboBox cmbMetodoPago;
         private System.Windows.Forms.Label txt_Fecha_Pago;
-        private user_controls.RJButton rjButton1;
-        private user_controls.RJButton rjButton3;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private user_controls.RJButton btn_Nuevo_Pago;
+        private user_controls.RJButton btn_Limpiar;
+        private System.Windows.Forms.PictureBox pcb_Tarjetas_Bg;
         private System.Windows.Forms.RadioButton radioVisa;
         private System.Windows.Forms.RadioButton radioDinners;
         private System.Windows.Forms.RadioButton radioMaster;
         private System.Windows.Forms.RadioButton radioAmerican;
-        private System.Windows.Forms.TextBox txtImportePago;
+        private System.Windows.Forms.TextBox txt_Valor_Pago;
+        private user_controls.TextBox_Control txt_Cliente;
     }
 }

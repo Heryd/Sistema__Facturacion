@@ -1,4 +1,6 @@
 ﻿using Capa_Negocio;
+using Capa_Datos.Entidades;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -71,11 +73,11 @@ namespace Capa_Presentacion.Modulos._1._Factura
         private void txt_Codigo_Cliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             char c = e.KeyChar;
-            if (Char.IsDigit(c) && txt_Codigo_Cliente.Texts.Length <= 7)
+            if (Char.IsDigit(c) && txt_Codigo_Cliente.Texts.Length <= 10)
             {
                 e.Handled = false;
             }
-            else if (c == (char)Keys.Back)
+            else if (c == (char)Keys.Back ||c==(char)Keys.LShiftKey || c == (char)Keys.RShiftKey)
             {
                 e.Handled = false;
             }
@@ -83,7 +85,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
             {
                 e.Handled = true;
             }
-            if (txt_Codigo_Cliente.Texts.Length > 7 && e.KeyChar != ((char)Keys.Back))
+            if (txt_Codigo_Cliente.Texts.Length > 10 && e.KeyChar != ((char)Keys.Back))
             {
                 MessageBox.Show("El código solo puede contener entre 1 a 7 caracteres numericos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -92,7 +94,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
         //Buscar y rellenar los campos mediante el código del cliente
         private void btn_Search_Cliente_Click(object sender, EventArgs e)
         {
-
+            int codigo = int.Parse(txt_Codigo_Cliente.Texts);
+            bool confirm = false;
+            var datosCliente = objCapaNegocio.CN_DevolverCliente()
+                            .Where(cl => cl.Cedula == codigo || cl.Id ==codigo)
+                            .Select(cl => new { cl.Id, cl.Nombres, cl.Apellidos, cl.Cedula, cl.Genero, cl.Correo, cl.Direccion, cl.Telefono }).FirstOrDefault();
+                txt_Cedula.Texts = "0" + datosCliente.Cedula.ToString();
+                txt_Nombre.Texts = datosCliente.Nombres.ToString()+" "+datosCliente.Apellidos.ToString();
+                txt_Telefono.Texts = "0"+datosCliente.Telefono.ToString();
+                confirm = true;
+            if(!confirm)
+            {
+                MessageBox.Show("No se encontró el Cliente", "Buscar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta
@@ -159,7 +173,24 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void txt_Descripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            char c = e.KeyChar;
+            if (Char.IsLetterOrDigit(c) && txt_Descripcion.Text.Length <= 120)
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space ||e.KeyChar==(char)Keys.LShiftKey
+                    || e.KeyChar == (char)Keys.RShiftKey|| e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Nombre_Encargado.Texts.Length > 120 && e.KeyChar != ((char)Keys.Back))
+            {
+                MessageBox.Show("Solo se pueden ingresar 120 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Resources;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_Datos.Entidades;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)
@@ -22,11 +20,15 @@ namespace Capa_Negocio
     {
         private CD_GetData objectCD = new CD_GetData();
 
+        //Métodos de que retornan valores de Tipo Cliente de la Clase CD_GetData 
         public object CN_CONSULTAR_CLIENTES() => objectCD.Consulta_Cliente();
         public object CN_CLIENTES() => objectCD.Clientes();
 
-        public DataTable CN_ShowData(string sql_text) => objectCD.GetData(sql_text);
+        public object CN_ConsultaPagos() => objectCD.Consulta_Pago();
 
+        public DataTable CN_ShowData(string sql_text) => objectCD.GetData(sql_text);
+        
+        //Método para añadir botones de editar y eliminar a las tablas de consultas
         public void CN_Add_Buttons_DTGV(DataGridView dataGridView)
         {
             DataGridViewButtonColumn btn_Editar_Factura = new DataGridViewButtonColumn();
@@ -39,12 +41,14 @@ namespace Capa_Negocio
             dataGridView.Columns.Add(btn_Eliminar_Factura);
         }
 
+        //Método para ajustar las imagenes de los botones 'Editar' y 'Eliminar' del DataGridView
         public void CN_Show_Buttons_DTGV(DataGridViewCellPaintingEventArgs e, DataGridView dataGridView, Bitmap edit_min_20x20, Bitmap delete_min_20x20)
           {
                if (e.RowIndex == dataGridView.NewRowIndex || e.RowIndex < 0)
                {
                     return;
                }
+               //Si el encabezado de la columna es <Eliminar>, asigna el icono correspondiente
                if (e.ColumnIndex >= 0 && dataGridView.Columns[e.ColumnIndex].Name == "Eliminar")
                {
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
@@ -57,7 +61,7 @@ namespace Capa_Negocio
                     dataGridView.Columns[e.ColumnIndex].Width = image.Width + 30;
                     e.Handled = true;
                }
-
+               //Si el encabezado de la columna es <Editar>, asigna el icono correspondiente
                if (e.ColumnIndex >= 0 && dataGridView.Columns[e.ColumnIndex].Name == "Editar")
                {
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
@@ -72,18 +76,33 @@ namespace Capa_Negocio
                }
           }
 
-          public string ObtenerFechaActual() => DateTime.Today.ToString("D");
+        //´Método que retorna la fecha actual en un formato específico. Ej -> <Jueves, Septiembre 28, 2023>
+        public string ObtenerFechaActual() => DateTime.Today.ToString("D");
 
-        public string CN_GET_CODIGO_CLIENTE() => objectCD.CD_GET_CODIGO_CLIENTE();
-
-        public void CN_Nuevo_Cliente(string cedula, string apellidos, string nombres, string genero, string correo, string direccion, string telefono,DateTime fecha)
+        //Método que envia los valores obtenidos del Nuevo Cliente para su correspondiente registro en la BD
+        public void CN_Nuevo_Cliente(Cliente cl)
         {
-            objectCD.CD_Nuevo_Cliente(Int32.Parse(cedula),apellidos,nombres,genero,correo,direccion,Int32.Parse(telefono),fecha);
+            //Envia los parámetros a la clase CD_GetData y castea aquellos de tipo numerico o fecha
+            objectCD.CD_Nuevo_Cliente(cl);
         }
+        public void CN_ActualizarCliente(Cliente cl)=>objectCD.CD_ActualizarCliente(cl);
 
+        public void CN_ActualizarPago(Pago p) => objectCD.CD_ActualizarPago(p);
+
+        public void CN_Nuevo_Pago(Pago p) => objectCD.CD_NuevoPago(p);
+        //Método que toma el ID del cliente para su correspondiente cambio de estado
         public void CN_EliminarCliente(string indice)
         {
-            objectCD.CD_EliminarCliente(Int32.Parse(indice));
+            //Envia el parámetro ID a la clase CD_GetData y castea la cadena a un tipo numerico
+            objectCD.CD_EliminarCliente(int.Parse(indice));
         }
+
+        public void CN_EliminarPago(string indice) => objectCD.CD_EliminarPago(int.Parse(indice));
+
+        public List<Cliente> CN_DevolverCliente() => objectCD.DevolverListaClientes();
+        public List<Pago> CN_DevolverPago() => objectCD.DevolverListaPagos();
+        public List<Factura> CN_DevolverFactura() => objectCD.DevolverListaFacturas();
+
+
     }
 }

@@ -42,19 +42,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CD_GetConnection.cs" />
-    <Compile Include="CD_GetData.cs" />
+    <Compile Include="Conexion\CD_GetConnection.cs" />
+    <Compile Include="Conexion\CD_GetData.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Empresa.cs" />
+    <Compile Include="Entidades\Factura.cs" />
+    <Compile Include="Entidades\Pago.cs" />
+    <Compile Include="Entidades\Reembolso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\0. BD_FACTURACION.sql" />
-    <Content Include="Database\1. Cliente.sql" />
-    <Content Include="Database\2. Pago.sql" />
-    <Content Include="Database\3. Factura.sql" />
-    <Content Include="Database\4. Detalle_Factura.sql" />
-    <Content Include="Database\5. Reembolso.sql" />
-    <Content Include="Database\6. Empresa.sql" />
-    <Content Include="Database\7. Servicio.sql" />
+    <Content Include="BaseDatos\0. BD_FACTURACION.sql" />
+    <Content Include="BaseDatos\1. Cliente.sql" />
+    <Content Include="BaseDatos\2. Pago.sql" />
+    <Content Include="BaseDatos\3. Factura.sql" />
+    <Content Include="BaseDatos\4. Detalle_Factura.sql" />
+    <Content Include="BaseDatos\5. Reembolso.sql" />
+    <Content Include="BaseDatos\6. Empresa.sql" />
+    <Content Include="BaseDatos\7. Servicio.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

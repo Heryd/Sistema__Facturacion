@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)

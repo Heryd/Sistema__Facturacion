@@ -1,11 +1,8 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
@@ -31,7 +28,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         private void Select_First_Index_ComboBox()
         {
             cmb_Filtro_Facturas.SelectedIndex = 0;
-            cmb_Filtro_Cliente.SelectedIndex = 0;
+            //cmb_Filtro_Cliente.SelectedIndex = 0;
         }
 
         private void btn_CloseForm_Click(object sender, EventArgs e)
@@ -52,7 +49,21 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void CargarRegistrosDataGridView()
         {
-            dtgV_Facturas.DataSource = objCapaNegocio.CN_CONSULTAR_CLIENTES();
+            var facturas = objCapaNegocio.CN_DevolverFactura()
+                                .Select(f => new
+                                {
+                                    CODIGO = f.IdDetalleFactura,
+                                    NOMBRES = f.Encargado,
+                                    SERVICIO = f.Descripcion,
+                                    METODO_PAGO = string.Join(", ",
+                                                    objCapaNegocio.CN_DevolverPago()
+                                                        .Where(p => p.IdCliente == f.IdCliente)
+                                                        .Select(p => p.MetodoPago)),
+                                    TOTAL = f.Total,
+                                    FECHA = f.Fecha 
+                    });
+
+            dtgV_Facturas.DataSource = facturas.ToList();
             objCapaNegocio.CN_Add_Buttons_DTGV(dtgV_Facturas);
         }
 
@@ -69,5 +80,10 @@ namespace Capa_Presentacion.Modulos._1._Factura
         {
                objCapaNegocio.CN_Show_Buttons_DTGV(e,dtgV_Facturas, Properties.Resources.edit_min_20x20, Properties.Resources.delete_min_20x20);
         }
-     }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

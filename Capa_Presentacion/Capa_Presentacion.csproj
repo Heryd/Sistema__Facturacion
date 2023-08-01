@@ -321,6 +321,10 @@
     <None Include="Resources\home_5_line1.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">
+      <Project>{100121B3-C34A-4372-A20C-502B0219F500}</Project>
+      <Name>Capa_Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Capa_Negocio\Capa_Negocio.csproj">
       <Project>{097e4f7e-e455-4380-9d72-e86534f3f886}</Project>
       <Name>Capa_Negocio</Name>

@@ -59,15 +59,7 @@ namespace Capa_Presentacion
             {
                 v.Handled = false;
             }
-            else if (Char.IsSeparator(v.KeyChar))
-            {
-                v.Handled = false;
-            }
             else if (Char.IsControl(v.KeyChar))
-            {
-                v.Handled = false;
-            }
-            else if (v.KeyChar.ToString().Equals("."))
             {
                 v.Handled = false;
             }

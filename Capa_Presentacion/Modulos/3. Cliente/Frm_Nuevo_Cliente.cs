@@ -1,4 +1,5 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
 using System.Windows.Forms;
 
@@ -46,10 +47,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             txt_Telefono.Texts = "";
         }
 
-        private void btn_CloseForm_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void btn_CloseForm_Click(object sender, EventArgs e)=>Close();
 
         private void txt_Correo_Load(object sender, EventArgs e)
         {
@@ -65,21 +63,41 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         {
             if (ValidarCampos())
             {
-                string cedula = txt_Cedula.Texts.Trim();
-                string apellidos = txt_Apellidos.Texts.ToUpper().Trim();
-                string nombres = txt_Nombres.Texts.ToUpper().Trim();
-                string genero = cmb_Genero.SelectedItem.ToString().ToUpper();
-                string correo = txt_Correo.Texts.Trim();
-                string direccion = txt_Direccion.Texts.Trim();
-                string telefono = txt_Telefono.Texts.Trim();
-                DateTime fechaRegistro = DateTime.Today;
-                objCapaNegocio.CN_Nuevo_Cliente(cedula,apellidos,nombres,genero,correo,direccion,telefono, fechaRegistro);
+                Cliente cl = new Cliente
+                {
+                    Cedula = decimal.Parse(txt_Cedula.Texts.Trim()),
+                    Apellidos = txt_Apellidos.Texts.ToUpper().Trim(),
+                    Nombres = txt_Nombres.Texts.ToUpper().Trim(),
+                    Genero = cmb_Genero.SelectedItem.ToString().ToUpper(),
+                    Correo = txt_Correo.Texts.Trim(),
+                    Direccion = txt_Direccion.Texts.Trim(),
+                    Telefono = decimal.Parse(txt_Telefono.Texts.Trim()),
+                    Fecha = DateTime.Today,
+                    Estado = (rbn_Activo.Checked ? "ACTIVO" : "INACTIVO")
+                };
+                objCapaNegocio.CN_Nuevo_Cliente(cl);
                 Limpiar_Campos();
                 CargarRegistrosDataGridView();
-                Get_Codigo_Cliente();
             }
         }
 
+        private string Get_Item_ComboBox()
+        {
+            string value = "";
+            switch (cmb_Genero.SelectedIndex)
+            {
+                case 1:
+                value = "MASCULINO";
+                break;
+                case 2:
+                value = "FEMENINO";
+                break;
+                case 3:
+                value = "PREFIERO NO DECIRLO";
+                break;
+            }
+            return value;
+        }
         //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta
         private bool ValidarCampos()
         {
@@ -135,16 +153,6 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 MessageBox.Show("Por favor, llene y/o seleccione los campos de: " + mensajeValidacion, "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return (confirm >= 0 ? false : true);
-        }
-
-        private void txt_Codigo_Cliente_Load(object sender, EventArgs e)
-        {
-            Get_Codigo_Cliente();
-        }
-
-        private void Get_Codigo_Cliente()
-        {
-            txt_Codigo_Cliente.Texts = objCapaNegocio.CN_GET_CODIGO_CLIENTE();
         }
 
         private void txt_Cedula_KeyPress(object sender, KeyPressEventArgs e)

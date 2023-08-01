@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_Container = new System.Windows.Forms.Panel();
-            this.cmb_Filtro_Cliente = new System.Windows.Forms.ComboBox();
+            this.dtgV_Facturas = new System.Windows.Forms.DataGridView();
             this.cmb_Filtro_Facturas = new System.Windows.Forms.ComboBox();
             this.txt_Busqueda = new Capa_Presentacion.user_controls.TextBox_Control();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.dtgV_Facturas = new System.Windows.Forms.DataGridView();
             this.pn_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_Container
@@ -48,7 +47,6 @@
             this.pn_Container.BackgroundImage = global::Capa_Presentacion.Properties.Resources.CENTER__1_;
             this.pn_Container.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pn_Container.Controls.Add(this.dtgV_Facturas);
-            this.pn_Container.Controls.Add(this.cmb_Filtro_Cliente);
             this.pn_Container.Controls.Add(this.cmb_Filtro_Facturas);
             this.pn_Container.Controls.Add(this.txt_Busqueda);
             this.pn_Container.Controls.Add(this.btn_CloseForm);
@@ -59,35 +57,73 @@
             this.pn_Container.Size = new System.Drawing.Size(950, 471);
             this.pn_Container.TabIndex = 16;
             // 
-            // cmb_Filtro_Cliente
+            // dtgV_Facturas
             // 
-            this.cmb_Filtro_Cliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmb_Filtro_Cliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_Filtro_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmb_Filtro_Cliente.FormattingEnabled = true;
-            this.cmb_Filtro_Cliente.Items.AddRange(new object[] {
-            "Pago (all)",
-            "Monto",
-            "Método de Pago"});
-            this.cmb_Filtro_Cliente.Location = new System.Drawing.Point(488, 109);
-            this.cmb_Filtro_Cliente.Name = "cmb_Filtro_Cliente";
-            this.cmb_Filtro_Cliente.Size = new System.Drawing.Size(116, 21);
-            this.cmb_Filtro_Cliente.TabIndex = 21;
+            this.dtgV_Facturas.AllowUserToAddRows = false;
+            this.dtgV_Facturas.AllowUserToDeleteRows = false;
+            this.dtgV_Facturas.AllowUserToResizeColumns = false;
+            this.dtgV_Facturas.AllowUserToResizeRows = false;
+            this.dtgV_Facturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgV_Facturas.BackgroundColor = System.Drawing.Color.White;
+            this.dtgV_Facturas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgV_Facturas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgV_Facturas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dtgV_Facturas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgV_Facturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dtgV_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgV_Facturas.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dtgV_Facturas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgV_Facturas.EnableHeadersVisualStyles = false;
+            this.dtgV_Facturas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtgV_Facturas.Location = new System.Drawing.Point(28, 147);
+            this.dtgV_Facturas.Name = "dtgV_Facturas";
+            this.dtgV_Facturas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgV_Facturas.RowHeadersVisible = false;
+            this.dtgV_Facturas.RowHeadersWidth = 62;
+            this.dtgV_Facturas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.dtgV_Facturas.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dtgV_Facturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgV_Facturas.Size = new System.Drawing.Size(897, 294);
+            this.dtgV_Facturas.TabIndex = 23;
+            this.dtgV_Facturas.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgV_Facturas_CellPainting);
             // 
             // cmb_Filtro_Facturas
             // 
             this.cmb_Filtro_Facturas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Filtro_Facturas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_Filtro_Facturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Filtro_Facturas.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Filtro_Facturas.FormattingEnabled = true;
             this.cmb_Filtro_Facturas.Items.AddRange(new object[] {
-            "Reembolso (all)",
+            "Servicio",
             "Código",
-            "Fecha de Emisión",
-            "Estado"});
+            "Fecha",
+            "Monto",
+            "Género",
+            "Cédula"});
             this.cmb_Filtro_Facturas.Location = new System.Drawing.Point(366, 109);
             this.cmb_Filtro_Facturas.Name = "cmb_Filtro_Facturas";
-            this.cmb_Filtro_Facturas.Size = new System.Drawing.Size(116, 21);
+            this.cmb_Filtro_Facturas.Size = new System.Drawing.Size(116, 24);
             this.cmb_Filtro_Facturas.TabIndex = 20;
             // 
             // txt_Busqueda
@@ -142,55 +178,6 @@
             this.lbl_TOP.Text = "      FACTURAS";
             this.lbl_TOP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtgV_Facturas
-            // 
-            this.dtgV_Facturas.AllowUserToAddRows = false;
-            this.dtgV_Facturas.AllowUserToDeleteRows = false;
-            this.dtgV_Facturas.AllowUserToResizeColumns = false;
-            this.dtgV_Facturas.AllowUserToResizeRows = false;
-            this.dtgV_Facturas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgV_Facturas.BackgroundColor = System.Drawing.Color.White;
-            this.dtgV_Facturas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgV_Facturas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtgV_Facturas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dtgV_Facturas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Goldenrod;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgV_Facturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgV_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgV_Facturas.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgV_Facturas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgV_Facturas.EnableHeadersVisualStyles = false;
-            this.dtgV_Facturas.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtgV_Facturas.Location = new System.Drawing.Point(28, 147);
-            this.dtgV_Facturas.Name = "dtgV_Facturas";
-            this.dtgV_Facturas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgV_Facturas.RowHeadersVisible = false;
-            this.dtgV_Facturas.RowHeadersWidth = 62;
-            this.dtgV_Facturas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.dtgV_Facturas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgV_Facturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgV_Facturas.Size = new System.Drawing.Size(897, 294);
-            this.dtgV_Facturas.TabIndex = 23;
-            // 
             // Frm_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,8 +190,8 @@
             this.Text = "Frm_Facturas";
             this.Load += new System.EventHandler(this.Frm_Facturas_Load);
             this.pn_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgV_Facturas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,7 +202,6 @@
         private user_controls.Gradient_Label_Bounds lbl_TOP;
         private System.Windows.Forms.Panel pn_Container;
         private user_controls.TextBox_Control txt_Busqueda;
-        private System.Windows.Forms.ComboBox cmb_Filtro_Cliente;
         private System.Windows.Forms.ComboBox cmb_Filtro_Facturas;
         private System.Windows.Forms.DataGridView dtgV_Facturas;
     }
