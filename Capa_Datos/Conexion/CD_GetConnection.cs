@@ -14,8 +14,10 @@ namespace Capa_Datos
 {
     public class CD_GetConnection
     {
-        /*Se asigna la conexion con el nombre del Server y la BD*/
-        private SqlConnection db_connection = new SqlConnection("Server=DESKTOP-57GF6Q7\\SQLEXPRESS; Database=GS_FACT_03; Integrated Security=true");
+        //IMPORTANTE CAMBIAR RUTA A LA RUTA DE "TU" BASE DE DATOS
+
+        //Ruta de Conexion
+        private SqlConnection db_connection = new SqlConnection("Server=DESKTOP-57GF6Q7\\SQLEXPRESS; Database=GS_FACT_03; Trusted_Connection=True; Integrated Security=true");
 
         public SqlConnection OpenConnection()
         {
@@ -24,10 +26,6 @@ namespace Capa_Datos
             return db_connection;
         }
 
-        public void CloseConnection()
-        {
-            if (db_connection.State == ConnectionState.Open)
-                db_connection.Close();
-        }
+        public void CloseConnection()=>db_connection.Close();
     }
 }

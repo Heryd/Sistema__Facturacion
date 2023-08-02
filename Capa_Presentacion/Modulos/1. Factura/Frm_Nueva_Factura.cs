@@ -30,7 +30,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         //Cerar el Formulario
         private void btn_CloseForm_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
@@ -95,15 +95,40 @@ namespace Capa_Presentacion.Modulos._1._Factura
         private void btn_Search_Cliente_Click(object sender, EventArgs e)
         {
             int codigo = int.Parse(txt_Codigo_Cliente.Texts);
-            bool confirm = false;
-            var datosCliente = objCapaNegocio.CN_DevolverCliente()
-                            .Where(cl => cl.Cedula == codigo || cl.Id ==codigo)
-                            .Select(cl => new { cl.Id, cl.Nombres, cl.Apellidos, cl.Cedula, cl.Genero, cl.Correo, cl.Direccion, cl.Telefono }).FirstOrDefault();
-                txt_Cedula.Texts = "0" + datosCliente.Cedula.ToString();
-                txt_Nombre.Texts = datosCliente.Nombres.ToString()+" "+datosCliente.Apellidos.ToString();
-                txt_Telefono.Texts = "0"+datosCliente.Telefono.ToString();
-                confirm = true;
-            if(!confirm)
+
+            var clienteInfo = objCapaNegocio.CN_DevolverCliente()
+                .Where(cl => cl.Cedula == codigo || cl.Id == codigo)
+                .Select(cl => new
+                {
+                    cl.Id,
+                    cl.Nombres,
+                    cl.Apellidos,
+                    cl.Cedula,
+                    cl.Genero,
+                    cl.Correo,
+                    cl.Direccion,
+                    cl.Telefono,
+                    MetodoPago = objCapaNegocio.CN_DevolverPago()
+                        .Where(p => p.IdCliente == cl.Id)
+                        .Select(p => p.MetodoPago)
+                        .FirstOrDefault(),
+                    ValorPago = objCapaNegocio.CN_DevolverPago()
+                        .Where(p => p.IdCliente == cl.Id)
+                        .Select(p => p.Valor)
+                        .FirstOrDefault()
+                })
+                .FirstOrDefault();
+
+            if (clienteInfo != null)
+            {
+                txt_Cedula.Texts = "0" + clienteInfo.Cedula.ToString();
+                txt_Nombre.Texts = clienteInfo.Nombres.ToString() + " " + clienteInfo.Apellidos.ToString();
+                txt_Telefono.Texts = "0" + clienteInfo.Telefono.ToString();
+                txt_Metodo_Pago.Texts = clienteInfo.MetodoPago.ToString();
+                txt_Valor_Pago.Texts = clienteInfo.ValorPago.ToString();
+                // El método de pago y valor del pago están disponibles en clienteInfo.MetodoPago y clienteInfo.ValorPago, respectivamente.
+            }
+            else
             {
                 MessageBox.Show("No se encontró el Cliente", "Buscar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -124,7 +149,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 mensajeValidacion += "\n\t- Descripción del Servicio";
                 confirm++;
             }
-            if (string.IsNullOrWhiteSpace(txt_Precio_Unitario.Texts))
+            if (string.IsNullOrWhiteSpace(txt_Val_Unit.Text))
             {
                 mensajeValidacion += "\n\t- Precio Unitario del Servicio";
                 confirm++;
@@ -190,6 +215,45 @@ namespace Capa_Presentacion.Modulos._1._Factura
             if (txt_Nombre_Encargado.Texts.Length > 120 && e.KeyChar != ((char)Keys.Back))
             {
                 MessageBox.Show("Solo se pueden ingresar 120 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void Frm_Nueva_Factura_Load(object sender, EventArgs e)
+        {
+            CargarRegistrosFactura();
+        }
+
+        private void CargarRegistrosFactura()
+        {
+            var facturas = objCapaNegocio.CN_DevolverFactura()
+                .Select(f=> new
+                {
+                    f.Id,
+                    f.Descripcion,
+                    f.Cantidad,
+                    f.ValorUnitario,
+                    f.Total,
+                    f.Fecha
+                });
+            dtgV_Facturas.DataSource = facturas.ToList();
+        }
+
+        private void txt_Val_Unit_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_Val_Unit.Text))
+            {
+                // Eliminar cualquier coma o punto existente en el texto
+                string valorSinComaPunto = txt_Val_Unit.Text.Replace(",", "").Replace(".", "");
+
+                if (int.TryParse(valorSinComaPunto, out int valorEntero))
+                {
+                    // Dividir el valor entre 100 para obtener el valor decimal con dos decimales
+                    decimal valorDecimal = valorEntero / 100.0m;
+
+                    // Asignar el valor formateado al TextBox
+                    txt_Val_Unit.Text = valorDecimal.ToString("N2");
+                    txt_Val_Unit.SelectionStart = txt_Val_Unit.Text.Length; // Colocar el cursor al final del texto
+                }
             }
         }
     }

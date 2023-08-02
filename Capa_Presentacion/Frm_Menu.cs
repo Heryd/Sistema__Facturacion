@@ -324,7 +324,7 @@ namespace Capa_Presentacion
             }
             else
             {
-                MessageBox.Show("No se encontraron registros de facturas.\nRegistre una nueva factura", "Obtener Registros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontraron registros de Pagos.\nRegistre un nuevo pago", "Obtener Registros", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -374,7 +374,16 @@ namespace Capa_Presentacion
             confirm_Read();
             Atenuar_Opc_Modulo(btn_Consultar_Reembolso);
             Close_Active_Form();
-            AbrirFormulario<Frm_Reembolsos>();
+            //Verifica si existen registros, de lo contrario arroja un mensaje de error
+            if (objCapaNegocio.CN_DevolverReembolso().Any())
+            {
+                //Llama al formulario 
+                AbrirFormulario<Frm_Reembolsos>();
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron registros de reembolsos.\nRegistre un reembolso", "Obtener Reembolsos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 
@@ -429,15 +438,20 @@ namespace Capa_Presentacion
         }
 
         #region Asignacion del Boton Home
+        //Se encarga de cerrar el resto de formularios y regresa los Modulos a su tamaño/color/icono predeterminado
         private void btn_HOME_Click(object sender, EventArgs e)
         {
+            //Cierra los forms
             Cerrar_Forms();
+            //Regresa los modulos a su tamaño predeterminado
             Restore_Paneles_Modulos();
+            //Regresa los iconos predeterminados
             DeslizarMenus();
             Reset_Colors_Buttons();
             hidePanels();
         }
         #endregion
+
         private void Restore_Paneles_Modulos()
         {
             if (showPanelFactura)
@@ -457,6 +471,7 @@ namespace Capa_Presentacion
             }
         }
 
+        //Cierra todos los formularios abiertos dentro del menu
         private void Cerrar_Forms()
         {
             Close_Active_Form(); // Cierra el formulario actual si existe
@@ -466,27 +481,14 @@ namespace Capa_Presentacion
             }
             formulariosAbiertos.Clear();
         }
-
+        
+        //Cierra el Formulario Hijo que se encuentra Activo en ese momento
         private void Close_Active_Form()
         {
             active_Form?.Close();
         }
-
-        private void Frm_Menu_SizeChanged(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                if (active_Form != null)
-                    active_Form.Width = 800;
-            }
-        }
-
-        private void Frm_Menu_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Frm_Login frm_Lg = new Frm_Login();
-            frm_Lg.Show();
-        }
-
+        
+        //Añade iconos a los botones de CRUD de cada modulo
         private void Add_Icon_Background() {
             //Botones de Nuevos Registros
             btn_Registro_Factura.Image = icon_new_Register;

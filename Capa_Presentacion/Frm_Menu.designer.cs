@@ -570,7 +570,6 @@
             this.Name = "Frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Menu";
-            this.SizeChanged += new System.EventHandler(this.Frm_Menu_SizeChanged);
             this.panel_Left.ResumeLayout(false);
             this.pnDown_More_Options.ResumeLayout(false);
             this.pnDown_Reembolso.ResumeLayout(false);

@@ -99,9 +99,16 @@ namespace Capa_Negocio
 
         public void CN_EliminarPago(string indice) => objectCD.CD_EliminarPago(int.Parse(indice));
 
+        //Retorna las listas obtenidas de la Clase CD_GetData y las retorna a cada Modulo correspondiente para mapearlo con linq
+        //Lista de Clientes
         public List<Cliente> CN_DevolverCliente() => objectCD.DevolverListaClientes();
+        //Lista de Pagos
         public List<Pago> CN_DevolverPago() => objectCD.DevolverListaPagos();
+        //Lista de Facturas
         public List<Factura> CN_DevolverFactura() => objectCD.DevolverListaFacturas();
+        //Lista de Reembolsos
+        public List<Reembolso> CN_DevolverReembolso() => objectCD.DevolverListaReembolsos();
+
 
 
     }

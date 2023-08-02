@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections.Generic;
 using System.Globalization;
+using Capa_Datos.Conexion.DBExceptions;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)
@@ -35,9 +36,10 @@ namespace Capa_Datos
                 dataAdapter.Fill(dataTable);
                 db_connection.CloseConnection();
             }
-            catch (SqlException ex)
+            catch
             {
-                MessageBox.Show("No se pudo establecer la conexión a la Base de Datos: " + ex.Message, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ha habido algun problema/conflicto con la base de datos!" + Environment.NewLine +
+                                "Intentelo de nuevo o pongase en contacto con el DBA", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return dataTable;
         }
@@ -102,31 +104,42 @@ namespace Capa_Datos
         #region Modulo Cliente
         public void CD_Nuevo_Cliente(Cliente c)
         {
-            SqlCommand sqlComando = new SqlCommand();
-            sqlComando.Connection = db_connection.OpenConnection();
-            sqlComando.CommandText = "NUEVO_CLIENTE";
-            sqlComando.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlCommand sqlComando = new SqlCommand
+                {
+                    Connection = db_connection.OpenConnection(),
+                    CommandText = "NUEVO_CLIENTE",
+                    CommandType = CommandType.StoredProcedure
+                };
 
-            sqlComando.Parameters.AddWithValue("@NOMBRES", c.Nombres);
-            sqlComando.Parameters.AddWithValue("@APELLIDOS", c.Apellidos);
-            sqlComando.Parameters.AddWithValue("@CEDULA", c.Cedula);
-            sqlComando.Parameters.AddWithValue("@CORREO", c.Correo);
-            sqlComando.Parameters.AddWithValue("@DIRECCION", c.Direccion);
-            sqlComando.Parameters.AddWithValue("@TELEFONO", c.Telefono);
-            sqlComando.Parameters.AddWithValue("@GENERO", c.Genero);
-            sqlComando.Parameters.AddWithValue("@FECHA_REGISTRO", c.Fecha);
-            sqlComando.Parameters.AddWithValue("@ESTADO", c.Estado);
-            string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
-            // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
-            if (resultado.StartsWith("ERROR: El cliente ya se encuentra registrado."))
-            {
-                MessageBox.Show(resultado, "Fallo al crear registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                sqlComando.Parameters.AddWithValue("@NOMBRES", c.Nombres);
+                sqlComando.Parameters.AddWithValue("@APELLIDOS", c.Apellidos);
+                sqlComando.Parameters.AddWithValue("@CEDULA", c.Cedula);
+                sqlComando.Parameters.AddWithValue("@CORREO", c.Correo);
+                sqlComando.Parameters.AddWithValue("@DIRECCION", c.Direccion);
+                sqlComando.Parameters.AddWithValue("@TELEFONO", c.Telefono);
+                sqlComando.Parameters.AddWithValue("@GENERO", c.Genero);
+                sqlComando.Parameters.AddWithValue("@FECHA_REGISTRO", c.Fecha);
+                sqlComando.Parameters.AddWithValue("@ESTADO", c.Estado);
+
+                string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
+                // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
+                if (resultado.StartsWith("ERROR: El cliente ya se encuentra registrado."))
+                {
+                    MessageBox.Show(resultado, "Fallo al crear registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(resultado, "Registro creado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                db_connection.CloseConnection();
             }
-            else
+            catch
             {
-                MessageBox.Show(resultado, "Registro creado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ha habido algun problema/conflicto con la base de datos!" + Environment.NewLine +
+                "Intentelo de nuevo o pongase en contacto con el DBA", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            db_connection.CloseConnection();
         }
         #endregion
         #region Modulo Reembolso
@@ -143,29 +156,34 @@ namespace Capa_Datos
         public List<Factura> DevolverListaFacturas()
         {
             List<Factura> facturas = new List<Factura>();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = db_connection.OpenConnection();
-            comando.CommandText = "FACTURAS";
-            comando.CommandType = CommandType.StoredProcedure;
-
+            SqlCommand comando = new SqlCommand()
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "FACTURAS",
+                CommandType = CommandType.StoredProcedure
+            };
             using (SqlDataReader reader = comando.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    Factura factura = new Factura();
-                    //Factura
-                    factura.Id = (int)reader["ID_FACTURA"];
-                    factura.IdEmpresa = (int)reader["ID_EMPRESA"];
-                    factura.IdCliente= (int)reader["ID_CLIENTE"];
-                    //Detalle de la Factura
-                    factura.IdDetalleFactura = (int)reader["ID_DETALLE_FACTURA"];
-                    factura.IdServicio = (int)reader["ID_SERVICIO"];
-                    factura.Encargado = reader["NOMBRE_ENCARGADO"].ToString();
-                    factura.Cantidad = (int)reader["CANTIDAD"];
-                    factura.Total = (decimal)reader["TOTAL_PAGAR"];
-                    //Servicio
-                    factura.Descripcion = reader["DESCRIPCION_SERVICIO"].ToString();
-                    factura.ValorUnitario = (decimal)reader["VALOR_UNITARIO"];
+                    Factura factura = new Factura()
+                    {
+                        //Factura
+                        Id = (int)reader["ID_FACTURA"],
+                        IdEmpresa = (int)reader["ID_EMPRESA"],
+                        IdCliente = (int)reader["ID_CLIENTE"],
+                        Fecha = (DateTime)reader["FECHA_FACTURACION"],
+                        //Detalle de la 
+                        IdDetalleFactura = (int)reader["ID_DETALLE_FACTURA"],
+                        IdServicio = (int)reader["ID_SERVICIO"],
+                        Encargado = reader["NOMBRE_ENCARGADO"].ToString(),
+                        Cantidad = (int)reader["CANTIDAD"],
+                        Total = Convert.ToSingle(reader["TOTAL_PAGAR"], CultureInfo.InvariantCulture),
+                        //Servicio
+                        Descripcion = reader["DESCRIPCION_SERVICIO"].ToString(),
+                        ValorUnitario = Convert.ToSingle(reader["VALOR_UNITARIO"], CultureInfo.InvariantCulture),
+                        Estado = reader["ESTADO"].ToString()
+                    };
                     facturas.Add(factura);
                 }
             }
@@ -179,27 +197,40 @@ namespace Capa_Datos
         public List<Pago> DevolverListaPagos()
         {
             List<Pago> pagos = new List<Pago>();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = db_connection.OpenConnection();
-            comando.CommandText = "SELECT * FROM PAGO";
-            comando.CommandType = CommandType.Text;
-
-            using (SqlDataReader reader = comando.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                SqlCommand comando = new SqlCommand()
                 {
-                    Pago pago = new Pago();
-                    pago.Id = (int)reader["ID_PAGO"];
-                    pago.Fecha = (DateTime)reader["FECHA_PAGO"];
-                    pago.MetodoPago = reader["METODO_PAGO"].ToString().ToUpper();
-                    // Convertir el valor de EFECTIVO a float usando CultureInfo
-                    pago.Valor = Convert.ToSingle(reader["EFECTIVO"], CultureInfo.InvariantCulture);
-                    pago.IdCliente = (int)reader["ID_CLIENTE"];
+                    Connection = db_connection.OpenConnection(),
+                    CommandText = "SELECT * FROM PAGO",
+                    CommandType = CommandType.Text
+                };
 
-                    pagos.Add(pago);
+                using (SqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Pago pago = new Pago()
+                        {
+                            Id = (int)reader["ID_PAGO"],
+                            Fecha = (DateTime)reader["FECHA_PAGO"],
+                            MetodoPago = reader["METODO_PAGO"].ToString().ToUpper(),
+                            // Convertir el valor de EFECTIVO a float usando CultureInfo
+                            Valor = Convert.ToSingle(reader["EFECTIVO"], CultureInfo.InvariantCulture),
+                            IdCliente = (int)reader["ID_CLIENTE"],
+                            Estado = reader["ESTADO"].ToString()
+                        };
+                        pagos.Add(pago);
+                    }
                 }
+
+                db_connection.CloseConnection();
             }
-            db_connection.CloseConnection();
+            catch
+            {
+                MessageBox.Show("Ha habido algun problema/conflicto con la base de datos!" + Environment.NewLine +
+                "Intentelo de nuevo o pongase en contacto con el DBA", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return pagos;
         }
         #endregion
@@ -208,31 +239,42 @@ namespace Capa_Datos
         public List<Cliente> DevolverListaClientes()
         {
             List<Cliente> clientes = new List<Cliente>();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = db_connection.OpenConnection();
-            comando.CommandText = "SELECT * FROM CLIENTE";
-            comando.CommandType = CommandType.Text;
-
-            using (SqlDataReader reader = comando.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                SqlCommand comando = new SqlCommand
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.Id = (int)reader["ID_CLIENTE"];
-                    cliente.Cedula = (decimal)reader["CEDULA"];
-                    cliente.Nombres = reader["NOMBRES"].ToString().ToUpper();
-                    cliente.Apellidos = reader["APELLIDOS"].ToString().ToUpper();
-                    cliente.Correo = reader["CORREO"].ToString();
-                    cliente.Telefono = (decimal)reader["TELEFONO"];
-                    cliente.Direccion = reader["DIRECCION"].ToString().ToUpper();
-                    cliente.Genero = reader["GENERO"].ToString().ToUpper();
-                    cliente.Fecha = (DateTime)reader["FECHA_REGISTRO"];
-                    cliente.Estado = reader["ESTADO"].ToString().ToUpper();
+                    Connection = db_connection.OpenConnection(),
+                    CommandText = "SELECT * FROM CLIENTE",
+                    CommandType = CommandType.Text
+                };
 
-                    clientes.Add(cliente);
+                using (SqlDataReader reader = comando.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Cliente cliente = new Cliente()
+                        {
+                            Id = (int)reader["ID_CLIENTE"],
+                            Cedula = (decimal)reader["CEDULA"],
+                            Nombres = reader["NOMBRES"].ToString().ToUpper(),
+                            Apellidos = reader["APELLIDOS"].ToString().ToUpper(),
+                            Correo = reader["CORREO"].ToString(),
+                            Telefono = (decimal)reader["TELEFONO"],
+                            Direccion = reader["DIRECCION"].ToString().ToUpper(),
+                            Genero = reader["GENERO"].ToString().ToUpper(),
+                            Fecha = (DateTime)reader["FECHA_REGISTRO"],
+                            Estado = reader["ESTADO"].ToString().ToUpper(),
+                        };
+
+                        clientes.Add(cliente);
+                    }
                 }
+                db_connection.CloseConnection();
             }
-            db_connection.CloseConnection();
+            catch
+            {
+                throw new DBErrorException();
+            }
             return clientes;
         }
         //Obtiene los registros de la tabla cliente en orden [Id,Cedula,Nombres+Apellidos,Telefono,Correo,Fecha]
@@ -242,6 +284,36 @@ namespace Capa_Datos
         #endregion
         #region Modulo Reembolso
         public DataTable Consulta_Reembolos() => GetData("CONSULTAR_REEMBOLSOS");
+        //Devuelve los registros obtenidos de la Tabla Reembolso para luego poder mapearlos con linq
+        public List<Reembolso> DevolverListaReembolsos()
+        {
+            List<Reembolso> reembolsos = new List<Reembolso>();
+            SqlCommand comando = new SqlCommand()
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "SELECT * FROM REEMBOLSO",
+                CommandType = CommandType.Text
+            };
+
+            using (SqlDataReader reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Reembolso reembolso = new Reembolso{ 
+                        Id = (int)reader["ID_REEMBOLSO"],
+                        IdFactura = (int)reader["ID_FACTURA"],
+                        IdServicio = (int)reader["ID_SERVICIO"],
+                        Motivo = reader["MOTIVO_REEMBOLSO"].ToString(),
+                        Fecha = (DateTime)reader["FECHA"],
+                    };
+                    reembolsos.Add(reembolso);
+                }
+            }
+
+            db_connection.CloseConnection();
+            return reembolsos;
+        }
+
         #endregion
 
         //Stored Procedure - Update
@@ -320,18 +392,25 @@ namespace Capa_Datos
         //Eliminar el cliente a través de su Cédula
         public void CD_EliminarCliente(int codigo_cliente)
         {
-            SqlCommand comando = new SqlCommand
+            try
             {
-                Connection = db_connection.OpenConnection(),
-                CommandText = "ELIMINAR_CLIENTE",
-                CommandType = CommandType.StoredProcedure
-            };
+                SqlCommand comando = new SqlCommand
+                {
+                    Connection = db_connection.OpenConnection(),
+                    CommandText = "ELIMINAR_CLIENTE",
+                    CommandType = CommandType.StoredProcedure
+                };
 
-            comando.Parameters.AddWithValue("@ID_CLIENTE", codigo_cliente);
-            comando.ExecuteNonQuery(); // Ejecutar la consulta de actualización
+                comando.Parameters.AddWithValue("@ID_CLIENTE", codigo_cliente);
+                comando.ExecuteNonQuery(); // Ejecutar la consulta de actualización
 
-            MessageBox.Show("Cliente Eliminado", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            db_connection.CloseConnection();
+                MessageBox.Show("Cliente Eliminado", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                db_connection.CloseConnection();
+            }
+            catch
+            {
+                throw new DBErrorException();
+            }
         }
         #endregion
         #region Modulo Reembolso

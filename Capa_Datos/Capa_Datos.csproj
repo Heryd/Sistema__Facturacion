@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Conexion\CD_GetConnection.cs" />
     <Compile Include="Conexion\CD_GetData.cs" />
+    <Compile Include="Conexion\DBExceptions\DBErrorException.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Empresa.cs" />
     <Compile Include="Entidades\Factura.cs" />

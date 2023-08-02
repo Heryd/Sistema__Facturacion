@@ -9,5 +9,6 @@ namespace Capa_Datos.Entidades
         public DateTime Fecha{ get; set; }
         public string MetodoPago { get; set; }
         public float Valor { get; set; }
+        public string Estado { get; set; }
     }
 }

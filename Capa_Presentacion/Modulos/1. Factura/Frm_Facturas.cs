@@ -55,10 +55,10 @@ namespace Capa_Presentacion.Modulos._1._Factura
                                     CODIGO = f.IdDetalleFactura,
                                     NOMBRES = f.Encargado,
                                     SERVICIO = f.Descripcion,
-                                    METODO_PAGO = string.Join(", ",
-                                                    objCapaNegocio.CN_DevolverPago()
-                                                        .Where(p => p.IdCliente == f.IdCliente)
-                                                        .Select(p => p.MetodoPago)),
+                                    METODO_PAGO = objCapaNegocio.CN_DevolverPago()
+                                                .Where(p => p.IdCliente == f.IdCliente)
+                                                .Select(p => p.MetodoPago)
+                                                .FirstOrDefault(),
                                     TOTAL = f.Total,
                                     FECHA = f.Fecha 
                     });
