@@ -87,7 +87,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
             }
             if (txt_Codigo_Cliente.Texts.Length > 10 && e.KeyChar != ((char)Keys.Back))
             {
-                MessageBox.Show("El código solo puede contener entre 1 a 7 caracteres numericos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El código solo puede contener entre 1 a 9 caracteres numericos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -113,7 +113,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
                         .Select(p => p.MetodoPago)
                         .FirstOrDefault(),
                     ValorPago = objCapaNegocio.CN_DevolverPago()
-                        .Where(p => p.IdCliente == cl.Id)
+                        .Where(p => p.IdCliente == cl.Id && p.Estado == "EN PROCESO")
                         .Select(p => p.Valor)
                         .FirstOrDefault()
                 })
@@ -121,12 +121,20 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
             if (clienteInfo != null)
             {
-                txt_Cedula.Texts = "0" + clienteInfo.Cedula.ToString();
-                txt_Nombre.Texts = clienteInfo.Nombres.ToString() + " " + clienteInfo.Apellidos.ToString();
-                txt_Telefono.Texts = "0" + clienteInfo.Telefono.ToString();
-                txt_Metodo_Pago.Texts = clienteInfo.MetodoPago.ToString();
-                txt_Valor_Pago.Texts = clienteInfo.ValorPago.ToString();
-                // El método de pago y valor del pago están disponibles en clienteInfo.MetodoPago y clienteInfo.ValorPago, respectivamente.
+                if (clienteInfo.ValorPago > 0)
+                {
+                    txt_Cedula.Texts = "0" + clienteInfo.Cedula.ToString();
+                    txt_Nombre.Texts = clienteInfo.Nombres.ToString() + " " + clienteInfo.Apellidos.ToString();
+                    txt_Telefono.Texts = "0" + clienteInfo.Telefono.ToString();
+                    txt_Metodo_Pago.Texts = clienteInfo.MetodoPago.ToString();
+                    txt_Valor_Pago.Texts = clienteInfo.ValorPago.ToString();
+                    // El método de pago y valor del pago están disponibles en clienteInfo.MetodoPago y clienteInfo.ValorPago, respectivamente.
+                }
+                else
+                {
+                    MessageBox.Show("Cliente: "+clienteInfo.Apellidos+" "+clienteInfo.Nombres+", no ha registrado un pago.\nPor favor realice primero el pago.", "Cliente no ha pagado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
             }
             else
             {

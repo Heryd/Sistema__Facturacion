@@ -13,6 +13,6 @@ namespace Capa_Datos.Entidades
         public decimal Telefono { get; set; }
         public string Genero{ get; set; }
         public DateTime Fecha{ get; set; }
-        public string Estado{ get; set; }
+        public string Estado { get; set; }
     }
 }

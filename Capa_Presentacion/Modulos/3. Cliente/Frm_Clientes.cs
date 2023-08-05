@@ -45,13 +45,21 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         //Método para Editar o Eliminar Filas
         private void dtgV_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["CEDULA"].Value.ToString();
+            string estado = dtgV_Clientes.Rows[e.RowIndex].Cells["ESTADO"].Value.ToString();
             //Edita una fila seleccionada enviando los valores a otro formulario
             if (dtgV_Clientes.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
             {
-                string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["CEDULA"].Value.ToString();
-                Frm_Actualizar_Cliente frm_Update = new Frm_Actualizar_Cliente(indice);
-                frm_Update.ShowDialog();
-                CargarRegistrosDataGridView();
+                if (!estado.Equals("PAGANDO",StringComparison.OrdinalIgnoreCase))
+                {
+                    Frm_Actualizar_Cliente frm_Update = new Frm_Actualizar_Cliente(indice);
+                    frm_Update.ShowDialog();
+                    CargarRegistrosDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("El cliente se encuentra en proceso de pago.\nNo se puede editar el registro.\nPor favor, primero realice el proceso de facturación.", "Editar Registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
 
             //Cambia el estado de un registro a "Eliminado"
@@ -61,8 +69,6 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 DialogResult dg = MessageBox.Show("¿Está seguro de Eliminar a este Cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dg == DialogResult.OK)
                 {
-                    //obtienes el valor de la primer columna
-                    string indice = dtgV_Clientes.Rows[e.RowIndex].Cells["ID_CLIENTE"].Value.ToString();
                     objCapaNegocio.CN_EliminarCliente(indice);
                     CargarRegistrosDataGridView();
                 }

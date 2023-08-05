@@ -73,7 +73,6 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                     Direccion = txt_Direccion.Texts.Trim(),
                     Telefono = decimal.Parse(txt_Telefono.Texts.Trim()),
                     Fecha = DateTime.Today,
-                    Estado = (rbn_Activo.Checked ? "ACTIVO" : "INACTIVO")
                 };
                 objCapaNegocio.CN_Nuevo_Cliente(cl);
                 Limpiar_Campos();

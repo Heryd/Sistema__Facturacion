@@ -35,10 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.gp_Datos = new System.Windows.Forms.GroupBox();
             this.txt_Cedula = new Capa_Presentacion.user_controls.TextBox_Control();
-            this.rbn_Inactivo = new System.Windows.Forms.RadioButton();
             this.lbl_Cedula = new System.Windows.Forms.Label();
-            this.rbn_Activo = new System.Windows.Forms.RadioButton();
-            this.lbl_Estado = new System.Windows.Forms.Label();
             this.lbl_Apellidos = new System.Windows.Forms.Label();
             this.lbl_Nombres = new System.Windows.Forms.Label();
             this.lbl_Correo = new System.Windows.Forms.Label();
@@ -94,10 +91,7 @@
             // gp_Datos
             // 
             this.gp_Datos.Controls.Add(this.txt_Cedula);
-            this.gp_Datos.Controls.Add(this.rbn_Inactivo);
             this.gp_Datos.Controls.Add(this.lbl_Cedula);
-            this.gp_Datos.Controls.Add(this.rbn_Activo);
-            this.gp_Datos.Controls.Add(this.lbl_Estado);
             this.gp_Datos.Controls.Add(this.lbl_Apellidos);
             this.gp_Datos.Controls.Add(this.lbl_Nombres);
             this.gp_Datos.Controls.Add(this.lbl_Correo);
@@ -128,7 +122,7 @@
             this.txt_Cedula.BorderSize = 2;
             this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Cedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Cedula.Location = new System.Drawing.Point(99, 23);
+            this.txt_Cedula.Location = new System.Drawing.Point(99, 45);
             this.txt_Cedula.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Cedula.Multiline = false;
             this.txt_Cedula.Name = "txt_Cedula";
@@ -142,58 +136,22 @@
             this.txt_Cedula.UnderlinedStyle = true;
             this.txt_Cedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cedula_KeyPress);
             // 
-            // rbn_Inactivo
-            // 
-            this.rbn_Inactivo.AutoSize = true;
-            this.rbn_Inactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbn_Inactivo.Location = new System.Drawing.Point(189, 313);
-            this.rbn_Inactivo.Name = "rbn_Inactivo";
-            this.rbn_Inactivo.Size = new System.Drawing.Size(75, 17);
-            this.rbn_Inactivo.TabIndex = 42;
-            this.rbn_Inactivo.TabStop = true;
-            this.rbn_Inactivo.Text = "INACTIVO";
-            this.rbn_Inactivo.UseVisualStyleBackColor = true;
-            // 
             // lbl_Cedula
             // 
             this.lbl_Cedula.AutoSize = true;
             this.lbl_Cedula.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Cedula.Location = new System.Drawing.Point(6, 31);
+            this.lbl_Cedula.Location = new System.Drawing.Point(6, 53);
             this.lbl_Cedula.Name = "lbl_Cedula";
             this.lbl_Cedula.Size = new System.Drawing.Size(43, 15);
             this.lbl_Cedula.TabIndex = 2;
             this.lbl_Cedula.Text = "Cédula";
             this.lbl_Cedula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // rbn_Activo
-            // 
-            this.rbn_Activo.AutoSize = true;
-            this.rbn_Activo.Checked = true;
-            this.rbn_Activo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbn_Activo.Location = new System.Drawing.Point(99, 313);
-            this.rbn_Activo.Name = "rbn_Activo";
-            this.rbn_Activo.Size = new System.Drawing.Size(64, 17);
-            this.rbn_Activo.TabIndex = 41;
-            this.rbn_Activo.TabStop = true;
-            this.rbn_Activo.Text = "ACTIVO";
-            this.rbn_Activo.UseVisualStyleBackColor = true;
-            // 
-            // lbl_Estado
-            // 
-            this.lbl_Estado.AutoSize = true;
-            this.lbl_Estado.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Estado.Location = new System.Drawing.Point(4, 312);
-            this.lbl_Estado.Name = "lbl_Estado";
-            this.lbl_Estado.Size = new System.Drawing.Size(45, 15);
-            this.lbl_Estado.TabIndex = 40;
-            this.lbl_Estado.Text = "Estado:";
-            this.lbl_Estado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lbl_Apellidos
             // 
             this.lbl_Apellidos.AutoSize = true;
             this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Apellidos.Location = new System.Drawing.Point(6, 74);
+            this.lbl_Apellidos.Location = new System.Drawing.Point(6, 96);
             this.lbl_Apellidos.Name = "lbl_Apellidos";
             this.lbl_Apellidos.Size = new System.Drawing.Size(59, 15);
             this.lbl_Apellidos.TabIndex = 3;
@@ -204,7 +162,7 @@
             // 
             this.lbl_Nombres.AutoSize = true;
             this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombres.Location = new System.Drawing.Point(6, 117);
+            this.lbl_Nombres.Location = new System.Drawing.Point(6, 139);
             this.lbl_Nombres.Name = "lbl_Nombres";
             this.lbl_Nombres.Size = new System.Drawing.Size(58, 15);
             this.lbl_Nombres.TabIndex = 4;
@@ -215,7 +173,7 @@
             // 
             this.lbl_Correo.AutoSize = true;
             this.lbl_Correo.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Correo.Location = new System.Drawing.Point(6, 193);
+            this.lbl_Correo.Location = new System.Drawing.Point(6, 215);
             this.lbl_Correo.Name = "lbl_Correo";
             this.lbl_Correo.Size = new System.Drawing.Size(45, 15);
             this.lbl_Correo.TabIndex = 5;
@@ -226,7 +184,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 155);
+            this.label2.Location = new System.Drawing.Point(6, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 15);
             this.label2.TabIndex = 38;
@@ -242,7 +200,7 @@
             this.txt_Apellidos.BorderSize = 2;
             this.txt_Apellidos.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Apellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Apellidos.Location = new System.Drawing.Point(99, 65);
+            this.txt_Apellidos.Location = new System.Drawing.Point(99, 87);
             this.txt_Apellidos.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Apellidos.Multiline = false;
             this.txt_Apellidos.Name = "txt_Apellidos";
@@ -269,7 +227,7 @@
             "Masculino",
             "Femenino",
             "Prefiero no decirlo"});
-            this.cmb_Genero.Location = new System.Drawing.Point(99, 149);
+            this.cmb_Genero.Location = new System.Drawing.Point(99, 171);
             this.cmb_Genero.Name = "cmb_Genero";
             this.cmb_Genero.Size = new System.Drawing.Size(180, 24);
             this.cmb_Genero.TabIndex = 37;
@@ -283,7 +241,7 @@
             this.txt_Nombres.BorderSize = 2;
             this.txt_Nombres.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Nombres.Location = new System.Drawing.Point(99, 107);
+            this.txt_Nombres.Location = new System.Drawing.Point(99, 129);
             this.txt_Nombres.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Nombres.Multiline = false;
             this.txt_Nombres.Name = "txt_Nombres";
@@ -306,7 +264,7 @@
             this.txt_Telefono.BorderSize = 2;
             this.txt_Telefono.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Telefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Telefono.Location = new System.Drawing.Point(99, 268);
+            this.txt_Telefono.Location = new System.Drawing.Point(99, 290);
             this.txt_Telefono.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Telefono.Multiline = false;
             this.txt_Telefono.Name = "txt_Telefono";
@@ -329,7 +287,7 @@
             this.txt_Correo.BorderSize = 2;
             this.txt_Correo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Correo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Correo.Location = new System.Drawing.Point(99, 184);
+            this.txt_Correo.Location = new System.Drawing.Point(99, 206);
             this.txt_Correo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Correo.Multiline = false;
             this.txt_Correo.Name = "txt_Correo";
@@ -348,7 +306,7 @@
             // 
             this.lbl_Telefono.AutoSize = true;
             this.lbl_Telefono.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Telefono.Location = new System.Drawing.Point(6, 274);
+            this.lbl_Telefono.Location = new System.Drawing.Point(6, 296);
             this.lbl_Telefono.Name = "lbl_Telefono";
             this.lbl_Telefono.Size = new System.Drawing.Size(56, 15);
             this.lbl_Telefono.TabIndex = 35;
@@ -359,7 +317,7 @@
             // 
             this.lbl_Direccion.AutoSize = true;
             this.lbl_Direccion.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Direccion.Location = new System.Drawing.Point(6, 236);
+            this.lbl_Direccion.Location = new System.Drawing.Point(6, 258);
             this.lbl_Direccion.Name = "lbl_Direccion";
             this.lbl_Direccion.Size = new System.Drawing.Size(58, 15);
             this.lbl_Direccion.TabIndex = 26;
@@ -375,7 +333,7 @@
             this.txt_Direccion.BorderSize = 2;
             this.txt_Direccion.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Direccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Direccion.Location = new System.Drawing.Point(99, 226);
+            this.txt_Direccion.Location = new System.Drawing.Point(99, 248);
             this.txt_Direccion.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Direccion.Multiline = false;
             this.txt_Direccion.Name = "txt_Direccion";
@@ -577,8 +535,5 @@
         private System.Windows.Forms.ComboBox cmb_Genero;
         private System.Windows.Forms.DataGridView dtgV_Clientes;
         private System.Windows.Forms.GroupBox gp_Datos;
-        private System.Windows.Forms.RadioButton rbn_Inactivo;
-        private System.Windows.Forms.RadioButton rbn_Activo;
-        private System.Windows.Forms.Label lbl_Estado;
     }
 }

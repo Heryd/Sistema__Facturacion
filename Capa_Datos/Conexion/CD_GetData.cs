@@ -121,7 +121,6 @@ namespace Capa_Datos
                 sqlComando.Parameters.AddWithValue("@TELEFONO", c.Telefono);
                 sqlComando.Parameters.AddWithValue("@GENERO", c.Genero);
                 sqlComando.Parameters.AddWithValue("@FECHA_REGISTRO", c.Fecha);
-                sqlComando.Parameters.AddWithValue("@ESTADO", c.Estado);
 
                 string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
                 // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
@@ -359,7 +358,6 @@ namespace Capa_Datos
             sqlComando.Parameters.AddWithValue("@TELEFONO", c.Telefono);
             sqlComando.Parameters.AddWithValue("@GENERO", c.Genero);
             sqlComando.Parameters.AddWithValue("@FECHA_REGISTRO", c.Fecha);
-            sqlComando.Parameters.AddWithValue("@ESTADO", c.Estado);
             string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
             // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
             MessageBox.Show(resultado, "Actualización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);

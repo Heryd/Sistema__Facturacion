@@ -8,3 +8,32 @@ CREATE TABLE REEMBOLSO(
 	MOTIVO_REEMBOLSO VARCHAR(180) DEFAULT 'NO ESPECIFICADO',
 	FECHA DATE NOT NULL
 );
+
+ALTER TABLE REEMBOLSO ADD CONSTRAINT idRem_PK PRIMARY KEY(ID_REEMBOLSO);
+
+
+go
+CREATE PROCEDURE NUEVO_REEMBOLSO
+	@codigoFactura int,
+	@codigoPago int,
+	@motivoReembolso varchar(180),
+	@fecha date
+AS
+BEGIN	
+	IF NOT EXISTS (
+		SELECT *
+		FROM CLIENTE cl
+		INNER JOIN PAGO p on cl.ID_CLIENTE = p.ID_CLIENTE
+		INNER JOIN FACTURA f on cl.ID_CLIENTE = f.ID_CLIENTE
+		where p.ESTADO = UPPER('reembolsado') and f.ESTADO = UPPER('anulado') and f.ID_FACTURA=@codigoFactura
+	)
+	BEGIN
+		INSERT INTO REEMBOLSO(ID_FACTURA, ID_SERVICIO, MOTIVO_REEMBOLSO, FECHA)
+		VALUES (@codigoFactura, (SELECT ID_SERVICIO FROM DETALLE_FACTURA WHERE ID_FACTURA = @codigoFactura), @motivoReembolso,@fecha)
+		UPDATE PAGO SET ESTADO = UPPER('REEMBOLSADO') WHERE ID_PAGO = @codigoPago;
+		UPDATE FACTURA SET ESTADO = UPPER('ANULADO') WHERE ID_FACTURA = @codigoFactura;
+		SELECT 'Se ha realizado correctamente el reembolso de su pago.';
+		return;
+	END
+	SELECT 'Esta factura ya fue anulada y el pago del cliente reembolsado.'
+END
