@@ -302,6 +302,8 @@ namespace Capa_Presentacion.user_controls
                 SetPlaceholder();
             }
         }
+
+        public EventHandler TextBox1_Changed { get => textBox1_Changed; set => textBox1_Changed = value; }
         #endregion
 
         #region -> Overridden methods
@@ -417,6 +419,10 @@ namespace Capa_Presentacion.user_controls
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.OnKeyPress(e);
+        }
+        private void textBox1_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            this.OnTextChanged(e);
         }
     }
 }

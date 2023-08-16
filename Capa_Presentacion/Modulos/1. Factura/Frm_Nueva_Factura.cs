@@ -1,10 +1,11 @@
 ﻿using Capa_Negocio;
-using Capa_Datos.Entidades;
-using System.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
@@ -77,7 +78,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
             {
                 e.Handled = false;
             }
-            else if (c == (char)Keys.Back ||c==(char)Keys.LShiftKey || c == (char)Keys.RShiftKey)
+            else if (c == (char)Keys.Back || c == (char)Keys.LShiftKey || c == (char)Keys.RShiftKey)
             {
                 e.Handled = false;
             }
@@ -132,8 +133,8 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 }
                 else
                 {
-                    MessageBox.Show("Cliente: "+clienteInfo.Apellidos+" "+clienteInfo.Nombres+", no ha registrado un pago.\nPor favor realice primero el pago.", "Cliente no ha pagado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+                    MessageBox.Show("Cliente: " + clienteInfo.Apellidos + " " + clienteInfo.Nombres + ", no ha registrado un pago.\nPor favor realice primero el pago.", "Cliente no ha pagado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             else
@@ -211,8 +212,8 @@ namespace Capa_Presentacion.Modulos._1._Factura
             {
                 e.Handled = false;
             }
-            else if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space ||e.KeyChar==(char)Keys.LShiftKey
-                    || e.KeyChar == (char)Keys.RShiftKey|| e.KeyChar == '.')
+            else if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space || e.KeyChar == (char)Keys.LShiftKey
+                    || e.KeyChar == (char)Keys.RShiftKey || e.KeyChar == '.')
             {
                 e.Handled = false;
             }
@@ -234,7 +235,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         private void CargarRegistrosFactura()
         {
             var facturas = objCapaNegocio.CN_DevolverFactura()
-                .Select(f=> new
+                .Select(f => new
                 {
                     f.Id,
                     f.Descripcion,
@@ -263,6 +264,52 @@ namespace Capa_Presentacion.Modulos._1._Factura
                     txt_Val_Unit.SelectionStart = txt_Val_Unit.Text.Length; // Colocar el cursor al final del texto
                 }
             }
+        }
+
+        private void CalcularTotal()
+        {
+            float valor_pago = float.Parse(txt_Valor_Pago.Texts);
+        }
+
+        private void btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            if (objCapaNegocio.CN_DevolverFactura().Count > 0)
+            {
+                SaveFileDialog guardar_reporte = new SaveFileDialog()
+                {
+                    FileName = DateTime.Now.ToString("dddd_d_MMM_yyyy") + ".pdf",
+                    Title = "Reporte de Facturas",
+                };
+
+                var contenido = Properties.Resources.Plantilla.ToString();
+                //contenido = contenido.Replace("@Cliente",)
+
+                if (guardar_reporte.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(guardar_reporte.FileName, FileMode.Create))
+                    {
+                        Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
+                        pdf.Open();
+
+                        pdf.Add(new Phrase(""));
+                        using (StringReader str = new StringReader(contenido))
+                        {
+                            //Leer el objeto del conteniod y se pueda incrustar en el pdf
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, str);
+                        }
+
+                        pdf.Close();
+                        stream.Close();
+                        MessageBox.Show("Reporte generado con éxito", "Reporte de Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo generar el reporte.\n\tNo hay facturas generadas.", "Fallo al generar Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

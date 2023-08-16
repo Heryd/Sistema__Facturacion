@@ -1,10 +1,8 @@
 ﻿using Capa_Negocio;
-using Capa_Datos.Entidades;
-using System.Linq;
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Globalization;
+using System.Linq;
+using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)
@@ -88,7 +86,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 if (facturaInfo != null)
                 {
                     Txt_Fecha_Emision.Texts = facturaInfo.Fecha.ToString("dddd dd MMMM, yyyy", CultureInfo.CreateSpecificCulture("es-ES"));
-                    txt_Cedula.Text = "0"+facturaInfo.Cedula_Cliente.ToString();
+                    txt_Cedula.Text = "0" + facturaInfo.Cedula_Cliente.ToString();
                     txt_Nombres_Cliente.Text = facturaInfo.Nombres_Cliente.ToString();
                     Txt_Valor_Pago.Texts = facturaInfo.Monto.ToString();
                     Set_Combo_Box(facturaInfo.Metodo_Pago.ToString().ToUpper());
@@ -111,7 +109,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
 
         private void Txt_Id_Pago_TextChanged(object sender, EventArgs e)
         {
-            if (Txt_Id_Pago.Text!=null && !Txt_Id_Pago.Equals("") && Txt_Id_Pago.Text.Length > 0)
+            if (Txt_Id_Pago.Text != null && !Txt_Id_Pago.Equals("") && Txt_Id_Pago.Text.Length > 0)
             {
                 txt_Codigo_Factura.Enabled = true;
                 btn_Search_Factura.Enabled = true;

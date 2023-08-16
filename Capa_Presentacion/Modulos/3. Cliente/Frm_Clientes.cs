@@ -1,33 +1,41 @@
 ﻿using Capa_Negocio;
-using Capa_Presentacion.Modulos._1._Factura;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion.Modulos._3._Cliente
 {
     public partial class Frm_Clientes : Form
     {
-        //Fields
-        CN_GetData objCapaNegocio = new CN_GetData();
+        #region Atributos
+        /// <summary>
+        /// Ojbeto de solo lectura para la invocación de los métodos de la clase <b>CN_GetData</b>
+        /// </summary> 
+        private readonly CN_GetData objCapaNegocio = new CN_GetData();
+        /// <summary>
+        /// Índice que servirá para la correspondiente aplicación de filtros.
+        /// </summary>
+        private int index_object = -1;
+        #endregion
 
+        #region Inicialización del Constructor
+        /// <summary>
+        /// Inicializa los componentes y carga los registros de tipo cliente al DataGridView.
+        /// </summary> 
+        #endregion
         public Frm_Clientes()
         {
             InitializeComponent();
             CargarElementos();
         }
 
-        //Establece las posiciones de los comboBox en índice 0 "(Seleccionar...)"
+        #region Método para iniciar el index del comboBox al primer elementos
+        /// <summary>
+        /// Establece las posiciones de los comboBox en índice 0 "(Código)"
+        /// </summary> 
+        #endregion
         private void CargarElementos()
         {
-            cmb_Filtro_Cliente.SelectedIndex= 0;
-            cmb_Filtro_Pago.SelectedIndex= 0;
+            cmb_Filtro_Cliente.SelectedIndex = 0;
         }
 
         //Cierra el Formulario
@@ -50,7 +58,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             //Edita una fila seleccionada enviando los valores a otro formulario
             if (dtgV_Clientes.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
             {
-                if (!estado.Equals("PAGANDO",StringComparison.OrdinalIgnoreCase))
+                if (!estado.Equals("PAGANDO", StringComparison.OrdinalIgnoreCase))
                 {
                     Frm_Actualizar_Cliente frm_Update = new Frm_Actualizar_Cliente(indice);
                     frm_Update.ShowDialog();
@@ -62,10 +70,9 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 }
             }
 
-            //Cambia el estado de un registro a "Eliminado"
+            //Envía el código del cliente al método Eliminar Cliente de la Capa negocio
             if (dtgV_Clientes.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
             {
-                string verificar_Estado = dtgV_Clientes.Rows[e.RowIndex].Cells["ESTADO"].Value.ToString();
                 DialogResult dg = MessageBox.Show("¿Está seguro de Eliminar a este Cliente?", "Eliminar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dg == DialogResult.OK)
                 {
@@ -86,6 +93,11 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         {
             CargarRegistrosDataGridView();
             objCapaNegocio.CN_Add_Buttons_DTGV(dtgV_Clientes);
+        }
+
+        private void cmb_Filtro_Cliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            index_object = cmb_Filtro_Cliente.SelectedIndex + 1;
         }
     }
 }

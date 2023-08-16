@@ -1,10 +1,8 @@
 ﻿using Capa_Datos.Entidades;
 using Capa_Negocio;
 using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
@@ -32,13 +30,13 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             switch (genero)
             {
                 case "MASCULINO":
-                    cmb_Genero.SelectedIndex = 1;
+                cmb_Genero.SelectedIndex = 1;
                 break;
                 case "FEMENINO":
-                    cmb_Genero.SelectedIndex = 2;
+                cmb_Genero.SelectedIndex = 2;
                 break;
                 case "PREFIERO NO DECIRLO":
-                    cmb_Genero.SelectedIndex = 3;
+                cmb_Genero.SelectedIndex = 3;
                 break;
             }
         }
@@ -50,13 +48,13 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             {
                 case 1:
                 value = "MASCULINO";
-                    break;
+                break;
                 case 2:
                 value = "FEMENINO";
-                    break;
+                break;
                 case 3:
                 value = "PREFIERO NO DECIRLO";
-                    break;
+                break;
             }
             return value;
         }
@@ -88,7 +86,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         private void RetornarDatosCliente(int indice)
         {
             var nombreCliente = objCapaNegocio.CN_DevolverCliente()
-                .Where(cl => cl.Cedula==indice)
+                .Where(cl => cl.Cedula == indice)
                 .Select(cl => new
                 {
                     cl.Id,

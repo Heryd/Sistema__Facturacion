@@ -25,7 +25,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
 
         private void CargarElementos()
         {
-            txt_fecha.Text=Get_Date();
+            txt_fecha.Text = Get_Date();
             cmb_Genero.SelectedIndex = 0;
         }
 
@@ -47,7 +47,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             txt_Telefono.Texts = "";
         }
 
-        private void btn_CloseForm_Click(object sender, EventArgs e)=>Close();
+        private void btn_CloseForm_Click(object sender, EventArgs e) => Close();
 
         private void txt_Correo_Load(object sender, EventArgs e)
         {
@@ -122,7 +122,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 mensajeValidacion += "\n\t- Nombres del Cliente";
                 confirm++;
             }
-            if (cmb_Genero.SelectedIndex <= 0) 
+            if (cmb_Genero.SelectedIndex <= 0)
             {
                 mensajeValidacion += "\n\t- G\u00e9nero del Cliente";
                 confirm++;
@@ -139,7 +139,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             }
             if (string.IsNullOrWhiteSpace(txt_Telefono.Texts))
             {
-                if (txt_Telefono.Texts.Length<10)
+                if (txt_Telefono.Texts.Length < 10)
                 {
                     mensajeValidacion += "\n\t- El Tel\u00e9fono no contiene 10 d\u00edgitos";
                     confirm++;
@@ -245,7 +245,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             {
                 e.Handled = false;
             }
-            else if (e.KeyChar == (char)Keys.Back||e.KeyChar == '.'|| e.KeyChar == '@')
+            else if (e.KeyChar == (char)Keys.Back || e.KeyChar == '.' || e.KeyChar == '@')
             {
                 e.Handled = false;
             }

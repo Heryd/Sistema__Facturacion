@@ -1,9 +1,8 @@
-﻿using System;
-using Capa_Datos.Entidades;
+﻿using Capa_Datos.Entidades;
 using Capa_Negocio;
+using System;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion.Modulos._2._Pago
@@ -62,25 +61,25 @@ namespace Capa_Presentacion.Modulos._2._Pago
             }
         }
 
-        private string Get_Item_ComboBox()=>cmbMetodoPago.SelectedItem.ToString();
+        private string Get_Item_ComboBox() => cmbMetodoPago.SelectedItem.ToString();
 
         //Mapea una lista con Linq y rellena los textbox-combobox 
         private void RetornarDatosPago(int indice)
         {
             var pago = objCapaNegocio.CN_DevolverPago()
-                .Where(p => p.Id== indice)
+                .Where(p => p.Id == indice)
                 .Select(p => new
                 {
                     p.Id,
                     CODIGO_CLIENTE = objCapaNegocio.CN_DevolverCliente()
-                                    .Where(cl=> cl.Id == p.IdCliente)
+                                    .Where(cl => cl.Id == p.IdCliente)
                                     .Select(cl => cl.Cedula)
                                     .FirstOrDefault(),
-                     p.MetodoPago,
-                     p.Valor
+                    p.MetodoPago,
+                    p.Valor
                 }).FirstOrDefault();
             txt_ID.Text = pago.Id.ToString();
-            txt_Codigo_Cliente.Text = "0"+pago.CODIGO_CLIENTE.ToString();
+            txt_Codigo_Cliente.Text = "0" + pago.CODIGO_CLIENTE.ToString();
             txt_Valor_Pago.Text = pago.Valor.ToString();
             Set_Item_ComboBox(pago.MetodoPago);
         }

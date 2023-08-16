@@ -1,13 +1,12 @@
-﻿using System;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
+﻿using Capa_Datos.Conexion.DBExceptions;
 using Capa_Datos.Entidades;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
-using Capa_Datos.Conexion.DBExceptions;
+using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)
@@ -18,10 +17,28 @@ using Capa_Datos.Conexion.DBExceptions;
 
 namespace Capa_Datos
 {
+    #region Descripción de la Clase Get_Data
+    /// <summary>
+    /// Administra los métodos CRUD que nos ayudarán a interactuar con nuestra Base de Datos
+    /// </summary> 
+    /// <remarks>
+    /// <c>Esta clase solo administra solo sirve para administrar los registros de la Base de Datos.</c>
+    /// </remarks>
+    #endregion
     public class CD_GetData
     {
-        private CD_GetConnection db_connection = new CD_GetConnection();
+        private readonly CD_GetConnection db_connection = new CD_GetConnection();
 
+        #region Método para setear registros a un DataTable
+        /// <summary>
+        /// Se encarga de obtener los registros mediante un Store Procedure que
+        /// se encuentra en nuestra Base de Datos.
+        /// </summary>
+        /// <param name="sql_Text">Recibe el nombre de un Store Procedure</param>
+        /// <returns>
+        /// Retorna un objeto de tipo <![CDATA[DataTable]]>
+        /// </returns> 
+        #endregion
         public DataTable GetData(string sql_Text)
         {
             DataTable dataTable = new DataTable();
@@ -44,34 +61,61 @@ namespace Capa_Datos
             return dataTable;
         }
 
-        //Stored Procedure - Login Validation
         #region Login
+        /// <summary>
+        /// <para>Este método se encarga de validar el inicio de sesión cuando alguien intenta logearse por medio de sus credenciales.</para>
+        /// Si estas existen entonces el inicio de sesión será exitoso.
+        /// </summary>
+        /// <param name="usuario">Identificador del Usuario</param>
+        /// <param name="password">Contraseña del Usuario</param>
+        /// <returns>
+        /// Retorna un boolean
+        /// <list type="bullet">
+        /// <item>
+        /// <term>True</term>
+        /// <description>Si el inicio fue exitoso.</description>
+        /// </item>
+        /// <item>
+        /// <term>False</term>
+        /// <description>Si las credenciales fueron incorrectas o si el usuario ingresado no se encuentra registrado</description>
+        /// </item>
+        /// </list>
+        /// </returns>
         public bool Login_Validation(string usuario, string password)
         {
             bool bandera = true;
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = db_connection.OpenConnection();
-            comando.CommandText = "Login_Validation";
-            comando.CommandType = CommandType.StoredProcedure;
+            SqlCommand comando = new SqlCommand
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "Login_Validation",
+                CommandType = CommandType.StoredProcedure,
+            };
             comando.Parameters.AddWithValue("@USER_NAME", usuario);
             comando.Parameters.AddWithValue("@PASSWORD", password);
+            //Obtiene el resultado del 'Select' y lo guarda en una variable de tipo String 
             string resultado = Convert.ToString(comando.ExecuteScalar().ToString());
+            //Si el retorno del Select comienza con 'Error' entonces devuelve un mensaje de inicio de sesión fallido
             if (resultado.StartsWith("ERROR: USUARIO"))
             {
                 MessageBox.Show(resultado, "INICIO DE SESI\u00d3N FALLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 bandera = false;
             }
+            //De lo contrario devuelve un mensaje de inicio de sesión exitoso e ingresa al Formulario del Menú
             else
             {
                 MessageBox.Show(resultado, "INICIO DE SESI\u00d3N EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //Por último cierra la conexión
             db_connection.CloseConnection();
             return bandera;
         }
         #endregion
 
-        //Stored Procedure - Register
+        //Registros
         #region Modulo Factura
+        /// <summary>
+        /// Método que se encarga de registrar una factura haciendo uso de un Stored Procedure.
+        /// </summary>
         public void Registro_Factura()
         {
 
@@ -88,13 +132,13 @@ namespace Capa_Datos
                 CommandType = CommandType.StoredProcedure
             };
 
-            sqlComando.Parameters.AddWithValue("@CODIGO_CLIENTE",p.IdCliente);
-            sqlComando.Parameters.AddWithValue("@FECHA",p.Fecha);
+            sqlComando.Parameters.AddWithValue("@CODIGO_CLIENTE", p.IdCliente);
+            sqlComando.Parameters.AddWithValue("@FECHA", p.Fecha);
             sqlComando.Parameters.AddWithValue("@METODO_PAGO", p.MetodoPago);
             sqlComando.Parameters.AddWithValue("@EFECTIVO", p.Valor);
 
             string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
-            if(resultado.StartsWith("Pago"))
+            if (resultado.StartsWith("Pago"))
                 MessageBox.Show(resultado, "Nuevo Pago", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show(resultado, "Nuevo Pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -148,10 +192,13 @@ namespace Capa_Datos
         }
         #endregion
 
-        //Stored Procedure - Queries
+        //Consultas
         #region Modulo Factura
         public DataTable Consulta_Facturas() => GetData("CONSULTAR_FACTURAS");
-        //Devuelve los registros de la Tabla Factura y los guarda en una lista para luego poder mapearlos
+        /// <summary>
+        /// Devuelve los registros de la Tabla Factura y los guarda en una lista para luego poder mapearlos
+        /// </summary>
+        /// <returns>Retorna una <see href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-7.0">lista</see> de facturas</returns>
         public List<Factura> DevolverListaFacturas()
         {
             List<Factura> facturas = new List<Factura>();
@@ -169,10 +216,12 @@ namespace Capa_Datos
                     {
                         //Factura
                         Id = (int)reader["ID_FACTURA"],
+                        CedulaCliente = (decimal)reader["CEDULA"],
                         IdEmpresa = (int)reader["ID_EMPRESA"],
                         IdCliente = (int)reader["ID_CLIENTE"],
                         Fecha = (DateTime)reader["FECHA_FACTURACION"],
                         //Detalle de la 
+                        IdPago = (int)reader["ID_PAGO"],
                         IdDetalleFactura = (int)reader["ID_DETALLE_FACTURA"],
                         IdServicio = (int)reader["ID_SERVICIO"],
                         Encargado = reader["NOMBRE_ENCARGADO"].ToString(),
@@ -234,7 +283,11 @@ namespace Capa_Datos
         }
         #endregion
         #region Modulo Cliente
-        //Devuelve los registros de la Tabla cliente y los guarda en una lista para luego poder mapearlos
+        /// <summary>
+        /// Devuelve los registros de la Tabla cliente y los guarda en una lista para luego poder mapearlos
+        /// </summary>
+        /// <returns>Una lista de Clientes</returns>
+        /// <exception cref="DBErrorException"></exception>
         public List<Cliente> DevolverListaClientes()
         {
             List<Cliente> clientes = new List<Cliente>();
@@ -251,8 +304,10 @@ namespace Capa_Datos
                 {
                     while (reader.Read())
                     {
+                        //Crea el objeto
                         Cliente cliente = new Cliente()
                         {
+                            //Asigna los valores de las columnas a los atributos del objeto
                             Id = (int)reader["ID_CLIENTE"],
                             Cedula = (decimal)reader["CEDULA"],
                             Nombres = reader["NOMBRES"].ToString().ToUpper(),
@@ -264,10 +319,11 @@ namespace Capa_Datos
                             Fecha = (DateTime)reader["FECHA_REGISTRO"],
                             Estado = reader["ESTADO"].ToString().ToUpper(),
                         };
-
+                        //Añade el objeto a la lista
                         clientes.Add(cliente);
                     }
                 }
+                //Cierra la conexión
                 db_connection.CloseConnection();
             }
             catch
@@ -276,9 +332,32 @@ namespace Capa_Datos
             }
             return clientes;
         }
-        //Obtiene los registros de la tabla cliente en orden [Id,Cedula,Nombres+Apellidos,Telefono,Correo,Fecha]
+        /// <summary>
+        /// Obtiene los registros de la tabla cliente en orden
+        /// <list type="bullet">
+        /// <item>Id</item>
+        /// <item>Nombres + Apellidos</item>
+        /// <item>Teléfono</item>
+        /// <item>Correo</item>
+        /// <item>Fecha</item>
+        /// </list>
+        /// </summary>
+        /// <returns></returns>
         public DataTable Consulta_Cliente() => GetData("GET_CLIENTES");
-        //Obtiene los registros de la tabla cliente en orden [Id,Cedula,Nombres+Apellidos,Correo,Genero,Fecha,Estado]
+
+        /// <summary>
+        /// Obtiene los registros de la tabla cliente en orden:
+        /// <list type="bullet">
+        /// <item>Id</item>
+        /// <item>Cédula</item>
+        /// <item>Nombres + Apellidos</item>
+        /// <item>Correo</item>
+        /// <item>Género</item>
+        /// <item>Fecha</item>
+        /// <item>Estado</item>
+        /// </list>
+        /// </summary>
+        /// <returns></returns>
         public DataTable Clientes() => GetData("CLIENTES");
         #endregion
         #region Modulo Reembolso
@@ -298,7 +377,8 @@ namespace Capa_Datos
             {
                 while (reader.Read())
                 {
-                    Reembolso reembolso = new Reembolso{ 
+                    Reembolso reembolso = new Reembolso
+                    {
                         Id = (int)reader["ID_REEMBOLSO"],
                         IdFactura = (int)reader["ID_FACTURA"],
                         IdServicio = (int)reader["ID_SERVICIO"],
@@ -315,7 +395,7 @@ namespace Capa_Datos
 
         #endregion
 
-        //Stored Procedure - Update
+        //Ediciones
         #region Modulo Factura
         #endregion
         #region Modulo Pago
@@ -367,17 +447,22 @@ namespace Capa_Datos
         #region Modulo Reembolso
         #endregion
 
-        //Stored Procedure - Delete
+        //Eliminaciones
         #region Modulo Factura
         #endregion
         #region Modulo Pago
-        //Elimina un registro de pago
+        /// <summary>
+        /// Elimina un Pago que ha registrado un Cliente, si se elimina el cliente relacionado al pago, se eliminarán todos los pagos relacionados al cliente
+        /// </summary>
+        /// <param name="id"></param>
         public void CD_EliminarPago(int id)
         {
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = db_connection.OpenConnection();
-            comando.CommandText = "ELIMINAR_PAGO";
-            comando.CommandType = CommandType.StoredProcedure;
+            SqlCommand comando = new SqlCommand()
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "ELIMINAR_PAGO",
+                CommandType = CommandType.StoredProcedure
+            };
 
             comando.Parameters.AddWithValue("@ID_PAGO", id);
             comando.ExecuteNonQuery(); // Ejecutar la consulta de actualización
@@ -387,22 +472,28 @@ namespace Capa_Datos
         }
         #endregion
         #region Modulo Cliente
-        //Eliminar el cliente a través de su Cédula
+        /// <summary>
+        /// Método que elimina un registro de un cliente, así como todas las facturas y pagos relacionados a ese cliente.
+        /// </summary>
+        /// <param name="codigo_cliente">Recibe como parámetro la cédula</param>
+        /// <exception cref="DBErrorException">Excepción que aparece si no se puede conectar con la Base de Datos</exception>
         public void CD_EliminarCliente(int codigo_cliente)
         {
             try
             {
+                //Estableciendo la conexión
                 SqlCommand comando = new SqlCommand
                 {
                     Connection = db_connection.OpenConnection(),
                     CommandText = "ELIMINAR_CLIENTE",
                     CommandType = CommandType.StoredProcedure
                 };
-
+                //Envía la cédula como parámetro al Stored Procedure de nombre "ELIMINAR_CLIENTE"
                 comando.Parameters.AddWithValue("@ID_CLIENTE", codigo_cliente);
                 comando.ExecuteNonQuery(); // Ejecutar la consulta de actualización
 
                 MessageBox.Show("Cliente Eliminado", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Cierra la conexión
                 db_connection.CloseConnection();
             }
             catch

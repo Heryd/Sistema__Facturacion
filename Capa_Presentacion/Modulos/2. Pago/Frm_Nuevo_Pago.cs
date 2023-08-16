@@ -1,8 +1,6 @@
-﻿using Capa_Negocio;
-using Capa_Datos.Entidades;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion.Modulos._2._Pago
@@ -30,7 +28,7 @@ namespace Capa_Presentacion.Modulos._2._Pago
 
         private void cmbMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbMetodoPago.SelectedIndex == 1 || cmbMetodoPago.SelectedIndex == 2)
+            if (cmbMetodoPago.SelectedIndex == 1 || cmbMetodoPago.SelectedIndex == 2)
             {
                 pcb_Tarjetas_Bg.Visible = true;
                 radioAmerican.Visible = true;
@@ -121,14 +119,14 @@ namespace Capa_Presentacion.Modulos._2._Pago
                 mensajeValidacion += "\n\t- Valor del Pago";
                 confirm++;
             }
-            if (cmbMetodoPago.SelectedIndex==0)
+            if (cmbMetodoPago.SelectedIndex == 0)
             {
                 mensajeValidacion += "\n\t- M\u00e9todo de Pago";
                 confirm++;
             }
-            if(cmbMetodoPago.SelectedIndex == 1 || cmbMetodoPago.SelectedIndex == 2)
+            if (cmbMetodoPago.SelectedIndex == 1 || cmbMetodoPago.SelectedIndex == 2)
             {
-                if(!radioAmerican.Checked && !radioDinners.Checked && !radioMaster.Checked && !radioVisa.Checked)
+                if (!radioAmerican.Checked && !radioDinners.Checked && !radioMaster.Checked && !radioVisa.Checked)
                 {
                     mensajeValidacion += "\n\t- Elegir Tarjeta";
                     confirm++;

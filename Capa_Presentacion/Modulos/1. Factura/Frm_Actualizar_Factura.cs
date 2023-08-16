@@ -1,7 +1,7 @@
 ﻿using Capa_Negocio;
 using System;
-using System.Collections.Generic;
-using System.Data;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
@@ -17,10 +17,10 @@ namespace Capa_Presentacion.Modulos._1._Factura
     {
         //Fields
         CN_GetData objCapaNegocio = new CN_GetData();
-        public Frm_Actualizar_Factura()
+        public Frm_Actualizar_Factura(string indice)
         {
             InitializeComponent();
-            txt_fecha.Text = Get_Date();
+            RetornarDatosFactura(int.Parse(indice));
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
@@ -47,7 +47,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 mensajeValidacion += "\n\t- Descripción del Servicio";
                 confirm++;
             }
-            if (string.IsNullOrWhiteSpace(txt_Precio_Unitario1.Text))
+            if (string.IsNullOrWhiteSpace(txt_Val_Unit.Text))
             {
                 mensajeValidacion += "\n\t- Precio Unitario del Servicio";
                 confirm++;
@@ -61,10 +61,84 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void btn_Actualizar_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos()) 
-            { 
+            if (ValidarCampos())
+            {
 
             }
+        }
+
+        private void RetornarDatosFactura(int codigo)
+        {
+            var facturaData = objCapaNegocio.CN_DevolverFactura()
+                             .Where(f => f.IdDetalleFactura == codigo)
+                             .Select(f => new
+                             {
+                                 f.Fecha,
+                                 f.Encargado,
+                                 f.ValorUnitario,
+                                 f.Cantidad,
+                                 f.Descripcion,
+                                 Cedula = objCapaNegocio.CN_DevolverCliente().Where(cl => cl.Id == f.IdCliente).Select(cl => cl.Cedula).FirstOrDefault(),
+                                 Nombres = objCapaNegocio.CN_DevolverCliente().Where(cl => cl.Cedula == f.CedulaCliente).Select(cl => cl.Apellidos + " " + cl.Nombres).FirstOrDefault(),
+                                 Pago = objCapaNegocio.CN_DevolverPago().Where(p => p.Id == f.IdPago).Select(p => p.Valor).FirstOrDefault(),
+                                 f.Total
+                             }).FirstOrDefault();
+            if (facturaData != null)
+            {
+                txt_fecha.Text = facturaData.Fecha.ToString("D");
+                txt_Encargado.Text = facturaData.Encargado.ToString();
+                txt_Val_Unit.Text = facturaData.ValorUnitario.ToString();
+                nmUD_Cantidad.Value = int.Parse(facturaData.Cantidad.ToString());
+                txt_Descripcion.Text = facturaData.Descripcion.ToString();
+                txt_Cedula.Text = facturaData.Cedula.ToString();
+                txt_Nombres_Cliente.Text = facturaData.Nombres.ToString();
+                txt_Valor_Pago.Texts = Convert.ToSingle(facturaData.Pago.ToString(),CultureInfo.InvariantCulture)+"";
+                txt_Total.Text = facturaData.Total.ToString();
+                CalcularTotal();
+            }
+        }
+
+        private void CalcularTotal()
+        {
+            float vuelto = 0, valor_pago = 0, valor_unit = 0;
+            valor_unit = float.Parse(txt_Val_Unit.Text.Trim().ToString());
+            int cantidad = int.Parse(nmUD_Cantidad.Value.ToString());
+            valor_pago = float.Parse(txt_Valor_Pago.Texts.ToString());
+
+            txt_Subtotal.Text = CalcularSubTotal();
+            txt_Vuelto.Text = CalcularVuelto()+"";
+
+            float total = valor_unit * cantidad + vuelto;
+            txt_Total.Text = String.Format("%.2f", total);
+        }
+
+        public string CalcularSubTotal() => string.Format("%.2f", float.Parse(txt_Val_Unit.Text.Trim()) * int.Parse(nmUD_Cantidad.Value.ToString()));
+
+        public float CalcularVuelto() => float.Parse(txt_Valor_Pago.Text.ToString()) - float.Parse(CalcularSubTotal());
+
+        private void txt_Val_Unit_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_Val_Unit.Text))
+            {
+                // Eliminar cualquier coma o punto existente en el texto
+                string valorSinComaPunto = txt_Val_Unit.Text.Replace(",", "").Replace(".", "");
+
+                if (int.TryParse(valorSinComaPunto, out int valorEntero))
+                {
+                    // Dividir el valor entre 100 para obtener el valor decimal con dos decimales
+                    decimal valorDecimal = valorEntero / 100.0m;
+
+                    // Asignar el valor formateado al TextBox
+                    txt_Val_Unit.Text = valorDecimal.ToString("N2");
+                    txt_Val_Unit.SelectionStart = txt_Val_Unit.Text.Length; // Colocar el cursor al final del texto
+                }
+                //CalcularTotal();
+            }
+        }
+
+        private void nmUD_Cantidad_ValueChanged(object sender, EventArgs e)
+        {
+            //CalcularTotal();
         }
     }
 }
