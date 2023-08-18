@@ -234,9 +234,9 @@ namespace Capa_Datos
             string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
 
             if (resultado.Contains("Esta factura ya fue anulada y el pago del cliente reembolsado"))
-                MessageBox.Show(resultado, "Fallo del reembolso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(resultado, "Fallo del reembolso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
-                MessageBox.Show(resultado, "Registro del Reembolso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(resultado, "Registro del Reembolso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             db_connection.CloseConnection();
         }
         #endregion
@@ -452,9 +452,38 @@ namespace Capa_Datos
 
         //Ediciones
         #region Modulo Factura
+        /// <summary>
+        /// Actualiza el registro existente de una Factura, a partir de ciertos datos que le llegan como atributos
+        /// </summary>
+        /// <param name="f"></param>
+        public void CD_ActualizarFactura(Factura f)
+        {
+            SqlCommand sqlComando = new SqlCommand
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "ACTUALIZAR_FACTURA",
+                CommandType = CommandType.StoredProcedure
+            };
+
+            sqlComando.Parameters.AddWithValue("@idFact", f.Id);
+            sqlComando.Parameters.AddWithValue("@descripcionServ", f.Descripcion);
+            sqlComando.Parameters.AddWithValue("@cantidad", f.Cantidad);
+            sqlComando.Parameters.AddWithValue("@valorUnitario", f.ValorUnitario);
+            sqlComando.Parameters.AddWithValue("@nombreEncargado", f.Encargado);
+            sqlComando.Parameters.AddWithValue("@fecha", f.Fecha);
+            sqlComando.Parameters.AddWithValue("@total", f.Total);
+
+            string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
+            // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
+            MessageBox.Show(resultado, "Actualización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            db_connection.CloseConnection();
+        }
         #endregion
         #region Modulo Pago
-        //Actualiza el registro existente de un Cliente
+        /// <summary>
+        /// Actualiza el registro existente de un Pago, a partir de ciertos datos que le llegan como atributos
+        /// </summary>
+        /// <param name="p"></param>
         public void CD_ActualizarPago(Pago p)
         {
             SqlCommand sqlComando = new SqlCommand
@@ -476,6 +505,10 @@ namespace Capa_Datos
         #endregion
         #region Modulo Cliente
         //Actualiza el registro existente de un Cliente
+        /// <summary>
+        /// Actualiza el registro existente de un Cliente, a partir de ciertos datos que le llegan como atributos
+        /// </summary>
+        /// <param name="c"></param>
         public void CD_ActualizarCliente(Cliente c)
         {
             SqlCommand sqlComando = new SqlCommand
@@ -500,6 +533,28 @@ namespace Capa_Datos
         }
         #endregion
         #region Modulo Reembolso
+        //Actualiza el registro existente de un Cliente
+        /// <summary>
+        /// Actualiza el registro existente de un Cliente, a partir de ciertos datos que le llegan como atributos
+        /// </summary>
+        /// <param name="r">Objeto con datos de tipo Reembolso</param>
+        public void CD_ActualizarReembolso(Reembolso r)
+        {
+            SqlCommand sqlComando = new SqlCommand
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "ACTUALIZAR_REEMBOLSO",
+                CommandType = CommandType.StoredProcedure
+            };
+
+            sqlComando.Parameters.AddWithValue("@codigoReembolso", r.Id);
+            sqlComando.Parameters.AddWithValue("@Motivo", r.Motivo);
+
+            string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
+            // Verificar si el resultado contiene algún mensaje de error y mostrarlo en un MessageBox si es necesario
+            MessageBox.Show(resultado, "Actualización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            db_connection.CloseConnection();
+        }
         #endregion
 
         //Eliminaciones

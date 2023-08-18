@@ -11,11 +11,13 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
     {
         //Fields
         CN_GetData objCapaNegocio = new CN_GetData();
+        private int index = 0;
         public Frm_Actualizar_Reembolso(int codigo_reembolso)
         {
             InitializeComponent();
             CargarElementos();
-            RetornarValoresReembolso(codigo_reembolso);
+            index = codigo_reembolso;
+            RetornarValoresReembolso(index);
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
@@ -65,6 +67,58 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 cmb_Estado.SelectedIndex = 2;
                 txt_Cedula.Text = reembolsoData.CEDULA.ToString();
                 txt_Nombres_Cliente.Text = reembolsoData.NOMBRES.ToString();
+            }
+        }
+
+        private void btn_Actualizar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                Reembolso r = new Reembolso()
+                {
+                    Id = index,
+                    Motivo = txt_Motivo_Reembolso.Text.Trim()
+                };
+                objCapaNegocio.CN_ActualizarReembolso(r);
+                Close();
+            }
+        }
+
+        //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta
+        private bool ValidarCampos()
+        {
+            string mensajeValidacion = "";
+            int confirm = -1;
+            if (string.IsNullOrWhiteSpace(txt_Motivo_Reembolso.Text))
+            {
+                mensajeValidacion += "\n\t- Motivo del Reembolso";
+                confirm++;
+            }
+            if (mensajeValidacion.Length > 0 || !string.IsNullOrWhiteSpace(mensajeValidacion))
+            {
+                MessageBox.Show("Por favor, llene y/o seleccione los campos de: " + mensajeValidacion, "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return (confirm >= 0 ? false : true);
+        }
+
+        private void txt_Motivo_Reembolso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsLetter(c) && txt_Motivo_Reembolso.Text.Length <= 175)
+            {
+                e.Handled = false;
+            }
+            else if (c == (char)Keys.Back || c == (char)Keys.Space)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Motivo_Reembolso.Text.Length > 175 && c != ((char)Keys.Back))
+            {
+                MessageBox.Show("El motivo del reembolso solo puede contener 175 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

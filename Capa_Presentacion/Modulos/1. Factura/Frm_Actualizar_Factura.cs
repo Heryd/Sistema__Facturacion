@@ -20,12 +20,13 @@ namespace Capa_Presentacion.Modulos._1._Factura
     {
         //Fields
         CN_GetData objCapaNegocio = new CN_GetData();
+        private int index = 0;
         public Frm_Actualizar_Factura(string indice)
         {
             InitializeComponent();
-            RetornarDatosFactura(int.Parse(indice));
+            index = int.Parse(indice);
+            RetornarDatosFactura(index);
             CalcularTotal();
-
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
@@ -57,6 +58,16 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 mensajeValidacion += "\n\t- Precio Unitario del Servicio";
                 confirm++;
             }
+            if (txt_Val_Unit.Text.Equals("0,00"))
+            {
+                mensajeValidacion += "\n\t- Precio Unitario del Servicio";
+                confirm++;
+            }
+            if (txt_Valor_Pago.Text.Equals("0,00"))
+            {
+                mensajeValidacion += "\n\t- Efectivo";
+                confirm++;
+            }
             if (mensajeValidacion.Length > 0 || !string.IsNullOrWhiteSpace(mensajeValidacion))
             {
                 MessageBox.Show("Por favor, llene y/o seleccione los campos de: " + mensajeValidacion, "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -68,7 +79,18 @@ namespace Capa_Presentacion.Modulos._1._Factura
         {
             if (ValidarCampos())
             {
-
+                Factura f = new Factura()
+                {
+                    Id = index,
+                    Fecha = DateTime.Parse(txt_fecha.Text.ToString()),
+                    Descripcion = txt_Descripcion.Text.Trim(),
+                    ValorUnitario = float.Parse(txt_Val_Unit.Text.Trim()),
+                    Cantidad = int.Parse(nmUD_Cantidad.Value.ToString()),
+                    Total = float.Parse(txt_Total.Text.Trim()),
+                    Encargado = txt_Encargado.Text.Trim()
+                };
+                objCapaNegocio.CN_ActualizarFactura(f);
+                Close();
             }
         }
 
@@ -124,20 +146,18 @@ namespace Capa_Presentacion.Modulos._1._Factura
         }
         private void CalcularTotal()
         {
-            int cantidad = int.Parse(nmUD_Cantidad.Value.ToString());
             float iva = 0.12f;
             float subTotal = CalcularSubTotal();
-            float pago = float.Parse(txt_Valor_Pago.Text.Trim());
             txt_Valor_a_Pagar.Text = CalcularValorAPagar() + "";
             //if (float.Parse(txt_Valor_a_Pagar.Text.Trim()) <= pago)
             //{
                 txt_Subtotal.Text = subTotal + "";
                 txt_Vuelto.Text = CalcularVuelto() + "";
-                txt_Total.Text = (chb_IVA.Checked ? ((subTotal * iva) + subTotal) + "" : subTotal + "");
+                txt_Total.Text = (chb_IVA.Checked ? Math.Round((subTotal * iva) + subTotal,2,MidpointRounding.ToEven)+ "" : subTotal + "");
             //}
             //else
             //{
-                txt_Val_Unit.Text = "0,00";
+                //txt_Val_Unit.Text = "0,00";
                 //MessageBox.Show("El valor a pagar es mayor que el efectivo del cliente.\nPorfavor considere su presupuesto", "No sea pobre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
         }
@@ -148,7 +168,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         /// </summary>
         /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el subtotal.</returns> 
         #endregion
-        public float CalcularSubTotal() => (CalcularValorAPagar() + float.Parse(txt_Valor_Pago.Text.Trim()));
+        public float CalcularSubTotal() => (float)Math.Round(CalcularValorAPagar() + float.Parse(txt_Valor_Pago.Text.Trim()),2,MidpointRounding.ToEven);
 
         #region Descripción del Método para Calcular el valor a devolver del pago
         /// <summary>
@@ -156,7 +176,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
         /// </summary>
         /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el valor a devolver por el pago realizado.</returns> 
         #endregion
-        public float CalcularVuelto() => Math.Abs(float.Parse(txt_Valor_Pago.Text.Trim()) - CalcularValorAPagar());
+        public float CalcularVuelto() => Math.Abs((float)Math.Round(float.Parse(txt_Valor_Pago.Text.Trim()) - CalcularValorAPagar(),2,MidpointRounding.ToEven));
 
         #region Descripción del Método para Calcular el valor a pagar
         /// <summary>

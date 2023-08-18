@@ -283,6 +283,7 @@ BEGIN
 	SELECT 'Factura generada con éxito';
 	END
 
+--SP para consultar las facturas
 GO
 CREATE PROCEDURE FACTURAS
 AS
@@ -321,6 +322,46 @@ BEGIN
 	f.ESTADO
 END
 
+--SP para actualizar un registro existente de una factura
+GO
+CREATE PROCEDURE ACTUALIZAR_FACTURA
+	@idFact int,
+	@descripcionServ varchar(180),
+	@cantidad int,
+	@valorUnitario float,
+	@nombreEncargado varchar(80),
+	@fecha date,
+	@total float
+AS
+BEGIN
+	--Creacion de variables de tipo int
+	DECLARE @idServ int =0 ;
+	SET @idServ = (SELECT ID_SERVICIO FROM FACTURA f INNER JOIN DETALLE_FACTURA dt ON f.ID_FACTURA=dt.ID_DETALLE_FACTURA WHERE f.ID_FACTURA = @idFact)
+
+	--Primero se actualiza la descripción del servicio y su valor unitario
+	UPDATE SERVICIO 
+	SET 
+		DESCRIPCION_SERVICIO = UPPER(@descripcionServ), 
+		VALOR_UNITARIO = ROUND(@valorUnitario,2) 
+	WHERE ID_SERVICIO=@idServ;
+
+	--Después se actualiza el cuerpo de la factura
+	UPDATE DETALLE_FACTURA
+	SET
+		NOMBRE_ENCARGADO = UPPER(@nombreEncargado),
+		CANTIDAD = @cantidad,
+		TOTAL_PAGAR = ROUND(@total,2)
+	WHERE ID_FACTURA = @idFact;
+
+	--Por último se actualiza el encabezado de la factura
+	UPDATE FACTURA
+	SET
+		FECHA_FACTURACION = @fecha
+	WHERE ID_FACTURA = @idFact;
+
+	SELECT 'Factura actualizada con éxito';
+END
+
 -------------------------------------------------------------------REEMBOLSO----------------------------------------------------------------
 --SP para registrar el reembolso
 GO
@@ -356,6 +397,22 @@ BEGIN
 	END
 	SELECT 'Esta factura ya fue anulada y el pago del cliente reembolsado.'
 END
+
+--SP para actualizar un reembolso
+GO
+CREATE PROCEDURE ACTUALIZAR_REEMBOLSO
+	@codigoReembolso int,
+	@Motivo varchar(180)
+AS
+BEGIN
+	UPDATE REEMBOLSO
+	SET
+		MOTIVO_REEMBOLSO = upper(@Motivo)
+	WHERE ID_REEMBOLSO = @codigoReembolso;
+
+	SELECT 'Reembolso actualizado con éxito';
+END
+
 
 --SP para eliminar
 GO

@@ -48,6 +48,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
             Txt_Id_Pago.Text = "";
             txt_Codigo_Factura.Enabled = false;
             btn_Search_Factura.Enabled = false;
+            txt_Motivo_Reembolso.Text = "";
         }
 
         private void btn_CloseForm_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 codigoPago = int.Parse(Txt_Id_Pago.Text.Trim().ToString());
 
                 var facturaInfo = objCapaNegocio.CN_DevolverFactura()
-                    .Where(f => f.Id == codigoFactura && f.IdPago ==codigoPago)
+                    .Where(f => f.Id == codigoFactura || f.IdPago ==codigoPago)
                     .Select(f => new
                     {
                         f.Fecha,
@@ -80,7 +81,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                                         .FirstOrDefault(),
                         Nombres_Cliente = objCapaNegocio.CN_DevolverCliente()
                                         .Where(cl => cl.Id == f.IdCliente)
-                                        .Select(cl => cl.Apellidos + " " + cl.Nombres)
+                                        .Select(cl => cl.Nombres + " " + cl.Apellidos)
                                         .FirstOrDefault(),
                         Metodo_Pago = objCapaNegocio.CN_DevolverPago()
                                         .Where(p => p.Id == codigoPago)
@@ -99,6 +100,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                     Txt_Valor_Pago.Texts = facturaInfo.Monto.ToString();
                     Set_Combo_Box(facturaInfo.Metodo_Pago.ToString().ToUpper());
                     btn_Registrar.Enabled = true;
+                    txt_Motivo_Reembolso.Enabled = true;
                 }
                 else
                 {
@@ -188,6 +190,27 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 MessageBox.Show("Por favor, llene y/o seleccione los campos de: " + mensajeValidacion, "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return (confirm >= 0 ? false : true);
+        }
+
+        private void txt_Motivo_Reembolso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsLetter(c) && txt_Motivo_Reembolso.Text.Length <= 175)
+            {
+                e.Handled = false;
+            }
+            else if (c == (char)Keys.Back || c == (char)Keys.Space)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Motivo_Reembolso.Text.Length > 175 && c != ((char)Keys.Back))
+            {
+                MessageBox.Show("El motivo del reembolso solo puede contener 175 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

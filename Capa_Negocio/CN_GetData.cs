@@ -181,18 +181,38 @@ namespace Capa_Negocio
         #endregion
         public void CN_ActualizarPago(Pago p) => objectCD.CD_ActualizarPago(p);
 
+        #region Método que envía un registro de una Factura y lo actualiza 
+        /// <summary>
+        /// Método para actualizar el registro existente de una Factura
+        /// <paramref name="f"/>, existente a partir de nuevos datos.
+        /// </summary>
+        /// <param name="f">Objeto de tipo Factura.</param> 
+        #endregion
+        public void CN_ActualizarFactura(Factura f) => objectCD.CD_ActualizarFactura(f);
+
+        #region Método que envía un registro de un Reembolso y lo actualiza 
+        /// <summary>
+        /// Método para actualizar el registro existente de un Reembolso
+        /// <paramref name="r"/>, existente a partir de nuevos datos.
+        /// </summary>
+        /// <param name="r">Objeto de tipo Reembolso.</param> 
+        #endregion
+        public void CN_ActualizarReembolso(Reembolso r) => objectCD.CD_ActualizarReembolso(r);
+
         #region Método para eliminar un registro existente de un cliente de la Base de Datos
         /// <summary>
-        /// Método que toma el ID del cliente para su correspondiente cambio de estado
+        /// Método que toma el ID del cliente para su correspondiente eliminación
         /// </summary>
         /// <param name="indice">Código del Cliente := Cédula</param> 
         #endregion
-        public void CN_EliminarCliente(string indice)
-        {
-            //Envia el parámetro ID a la clase CD_GetData y castea la cadena a un tipo numerico
-            objectCD.CD_EliminarCliente(int.Parse(indice));
-        }
-
+        public void CN_EliminarCliente(string indice)=>objectCD.CD_EliminarCliente(int.Parse(indice));
+        
+        #region Método para eliminar un registro existente de un pago de la Base de Datos
+        /// <summary>
+        /// Método que toma el ID del pago para su correspondiente eliminación
+        /// </summary>
+        /// <param name="indice">Código del Pago := IdPago</param> 
+        #endregion
         public void CN_EliminarPago(string indice) => objectCD.CD_EliminarPago(int.Parse(indice));
 
         public void CN_EliminarReembolso(string indice)=> objectCD.CD_EliminarReembolso(int.Parse(indice));

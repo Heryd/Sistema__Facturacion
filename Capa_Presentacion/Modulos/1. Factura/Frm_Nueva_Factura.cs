@@ -175,16 +175,14 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void CalcularTotal()
         {
-            int cantidad = int.Parse(nmUD_Cantidad.Value.ToString());
-            float val_unit = (txt_Val_Unit.Text.Equals("0,00") ? 0.00f : (float)Math.Round(float.Parse(txt_Val_Unit.Text.Trim().ToString())));
-            float pago = (float)Math.Round(float.Parse(txt_Valor_Pago.Text.Trim()));
+            float pago = (float)Math.Round(float.Parse(txt_Valor_Pago.Text.Trim()),2,MidpointRounding.ToEven);
             float iva = 0.12f;
-            float subtotal = (cantidad * val_unit) + pago;
-            txt_Valor_a_Pagar.Text = (cantidad * val_unit) + "";
+            float subtotal = CalcularSubTotal();
+            txt_Valor_a_Pagar.Text = CalcularValorAPagar() + "";
             if (float.Parse(txt_Valor_a_Pagar.Text.Trim()) <= pago)
             {
                 txt_Subtotal.Text = subtotal + "";
-                txt_Vuelto.Text = Math.Abs(pago - float.Parse(txt_Valor_a_Pagar.Text.Trim())) + "";
+                txt_Vuelto.Text = CalcularVuelto() + "";
                 txt_Total.Text = (chb_IVA.Checked ? ((subtotal * iva) + subtotal) + "" : subtotal + "");
             }
             else
@@ -197,6 +195,30 @@ namespace Capa_Presentacion.Modulos._1._Factura
             //    MessageBox.Show("El total a pagar es mayor que el efectivo del cliente.\nPorfavor considere su presupuesto o puede cambiar el valor del pago en las consultas del pago", "Negociemos...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //}
         }
+
+        #region Descripción del Método para Calcular el Subtotal
+        /// <summary>
+        /// Este método se encarga de calcular el subtotal realizando la operación <b>(Valor Unitario * Cantidad + Efectivo)</b>
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el subtotal.</returns> 
+        #endregion
+        public float CalcularSubTotal() => (float)Math.Round(CalcularValorAPagar() + float.Parse(txt_Valor_Pago.Text.Trim()), 2, MidpointRounding.ToEven);
+
+        #region Descripción del Método para Calcular el valor a devolver del pago
+        /// <summary>
+        /// Este método se encarga de calcular la cantidad que se debe devolver al cliente por su pago, realizando la operación <b>(Valor del Pago - Subtotal)</b>, así mismo el método round, redondea el valor y se divide entre 100 para obtener solo 2 decimales. Por último el Método Abs hace el valor absoluto para no obtener un valor negativo.
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el valor a devolver por el pago realizado.</returns> 
+        #endregion
+        public float CalcularVuelto() => Math.Abs((float)Math.Round(float.Parse(txt_Valor_Pago.Text.Trim()) - CalcularValorAPagar(), 2, MidpointRounding.ToEven));
+
+        #region Descripción del Método para Calcular el valor a pagar
+        /// <summary>
+        /// Este método se encarga de calcular el valor que debe pagar el cliente, realizando la operación <b>(Valor Unitario * Cantidad)</b>.
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa la cantidad que debe pagar el cliente.</returns> 
+        #endregion
+        public float CalcularValorAPagar() => float.Parse(txt_Val_Unit.Text.Trim()) * int.Parse(nmUD_Cantidad.Value.ToString());
 
         //Verifica si los campos se han llenado correctamente, de lo contrario presenta un mensaje de alerta
         private bool ValidarCampos()
