@@ -1,5 +1,9 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Capa_Presentacion.Modulos._3._Cliente
@@ -45,9 +49,20 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         }
 
         //Mostrar Registros de Clientes en el DataGridView
-        private void CargarRegistrosDataGridView()
+        private IEnumerable<Object> CargarRegistrosDataGridView()
         {
-            dtgV_Clientes.DataSource = objCapaNegocio.CN_CLIENTES();
+            var clientes = objCapaNegocio.CN_DevolverCliente()
+                .Select(c => new
+                {
+                    ID_CLIENTE = c.Id,
+                    CEDULA = c.Cedula,
+                    NOMBRES = c.Nombres + " " + c.Apellidos,
+                    CORREO = c.Correo,
+                    GENERO = c.Genero,
+                    FECHA_REGISTRO = c.Fecha,
+                    ESTADO = c.Estado
+                }).AsQueryable();
+            return clientes;
         }
 
         //Método para Editar o Eliminar Filas
@@ -91,13 +106,264 @@ namespace Capa_Presentacion.Modulos._3._Cliente
         //Carga los registros de la Tabla Cliente y añade los botones de editar y eliminar
         private void Frm_Clientes_Load(object sender, EventArgs e)
         {
-            CargarRegistrosDataGridView();
+            dtgV_Clientes.DataSource = CargarRegistrosDataGridView().ToList();
             objCapaNegocio.CN_Add_Buttons_DTGV(dtgV_Clientes);
         }
 
         private void cmb_Filtro_Cliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             index_object = cmb_Filtro_Cliente.SelectedIndex + 1;
+            txtBusquedaCliente.Text = "";
+        }
+
+        private void txtBusquedaCliente_TextChanged(object sender, EventArgs e)
+        {
+            switch (index_object)
+            {
+                case 1:
+                var clientes = objCapaNegocio.CN_DevolverCliente()
+                .Where(c => c.Id.ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                    .Select(c => new
+                    {
+                        ID_CLIENTE = c.Id,
+                        CEDULA = c.Cedula,
+                        NOMBRES = c.Nombres + " " + c.Apellidos,
+                        CORREO = c.Correo,
+                        GENERO = c.Genero,
+                        FECHA_REGISTRO = c.Fecha,
+                        ESTADO = c.Estado
+                    }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientes != null && clientes.Any())
+                {
+                    dtgV_Clientes.DataSource = clientes.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                case 2:
+                var clientesXNombres = objCapaNegocio.CN_DevolverCliente()
+                    .Where(c => (c.Nombres + " " + c.Apellidos).ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                    .Select(c => new
+                    {
+                        ID_CLIENTE = c.Id,
+                        CEDULA = c.Cedula,
+                        NOMBRES = c.Nombres + " " + c.Apellidos,
+                        CORREO = c.Correo,
+                        GENERO = c.Genero,
+                        FECHA_REGISTRO = c.Fecha,
+                        ESTADO = c.Estado
+                    }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientesXNombres != null && clientesXNombres.Any())
+                {
+                    dtgV_Clientes.DataSource = clientesXNombres.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias del nombre", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                case 3:
+                var clientesXTelefono = objCapaNegocio.CN_DevolverCliente()
+                .Where(c => ("0"+c.Telefono).ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                .Select(c => new
+                {
+                    ID_CLIENTE = c.Id,
+                    CEDULA = c.Cedula,
+                    NOMBRES = c.Nombres + " " + c.Apellidos,
+                    CORREO = c.Correo,
+                    GENERO = c.Genero,
+                    FECHA_REGISTRO = c.Fecha,
+                    ESTADO = c.Estado
+                }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientesXTelefono != null && clientesXTelefono.Any())
+                {
+                    dtgV_Clientes.DataSource = clientesXTelefono.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias del teléfono", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                case 4:
+                var clientesXCedula = objCapaNegocio.CN_DevolverCliente()
+                .Where(c => ("0"+c.Cedula).ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                .Select(c => new
+                {
+                    ID_CLIENTE = c.Id,
+                    CEDULA = c.Cedula,
+                    NOMBRES = c.Nombres + " " + c.Apellidos,
+                    CORREO = c.Correo,
+                    GENERO = c.Genero,
+                    FECHA_REGISTRO = c.Fecha,
+                    ESTADO = c.Estado
+                }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientesXCedula != null && clientesXCedula.Any())
+                {
+                    dtgV_Clientes.DataSource = clientesXCedula.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias de la cédula", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                case 5:
+                var clientesXFecha = objCapaNegocio.CN_DevolverCliente()
+                .Where(c => c.Fecha.ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                .Select(c => new
+                {
+                    ID_CLIENTE = c.Id,
+                    CEDULA = c.Cedula,
+                    NOMBRES = c.Nombres + " " + c.Apellidos,
+                    CORREO = c.Correo,
+                    GENERO = c.Genero,
+                    FECHA_REGISTRO = c.Fecha,
+                    ESTADO = c.Estado
+                }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientesXFecha != null && clientesXFecha.Any())
+                {
+                    dtgV_Clientes.DataSource = clientesXFecha.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                case 6:
+                var clientesXestado = objCapaNegocio.CN_DevolverCliente()
+                .Where(c => c.Estado.ToString().Contains(txtBusquedaCliente.Text.ToString()))
+                .Select(c => new
+                {
+                    ID_CLIENTE = c.Id,
+                    CEDULA = c.Cedula,
+                    NOMBRES = c.Nombres + " " + c.Apellidos,
+                    CORREO = c.Correo,
+                    GENERO = c.Genero,
+                    FECHA_REGISTRO = c.Fecha,
+                    ESTADO = c.Estado
+                }).AsQueryable();
+                if (txtBusquedaCliente.Text.Equals(""))
+                {
+                    CargarRegistrosDataGridView();
+                }
+                if (clientesXestado != null && clientesXestado.Any())
+                {
+                    dtgV_Clientes.DataSource = clientesXestado.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                break;
+                default:
+                break;
+            }
+        }
+
+        /// <summary>
+        /// Método KeyPress del textbox, según el índice de filtro del combobox permitirá o ingresar dígitos, o ingresar letras
+        /// </summary>
+        /// <param name="sender">Foco actual del objeto</param>
+        /// <param name="e">El evento KeyPress</param>
+        private void txtBusquedaCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Asigna lo ingresado a una variable
+            char c = e.KeyChar;
+            switch (index_object)
+            {
+                //Si el filtro seleccionado es: 
+                //[1]: Fecha,
+                //[3]: Teléfono,
+                //[4]: Cédula
+                //entonces el evento keyPress solo permitirá el ingreso de dígitos, hasta un máximo de 10
+                case 1:
+                case 3:
+                case 4:
+                if (Char.IsDigit(c) && txtBusquedaCliente.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaCliente.Text.Length > 10 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[2]: Nombres,
+                //[6]: Estado
+                //entonces el evento keyPress solo permitirá el ingreso de letras, hasta un máximo de 30 caracteres
+                case 2:
+                case 6:
+                if (Char.IsLetter(c) && txtBusquedaCliente.Text.Length <= 30)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaCliente.Text.Length > 30 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda solo puede incluir 30 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[5]: Fecha del Registro
+                //entonces el evento keyPress solo permitirá el ingreso de la fecha en formato dd/MM/YYYY, hasta un máximo de 10 dígitos
+                case 5:
+                if (Char.IsDigit(c) && txtBusquedaCliente.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || c == '/')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaCliente.Text.Length > 9 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                default:
+                break;
+            }
         }
     }
 }

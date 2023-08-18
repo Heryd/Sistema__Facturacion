@@ -18,7 +18,7 @@ namespace Capa_Datos.Entidades
         /// que representa al identificador del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo  <b>int</b>
+        /// Retorna un valor de tipo  <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types">int</see>
         /// </returns> 
         #endregion
         public int Id { get; set; }
@@ -28,7 +28,7 @@ namespace Capa_Datos.Entidades
         /// que representa a la cédula de identidad del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <b>decimal</b>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.decimal?view=net-7.0">decimal</see>
         /// </returns> 
         #endregion
         public decimal Cedula { get; set; }
@@ -38,7 +38,7 @@ namespace Capa_Datos.Entidades
         /// que representa los 2 nombres del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Nombres { get; set; }
@@ -48,7 +48,7 @@ namespace Capa_Datos.Entidades
         /// que representa los 2 apellidos del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Apellidos { get; set; }
@@ -58,7 +58,7 @@ namespace Capa_Datos.Entidades
         /// que representa la información de contacto del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Correo { get; set; }
@@ -68,7 +68,7 @@ namespace Capa_Datos.Entidades
         /// que representa la dirección domiciliaria del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Direccion { get; set; }
@@ -79,7 +79,7 @@ namespace Capa_Datos.Entidades
         /// que representa al número de contacto del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[decimal]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.decimal?view=net-7.0">decimal</see>
         /// </returns> 
         #endregion
         public decimal Telefono { get; set; }
@@ -90,7 +90,7 @@ namespace Capa_Datos.Entidades
         /// que representa el género del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Genero { get; set; }
@@ -101,7 +101,7 @@ namespace Capa_Datos.Entidades
         /// que representa la Fecha de creación del registro del cliente.
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[DateTime]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0">DateTime</see>
         /// </returns> 
         #endregion
         public DateTime Fecha { get; set; }
@@ -112,7 +112,7 @@ namespace Capa_Datos.Entidades
         /// que representa el estado actual del cliente. <c>[Activo, Pagando]</c>
         /// </summary>
         /// <returns>
-        /// Retorna un valor de tipo <![CDATA[string]]>
+        /// Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
         /// </returns> 
         #endregion
         public string Estado { get; set; }

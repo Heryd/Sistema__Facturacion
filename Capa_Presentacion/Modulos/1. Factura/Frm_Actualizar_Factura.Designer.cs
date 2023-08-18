@@ -45,8 +45,14 @@
             this.txt_Val_Unit = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.nmUD_Cantidad = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_Valor_a_Pagar = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.chb_IVA = new System.Windows.Forms.CheckBox();
+            this.lbl_IVA_Value = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.lbl_Pago = new System.Windows.Forms.Label();
-            this.txt_Valor_Pago = new Capa_Presentacion.user_controls.TextBox_Control();
+            this.txt_Valor_Pago = new System.Windows.Forms.TextBox();
             this.lbl_Subtotal = new System.Windows.Forms.Label();
             this.txt_Subtotal = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
             this.lbl_Vuelto = new System.Windows.Forms.Label();
@@ -61,6 +67,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmUD_Cantidad)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +88,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Controls.Add(this.lbl_Fecha);
@@ -96,6 +102,9 @@
             this.flowLayoutPanel1.Controls.Add(this.txt_Val_Unit);
             this.flowLayoutPanel1.Controls.Add(this.label15);
             this.flowLayoutPanel1.Controls.Add(this.nmUD_Cantidad);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.txt_Valor_a_Pagar);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.lbl_Pago);
             this.flowLayoutPanel1.Controls.Add(this.txt_Valor_Pago);
             this.flowLayoutPanel1.Controls.Add(this.lbl_Subtotal);
@@ -245,7 +254,10 @@
             this.txt_Val_Unit.Name = "txt_Val_Unit";
             this.txt_Val_Unit.Size = new System.Drawing.Size(249, 26);
             this.txt_Val_Unit.TabIndex = 62;
+            this.txt_Val_Unit.Text = "0,00";
+            this.txt_Val_Unit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_Val_Unit.TextChanged += new System.EventHandler(this.txt_Val_Unit_TextChanged);
+            this.txt_Val_Unit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Val_Unit_KeyPress);
             // 
             // label15
             // 
@@ -259,6 +271,7 @@
             // 
             // nmUD_Cantidad
             // 
+            this.nmUD_Cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmUD_Cantidad.Location = new System.Drawing.Point(3, 343);
             this.nmUD_Cantidad.Minimum = new decimal(new int[] {
             1,
@@ -266,7 +279,7 @@
             0,
             0});
             this.nmUD_Cantidad.Name = "nmUD_Cantidad";
-            this.nmUD_Cantidad.Size = new System.Drawing.Size(248, 20);
+            this.nmUD_Cantidad.Size = new System.Drawing.Size(248, 26);
             this.nmUD_Cantidad.TabIndex = 40;
             this.nmUD_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nmUD_Cantidad.Value = new decimal(new int[] {
@@ -276,44 +289,112 @@
             0});
             this.nmUD_Cantidad.ValueChanged += new System.EventHandler(this.nmUD_Cantidad_ValueChanged);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(276, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 39);
+            this.label1.TabIndex = 63;
+            this.label1.Text = "Valor a Pagar:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_Valor_a_Pagar
+            // 
+            this.txt_Valor_a_Pagar.BackColor = System.Drawing.Color.Black;
+            this.txt_Valor_a_Pagar.BorderRadius = 5;
+            this.txt_Valor_a_Pagar.BorderSize = 0;
+            this.txt_Valor_a_Pagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txt_Valor_a_Pagar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Valor_a_Pagar.ForeColor = System.Drawing.Color.White;
+            this.txt_Valor_a_Pagar.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txt_Valor_a_Pagar.Location = new System.Drawing.Point(276, 39);
+            this.txt_Valor_a_Pagar.Name = "txt_Valor_a_Pagar";
+            this.txt_Valor_a_Pagar.RightColor = System.Drawing.Color.Gray;
+            this.txt_Valor_a_Pagar.Size = new System.Drawing.Size(133, 31);
+            this.txt_Valor_a_Pagar.TabIndex = 64;
+            this.txt_Valor_a_Pagar.Text = "0.00";
+            this.txt_Valor_a_Pagar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.chb_IVA);
+            this.panel2.Controls.Add(this.lbl_IVA_Value);
+            this.panel2.Location = new System.Drawing.Point(276, 73);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(167, 94);
+            this.panel2.TabIndex = 69;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 15);
+            this.label9.TabIndex = 66;
+            this.label9.Text = "IVA 12%:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chb_IVA
+            // 
+            this.chb_IVA.AutoSize = true;
+            this.chb_IVA.BackColor = System.Drawing.Color.Transparent;
+            this.chb_IVA.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chb_IVA.ForeColor = System.Drawing.Color.Blue;
+            this.chb_IVA.Location = new System.Drawing.Point(62, 14);
+            this.chb_IVA.Name = "chb_IVA";
+            this.chb_IVA.Size = new System.Drawing.Size(15, 14);
+            this.chb_IVA.TabIndex = 68;
+            this.chb_IVA.UseVisualStyleBackColor = false;
+            this.chb_IVA.CheckedChanged += new System.EventHandler(this.chb_IVA_CheckedChanged);
+            // 
+            // lbl_IVA_Value
+            // 
+            this.lbl_IVA_Value.BackColor = System.Drawing.Color.Black;
+            this.lbl_IVA_Value.BorderRadius = 5;
+            this.lbl_IVA_Value.BorderSize = 0;
+            this.lbl_IVA_Value.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lbl_IVA_Value.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_IVA_Value.ForeColor = System.Drawing.Color.Black;
+            this.lbl_IVA_Value.LeftColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_IVA_Value.Location = new System.Drawing.Point(0, 45);
+            this.lbl_IVA_Value.Name = "lbl_IVA_Value";
+            this.lbl_IVA_Value.RightColor = System.Drawing.Color.White;
+            this.lbl_IVA_Value.Size = new System.Drawing.Size(133, 31);
+            this.lbl_IVA_Value.TabIndex = 67;
+            this.lbl_IVA_Value.Text = "0.00";
+            this.lbl_IVA_Value.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lbl_Pago
             // 
             this.lbl_Pago.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Pago.Location = new System.Drawing.Point(276, 0);
+            this.lbl_Pago.Location = new System.Drawing.Point(276, 170);
             this.lbl_Pago.Name = "lbl_Pago";
-            this.lbl_Pago.Size = new System.Drawing.Size(69, 26);
+            this.lbl_Pago.Size = new System.Drawing.Size(69, 29);
             this.lbl_Pago.TabIndex = 45;
             this.lbl_Pago.Text = "Pagó con:";
             this.lbl_Pago.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // txt_Valor_Pago
             // 
-            this.txt_Valor_Pago.BackColor = System.Drawing.Color.White;
-            this.txt_Valor_Pago.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.txt_Valor_Pago.BorderFocusColor = System.Drawing.Color.LawnGreen;
-            this.txt_Valor_Pago.BorderRadius = 5;
-            this.txt_Valor_Pago.BorderSize = 2;
-            this.txt_Valor_Pago.Enabled = false;
-            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Valor_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Valor_Pago.Location = new System.Drawing.Point(277, 30);
-            this.txt_Valor_Pago.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_Valor_Pago.Multiline = false;
+            this.txt_Valor_Pago.BackColor = System.Drawing.SystemColors.Info;
+            this.txt_Valor_Pago.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Valor_Pago.Location = new System.Drawing.Point(275, 201);
+            this.txt_Valor_Pago.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Valor_Pago.Name = "txt_Valor_Pago";
-            this.txt_Valor_Pago.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_Valor_Pago.PasswordChar = false;
-            this.txt_Valor_Pago.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_Valor_Pago.PlaceholderText = "0.00";
-            this.txt_Valor_Pago.Size = new System.Drawing.Size(127, 31);
-            this.txt_Valor_Pago.TabIndex = 55;
-            this.txt_Valor_Pago.TextBox1_Changed = null;
-            this.txt_Valor_Pago.Texts = "";
-            this.txt_Valor_Pago.UnderlinedStyle = true;
+            this.txt_Valor_Pago.Size = new System.Drawing.Size(134, 28);
+            this.txt_Valor_Pago.TabIndex = 70;
+            this.txt_Valor_Pago.Text = "0,00";
+            this.txt_Valor_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Valor_Pago.TextChanged += new System.EventHandler(this.txt_Valor_Pago_TextChanged);
+            this.txt_Valor_Pago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Valor_Pago_KeyPress);
             // 
             // lbl_Subtotal
             // 
             this.lbl_Subtotal.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Subtotal.Location = new System.Drawing.Point(276, 65);
+            this.lbl_Subtotal.Location = new System.Drawing.Point(276, 231);
             this.lbl_Subtotal.Name = "lbl_Subtotal";
             this.lbl_Subtotal.Size = new System.Drawing.Size(66, 33);
             this.lbl_Subtotal.TabIndex = 48;
@@ -329,10 +410,10 @@
             this.txt_Subtotal.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Subtotal.ForeColor = System.Drawing.Color.Black;
             this.txt_Subtotal.LeftColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_Subtotal.Location = new System.Drawing.Point(276, 98);
+            this.txt_Subtotal.Location = new System.Drawing.Point(276, 264);
             this.txt_Subtotal.Name = "txt_Subtotal";
             this.txt_Subtotal.RightColor = System.Drawing.Color.White;
-            this.txt_Subtotal.Size = new System.Drawing.Size(127, 31);
+            this.txt_Subtotal.Size = new System.Drawing.Size(133, 31);
             this.txt_Subtotal.TabIndex = 52;
             this.txt_Subtotal.Text = "0.00";
             this.txt_Subtotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -340,7 +421,7 @@
             // lbl_Vuelto
             // 
             this.lbl_Vuelto.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Vuelto.Location = new System.Drawing.Point(276, 129);
+            this.lbl_Vuelto.Location = new System.Drawing.Point(276, 295);
             this.lbl_Vuelto.Name = "lbl_Vuelto";
             this.lbl_Vuelto.Size = new System.Drawing.Size(67, 38);
             this.lbl_Vuelto.TabIndex = 46;
@@ -356,10 +437,10 @@
             this.txt_Vuelto.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Vuelto.ForeColor = System.Drawing.Color.Black;
             this.txt_Vuelto.LeftColor = System.Drawing.Color.LightCyan;
-            this.txt_Vuelto.Location = new System.Drawing.Point(276, 167);
+            this.txt_Vuelto.Location = new System.Drawing.Point(276, 333);
             this.txt_Vuelto.Name = "txt_Vuelto";
             this.txt_Vuelto.RightColor = System.Drawing.Color.LightSkyBlue;
-            this.txt_Vuelto.Size = new System.Drawing.Size(127, 31);
+            this.txt_Vuelto.Size = new System.Drawing.Size(133, 31);
             this.txt_Vuelto.TabIndex = 53;
             this.txt_Vuelto.Text = "0.00";
             this.txt_Vuelto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -367,7 +448,7 @@
             // lbl_Total
             // 
             this.lbl_Total.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Total.Location = new System.Drawing.Point(276, 198);
+            this.lbl_Total.Location = new System.Drawing.Point(449, 0);
             this.lbl_Total.Name = "lbl_Total";
             this.lbl_Total.Size = new System.Drawing.Size(62, 39);
             this.lbl_Total.TabIndex = 49;
@@ -383,17 +464,17 @@
             this.txt_Total.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Total.ForeColor = System.Drawing.Color.Black;
             this.txt_Total.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(241)))), ((int)(((byte)(196)))));
-            this.txt_Total.Location = new System.Drawing.Point(276, 237);
+            this.txt_Total.Location = new System.Drawing.Point(449, 39);
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.RightColor = System.Drawing.Color.SpringGreen;
-            this.txt_Total.Size = new System.Drawing.Size(127, 31);
+            this.txt_Total.Size = new System.Drawing.Size(133, 31);
             this.txt_Total.TabIndex = 50;
             this.txt_Total.Text = "0.00";
             this.txt_Total.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(276, 271);
+            this.panel4.Location = new System.Drawing.Point(449, 73);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 23);
             this.panel4.TabIndex = 59;
@@ -408,10 +489,10 @@
             this.btn_Actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Actualizar.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Actualizar.ForeColor = System.Drawing.Color.White;
-            this.btn_Actualizar.Location = new System.Drawing.Point(275, 299);
+            this.btn_Actualizar.Location = new System.Drawing.Point(448, 101);
             this.btn_Actualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Actualizar.Name = "btn_Actualizar";
-            this.btn_Actualizar.Size = new System.Drawing.Size(143, 38);
+            this.btn_Actualizar.Size = new System.Drawing.Size(109, 38);
             this.btn_Actualizar.TabIndex = 17;
             this.btn_Actualizar.Text = "ACTUALIZAR";
             this.btn_Actualizar.UseVisualStyleBackColor = false;
@@ -466,6 +547,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmUD_Cantidad)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             this.ResumeLayout(false);
 
@@ -487,7 +570,6 @@
         private System.Windows.Forms.Label lbl_Fecha;
         private System.Windows.Forms.Label txt_fecha;
         private System.Windows.Forms.Label lbl_Pago;
-        private user_controls.TextBox_Control txt_Valor_Pago;
         private user_controls.Gradient_Label_Bounds txt_Vuelto;
         private user_controls.Gradient_Label_Bounds txt_Subtotal;
         private user_controls.Gradient_Label_Bounds txt_Total;
@@ -502,5 +584,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txt_Encargado;
         private System.Windows.Forms.TextBox txt_Val_Unit;
+        private System.Windows.Forms.Label label1;
+        private user_controls.Gradient_Label_Bounds txt_Valor_a_Pagar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chb_IVA;
+        private user_controls.Gradient_Label_Bounds lbl_IVA_Value;
+        private System.Windows.Forms.TextBox txt_Valor_Pago;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
@@ -19,8 +20,18 @@ namespace Capa_Presentacion.Modulos._1._Factura
 {
     public partial class Frm_Nueva_Factura : Form
     {
-        //Fields
-        CN_GetData objCapaNegocio = new CN_GetData();
+        #region Atributos
+        /// <summary>
+        /// Ojbeto de solo lectura para la invocación de los métodos de la clase <b>CN_GetData</b>
+        /// </summary> 
+        private readonly CN_GetData objCapaNegocio = new CN_GetData();
+        #endregion
+
+        #region Descripción del Constructor
+        /// <summary>
+        /// Constructor que incializa los componentes del formulario, envía la fecha actual del sistema a un label y marca el IVA en false.
+        /// </summary> 
+        #endregion
         public Frm_Nueva_Factura()
         {
             InitializeComponent();
@@ -35,6 +46,11 @@ namespace Capa_Presentacion.Modulos._1._Factura
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Retorna la fecha en formato como un valor de tipo 
+        /// </returns>
         private string Get_Date() => objCapaNegocio.ObtenerFechaActual();
 
         //Calcular el valor total con IVA
@@ -49,10 +65,17 @@ namespace Capa_Presentacion.Modulos._1._Factura
             {
                 lbl_IVA_Value.Text = "0.00";
             }
+            CalcularTotal();
+        }
+
+        //Llamada al método LimpiarCampos()
+        private void btn_Limpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
 
         //Limpiar los textBox/[multiline], comboBox, numberUpDown, label
-        private void btn_Limpiar_Click(object sender, EventArgs e)
+        private void LimpiarCampos()
         {
             txt_Codigo_Cliente.Texts = "";
             txt_Cedula.Texts = "";
@@ -62,12 +85,16 @@ namespace Capa_Presentacion.Modulos._1._Factura
             txt_Descripcion.Text = "";
             nmUD_Cantidad.Value = 1;
             txt_Nombre_Encargado.Texts = "";
-            txt_Valor_Pago.Text = "";
+            textbox1.Text = "";
             chb_IVA.Checked = false;
+            txt_Val_Unit.Text = "0,00";
             lbl_IVA_Value.Text = "0.00";
             txt_Subtotal.Text = "0.00";
             txt_Vuelto.Text = "0.00";
             txt_Total.Text = "0.00";
+            textbox1.Texts = "";
+            nmUD_Cantidad.Enabled = false;
+            txt_Val_Unit.Enabled = false;
         }
 
         //Validar el de ingreso de números enteros positivos
@@ -128,8 +155,11 @@ namespace Capa_Presentacion.Modulos._1._Factura
                     txt_Nombre.Texts = clienteInfo.Nombres.ToString() + " " + clienteInfo.Apellidos.ToString();
                     txt_Telefono.Texts = "0" + clienteInfo.Telefono.ToString();
                     txt_Metodo_Pago.Texts = clienteInfo.MetodoPago.ToString();
-                    txt_Valor_Pago.Texts = clienteInfo.ValorPago.ToString();
+                    txt_Valor_Pago.Text = clienteInfo.ValorPago.ToString();
                     // El método de pago y valor del pago están disponibles en clienteInfo.MetodoPago y clienteInfo.ValorPago, respectivamente.
+                    nmUD_Cantidad.Enabled = true;
+                    txt_Val_Unit.Enabled = true;
+                    CalcularTotal();
                 }
                 else
                 {
@@ -143,7 +173,32 @@ namespace Capa_Presentacion.Modulos._1._Factura
             }
         }
 
-        //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta
+        private void CalcularTotal()
+        {
+            int cantidad = int.Parse(nmUD_Cantidad.Value.ToString());
+            float val_unit = (txt_Val_Unit.Text.Equals("0,00") ? 0.00f : (float)Math.Round(float.Parse(txt_Val_Unit.Text.Trim().ToString())));
+            float pago = (float)Math.Round(float.Parse(txt_Valor_Pago.Text.Trim()));
+            float iva = 0.12f;
+            float subtotal = (cantidad * val_unit) + pago;
+            txt_Valor_a_Pagar.Text = (cantidad * val_unit) + "";
+            if (float.Parse(txt_Valor_a_Pagar.Text.Trim()) <= pago)
+            {
+                txt_Subtotal.Text = subtotal + "";
+                txt_Vuelto.Text = Math.Abs(pago - float.Parse(txt_Valor_a_Pagar.Text.Trim())) + "";
+                txt_Total.Text = (chb_IVA.Checked ? ((subtotal * iva) + subtotal) + "" : subtotal + "");
+            }
+            else
+            {
+                txt_Val_Unit.Text = "0,00";
+                MessageBox.Show("El valor a pagar es mayor que el efectivo del cliente.\nPorfavor considere su presupuesto", "No sea pobre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //if (float.Parse(txt_Total.Text.Trim()) > pago)
+            //{
+            //    MessageBox.Show("El total a pagar es mayor que el efectivo del cliente.\nPorfavor considere su presupuesto o puede cambiar el valor del pago en las consultas del pago", "Negociemos...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //}
+        }
+
+        //Verifica si los campos se han llenado correctamente, de lo contrario presenta un mensaje de alerta
         private bool ValidarCampos()
         {
             string mensajeValidacion = "";
@@ -180,7 +235,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
         {
             if (ValidarCampos())
             {
-
+                Factura f = new Factura()
+                {
+                    IdCliente = int.Parse(txt_Codigo_Cliente.Texts.Trim().ToString()),
+                    Descripcion = txt_Descripcion.Text.Trim().ToString(),
+                    Cantidad = int.Parse(nmUD_Cantidad.Value.ToString()),
+                    ValorUnitario = float.Parse(txt_Val_Unit.Text.Trim()),
+                    Encargado = txt_Nombre_Encargado.Texts.Trim().ToString().ToUpper(),
+                    Fecha = DateTime.Today,
+                    Total = float.Parse(txt_Total.Text.Trim().ToString())
+                };
+                objCapaNegocio.CN_Nueva_Factura(f);
+                LimpiarCampos();
+                CargarRegistrosFactura();
             }
         }
 
@@ -262,14 +329,11 @@ namespace Capa_Presentacion.Modulos._1._Factura
                     // Asignar el valor formateado al TextBox
                     txt_Val_Unit.Text = valorDecimal.ToString("N2");
                     txt_Val_Unit.SelectionStart = txt_Val_Unit.Text.Length; // Colocar el cursor al final del texto
+                    CalcularTotal();
                 }
             }
         }
 
-        private void CalcularTotal()
-        {
-            float valor_pago = float.Parse(txt_Valor_Pago.Texts);
-        }
 
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
@@ -310,6 +374,16 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 MessageBox.Show("No se pudo generar el reporte.\n\tNo hay facturas generadas.", "Fallo al generar Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void gradient_Label_Bounds1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nmUD_Cantidad_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularTotal();
         }
     }
 }

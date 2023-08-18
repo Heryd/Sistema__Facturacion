@@ -1,4 +1,5 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -32,6 +33,11 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
 
         private void btn_Limpiar_Click(object sender, EventArgs e)
         {
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
             txt_Codigo_Factura.Texts = "";
             Txt_Fecha_Emision.Texts = "";
             cmb_Metodo_Pago.SelectedIndex = 0;
@@ -56,13 +62,15 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
 
         private void btn_Search_Factura_Click(object sender, EventArgs e)
         {
-            int codigoFactura = int.Parse(txt_Codigo_Factura.Texts);
-            int codigoPago = int.Parse(Txt_Id_Pago.Text);
+            int codigoFactura = 0, codigoPago = 0;
 
-            if (Txt_Id_Pago.Text.Length > 0)
+            if (!Txt_Id_Pago.Text.Equals("") && !txt_Codigo_Factura.Texts.Trim().Equals(""))
             {
+                codigoFactura = int.Parse(txt_Codigo_Factura.Texts.Trim().ToString());
+                codigoPago = int.Parse(Txt_Id_Pago.Text.Trim().ToString());
+
                 var facturaInfo = objCapaNegocio.CN_DevolverFactura()
-                    .Where(f => f.Id == codigoFactura)
+                    .Where(f => f.Id == codigoFactura && f.IdPago ==codigoPago)
                     .Select(f => new
                     {
                         f.Fecha,
@@ -90,6 +98,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                     txt_Nombres_Cliente.Text = facturaInfo.Nombres_Cliente.ToString();
                     Txt_Valor_Pago.Texts = facturaInfo.Monto.ToString();
                     Set_Combo_Box(facturaInfo.Metodo_Pago.ToString().ToUpper());
+                    btn_Registrar.Enabled = true;
                 }
                 else
                 {
@@ -98,7 +107,7 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
             }
             else
             {
-                MessageBox.Show("Por favor digite primero el código de su Pago", "Buscar código de Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor digite primero el código de su Factura", "Buscar código de Factura", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -135,6 +144,50 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 cmb_Metodo_Pago.SelectedIndex = 3;
                 break;
             }
+        }
+
+        private void btn_Registrar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                Reembolso r = new Reembolso()
+                {
+                    Fecha = DateTime.Today,
+                    Motivo = txt_Motivo_Reembolso.Text.Trim(),
+                    Cedula = decimal.Parse(txt_Cedula.Text.Trim()),
+                    IdFactura = int.Parse(txt_Codigo_Factura.Texts.Trim()),
+                    IdPago = int.Parse(Txt_Id_Pago.Text.Trim())
+                };
+                objCapaNegocio.CN_Nuevo_Reembolso(r);
+                LimpiarCampos();
+            }
+        }
+
+        //Verifica si los campos se han llenado correctamente, de lo contrario presenta unm mensaje de alerta
+        private bool ValidarCampos()
+        {
+            string mensajeValidacion = "";
+            int confirm = -1;
+            if (string.IsNullOrWhiteSpace(Txt_Id_Pago.Text))
+            {
+                mensajeValidacion += "\n\t- Código del Pago";
+                confirm++;
+            }
+            if (string.IsNullOrWhiteSpace(txt_Codigo_Factura.Texts))
+            {
+                mensajeValidacion += "\n\t- Código de la Factura";
+                confirm++;
+            }
+            if (string.IsNullOrWhiteSpace(txt_Motivo_Reembolso.Text))
+            {
+                mensajeValidacion += "\n\t- Motivo del Reembolso";
+                confirm++;
+            }
+            if (mensajeValidacion.Length > 0 || !string.IsNullOrWhiteSpace(mensajeValidacion))
+            {
+                MessageBox.Show("Por favor, llene y/o seleccione los campos de: " + mensajeValidacion, "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return (confirm >= 0 ? false : true);
         }
     }
 }

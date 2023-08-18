@@ -6,7 +6,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
 
 /*GRUPO G03 - INTEGRANTES
  * Morla Gordillo Heryd Xavier (Líder)
@@ -116,13 +115,40 @@ namespace Capa_Datos
         /// <summary>
         /// Método que se encarga de registrar una factura haciendo uso de un Stored Procedure.
         /// </summary>
-        public void Registro_Factura()
+        public void CD_NuevaFactura(Factura f)
         {
+            SqlCommand sqlComando = new SqlCommand
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "NUEVA_FACTURA",
+                CommandType = CommandType.StoredProcedure
+            };
 
+            //Envía los campos del objeto factura al sp de la base de datos para su correspondiente asignación a los parámetros
+            sqlComando.Parameters.AddWithValue("@idCliente", f.IdCliente);
+            sqlComando.Parameters.AddWithValue("@descripcionServ", f.Descripcion);
+            sqlComando.Parameters.AddWithValue("@cantidad", f.Cantidad);
+            sqlComando.Parameters.AddWithValue("@valorUnitario", f.ValorUnitario);
+            sqlComando.Parameters.AddWithValue("@nombreEncargado", f.Encargado);
+            sqlComando.Parameters.AddWithValue("@fecha", f.Fecha);
+            sqlComando.Parameters.AddWithValue("@total", f.Total);
+
+            //Toma el valor que devuelve el sp
+            string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
+
+            //Mensaje que se presenta al registrar la factura
+            if (resultado.StartsWith("Factura"))
+                MessageBox.Show(resultado, "Facturación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show(resultado, "Facturación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            db_connection.CloseConnection();
         }
         #endregion
         #region Modulo Pago
-        //Registra un nuevo Pago
+        /// <summary>
+        /// Método para registrar el nuevo pago que realiza un cliente
+        /// </summary>
+        /// <param name="p"> Objeto de tipo Pago</param>
         public void CD_NuevoPago(Pago p)
         {
             SqlCommand sqlComando = new SqlCommand
@@ -186,19 +212,43 @@ namespace Capa_Datos
         }
         #endregion
         #region Modulo Reembolso
-        public void Registro_Reembolso()
+        /// <summary>
+        /// Método que envía ciertos atributos de la clase reembolso al sp de Nuevo_Reembolso y genera el registro.
+        /// </summary>
+        /// <param name="r">Objeto de tipo Reembolso con los datos a registrar.</param> 
+        public void CD_NuevoReembolso(Reembolso r)
         {
+            SqlCommand sqlComando = new SqlCommand
+            {
+                Connection = db_connection.OpenConnection(),
+                CommandText = "NUEVO_REEMBOLSO",
+                CommandType = CommandType.StoredProcedure
+            };
 
+            sqlComando.Parameters.AddWithValue("@codigoFactura", r.IdFactura);
+            sqlComando.Parameters.AddWithValue("@cedula", r.Cedula);
+            sqlComando.Parameters.AddWithValue("@codigoPago", r.IdPago);
+            sqlComando.Parameters.AddWithValue("@motivoReembolso", r.Motivo);
+            sqlComando.Parameters.AddWithValue("@fecha", r.Fecha);
+
+            string resultado = Convert.ToString(sqlComando.ExecuteScalar().ToString());
+
+            if (resultado.Contains("Esta factura ya fue anulada y el pago del cliente reembolsado"))
+                MessageBox.Show(resultado, "Fallo del reembolso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show(resultado, "Registro del Reembolso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            db_connection.CloseConnection();
         }
         #endregion
 
         //Consultas
         #region Modulo Factura
-        public DataTable Consulta_Facturas() => GetData("CONSULTAR_FACTURAS");
+        #region Descripción de Consulta de Facturas
         /// <summary>
         /// Devuelve los registros de la Tabla Factura y los guarda en una lista para luego poder mapearlos
         /// </summary>
-        /// <returns>Retorna una <see href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-7.0">lista</see> de facturas</returns>
+        /// <returns>Retorna una <see href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-7.0">lista</see> de facturas</returns> 
+        #endregion
         public List<Factura> DevolverListaFacturas()
         {
             List<Factura> facturas = new List<Factura>();
@@ -221,7 +271,6 @@ namespace Capa_Datos
                         IdCliente = (int)reader["ID_CLIENTE"],
                         Fecha = (DateTime)reader["FECHA_FACTURACION"],
                         //Detalle de la 
-                        IdPago = (int)reader["ID_PAGO"],
                         IdDetalleFactura = (int)reader["ID_DETALLE_FACTURA"],
                         IdServicio = (int)reader["ID_SERVICIO"],
                         Encargado = reader["NOMBRE_ENCARGADO"].ToString(),
@@ -229,7 +278,7 @@ namespace Capa_Datos
                         Total = Convert.ToSingle(reader["TOTAL_PAGAR"], CultureInfo.InvariantCulture),
                         //Servicio
                         Descripcion = reader["DESCRIPCION_SERVICIO"].ToString(),
-                        ValorUnitario = Convert.ToSingle(reader["VALOR_UNITARIO"], CultureInfo.InvariantCulture),
+                        ValorUnitario = (float)Convert.ToSingle(reader["VALOR_UNITARIO"], CultureInfo.InvariantCulture),
                         Estado = reader["ESTADO"].ToString()
                     };
                     facturas.Add(factura);
@@ -241,7 +290,13 @@ namespace Capa_Datos
         #endregion
         #region Modulo Pago
         public DataTable Consulta_Pago() => GetData("CONSULTAR_PAGOS");
-        //Devuelve los registros de la Tabla Pago y los guarda en una lista para luego poder mapearlos con Linq
+
+        #region Descripción de la consulta de Pagos
+        /// <summary>
+        /// Devuelve los registros de la Tabla Pago y los guarda en una lista para luego poder mapearlos con Linq.
+        /// </summary>
+        /// <returns>Retorna una <see href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-7.0">lista</see> de pagos.</returns> 
+        #endregion
         public List<Pago> DevolverListaPagos()
         {
             List<Pago> pagos = new List<Pago>();
@@ -503,6 +558,35 @@ namespace Capa_Datos
         }
         #endregion
         #region Modulo Reembolso
+        /// <summary>
+        /// Este método elimina un reembolso registrado a partir de su ID 
+        /// </summary>
+        /// <param name="codigo_reembolso">El código/ID del reembolso</param>
+        /// <exception cref="DBErrorException">Excepción que aparece si no se puede conectar con la Base de Datos</exception>
+        public void CD_EliminarReembolso(int codigo_reembolso)
+        {
+            try
+            {
+                //Estableciendo la conexión
+                SqlCommand comando = new SqlCommand
+                {
+                    Connection = db_connection.OpenConnection(),
+                    CommandText = "ELIMINAR_REEMBOLSO",
+                    CommandType = CommandType.StoredProcedure
+                };
+                //Envía la cédula como parámetro al Stored Procedure de nombre "ELIMINAR_CLIENTE"
+                comando.Parameters.AddWithValue("@codigoReembolso",codigo_reembolso);
+                comando.ExecuteNonQuery(); // Ejecutar la consulta de actualización
+
+                MessageBox.Show("Reembolso Eliminado", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Cierra la conexión
+                db_connection.CloseConnection();
+            }
+            catch
+            {
+                throw new DBErrorException();
+            }
+        }
         #endregion
     }
 }

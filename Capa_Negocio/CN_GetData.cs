@@ -134,11 +134,34 @@ namespace Capa_Negocio
         /// <param name="cl">Objeto de tipo Cliente.</param>
         /// <remarks><b>Este método no retorna ningún valor</b></remarks> 
         #endregion
-        public void CN_Nuevo_Cliente(Cliente cl)
-        {
-            //Envia los parámetros a la clase CD_GetData y castea aquellos de tipo numerico o fecha
-            objectCD.CD_Nuevo_Cliente(cl);
-        }
+        public void CN_Nuevo_Cliente(Cliente cl)=> objectCD.CD_Nuevo_Cliente(cl);
+        
+        #region Método que envía un registro de un Pago y lo actualiza 
+        /// <summary>
+        /// Método para registrar un Pago 
+        /// <paramref name="p"/>.
+        /// </summary>
+        /// <param name="p">Objeto de tipo Pago.</param> 
+        #endregion
+        public void CN_Nuevo_Pago(Pago p) => objectCD.CD_NuevoPago(p);
+
+        #region Método que envía un registro de un Pago y lo actualiza 
+        /// <summary>
+        /// Método para registrar una Factura de un cliente
+        /// <paramref name="f"/>.
+        /// </summary>
+        /// <param name="p">Objeto de tipo Factura.</param> 
+        #endregion
+        public void CN_Nueva_Factura(Factura f) => objectCD.CD_NuevaFactura(f);
+        
+        #region Método que realiza el reembolso de un pago y anula la factura relacionada a ese pago
+        /// <summary>
+        /// Método para registrar un Reembolso
+        /// <paramref name="r"/>.
+        /// </summary>
+        /// <param name="r">Objeto de tipo Reembolso.</param> 
+        #endregion
+        public void CN_Nuevo_Reembolso(Reembolso r) => objectCD.CD_NuevoReembolso(r);
 
         #region Método que envía un registro de un Cliente y lo actualiza 
         /// <summary>
@@ -149,8 +172,6 @@ namespace Capa_Negocio
         #endregion
         public void CN_ActualizarCliente(Cliente cl) => objectCD.CD_ActualizarCliente(cl);
 
-        public void CN_ActualizarPago(Pago p) => objectCD.CD_ActualizarPago(p);
-
         #region Método que envía un registro de un Pago y lo actualiza 
         /// <summary>
         /// Método para actualizar el registro existente de un Pago
@@ -158,7 +179,8 @@ namespace Capa_Negocio
         /// </summary>
         /// <param name="p">Objeto de tipo Pago.</param> 
         #endregion
-        public void CN_Nuevo_Pago(Pago p) => objectCD.CD_NuevoPago(p);
+        public void CN_ActualizarPago(Pago p) => objectCD.CD_ActualizarPago(p);
+
         #region Método para eliminar un registro existente de un cliente de la Base de Datos
         /// <summary>
         /// Método que toma el ID del cliente para su correspondiente cambio de estado
@@ -173,6 +195,7 @@ namespace Capa_Negocio
 
         public void CN_EliminarPago(string indice) => objectCD.CD_EliminarPago(int.Parse(indice));
 
+        public void CN_EliminarReembolso(string indice)=> objectCD.CD_EliminarReembolso(int.Parse(indice));
         #region Listas de cada módulo para poder mapear con Linq.
         #region Método para obtener una Lista de Clientes
         /// <summary>

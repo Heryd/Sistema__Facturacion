@@ -80,7 +80,7 @@ namespace Capa_Presentacion.Modulos._2._Pago
                 }).FirstOrDefault();
             txt_ID.Text = pago.Id.ToString();
             txt_Codigo_Cliente.Text = "0" + pago.CODIGO_CLIENTE.ToString();
-            txt_Valor_Pago.Text = pago.Valor.ToString();
+            txt_Valor_Pago.Text = (!pago.Valor.ToString().Contains(".") ? pago.Valor.ToString()+"00" : pago.Valor.ToString());
             Set_Item_ComboBox(pago.MetodoPago);
         }
 

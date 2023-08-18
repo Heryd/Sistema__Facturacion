@@ -32,15 +32,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pn_Container = new System.Windows.Forms.Panel();
+            this.dtgV_Reembolsos = new System.Windows.Forms.DataGridView();
             this.cmb_Filtro_Pago = new System.Windows.Forms.ComboBox();
             this.cmb_Filtro_Reembolso = new System.Windows.Forms.ComboBox();
             this.txt_Busqueda = new Capa_Presentacion.user_controls.TextBox_Control();
             this.btn_CloseForm = new System.Windows.Forms.PictureBox();
             this.lbl_TOP = new Capa_Presentacion.user_controls.Gradient_Label_Bounds();
-            this.dtgV_Reembolsos = new System.Windows.Forms.DataGridView();
             this.pn_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgV_Reembolsos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_Container
@@ -58,6 +58,57 @@
             this.pn_Container.Name = "pn_Container";
             this.pn_Container.Size = new System.Drawing.Size(950, 471);
             this.pn_Container.TabIndex = 17;
+            // 
+            // dtgV_Reembolsos
+            // 
+            this.dtgV_Reembolsos.AllowUserToAddRows = false;
+            this.dtgV_Reembolsos.AllowUserToDeleteRows = false;
+            this.dtgV_Reembolsos.AllowUserToResizeColumns = false;
+            this.dtgV_Reembolsos.AllowUserToResizeRows = false;
+            this.dtgV_Reembolsos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgV_Reembolsos.BackgroundColor = System.Drawing.Color.White;
+            this.dtgV_Reembolsos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgV_Reembolsos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgV_Reembolsos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dtgV_Reembolsos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Goldenrod;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgV_Reembolsos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgV_Reembolsos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgV_Reembolsos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgV_Reembolsos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgV_Reembolsos.EnableHeadersVisualStyles = false;
+            this.dtgV_Reembolsos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dtgV_Reembolsos.Location = new System.Drawing.Point(28, 137);
+            this.dtgV_Reembolsos.Name = "dtgV_Reembolsos";
+            this.dtgV_Reembolsos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgV_Reembolsos.RowHeadersVisible = false;
+            this.dtgV_Reembolsos.RowHeadersWidth = 62;
+            this.dtgV_Reembolsos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.dtgV_Reembolsos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgV_Reembolsos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgV_Reembolsos.Size = new System.Drawing.Size(897, 304);
+            this.dtgV_Reembolsos.TabIndex = 23;
+            this.dtgV_Reembolsos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgV_Reembolsos_CellContentClick);
+            this.dtgV_Reembolsos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtgV_Reembolsos_CellPainting);
             // 
             // cmb_Filtro_Pago
             // 
@@ -109,6 +160,7 @@
             this.txt_Busqueda.PlaceholderText = "Buscar";
             this.txt_Busqueda.Size = new System.Drawing.Size(322, 31);
             this.txt_Busqueda.TabIndex = 17;
+            this.txt_Busqueda.TextBox1_Changed = null;
             this.txt_Busqueda.Texts = "";
             this.txt_Busqueda.UnderlinedStyle = true;
             // 
@@ -142,55 +194,6 @@
             this.lbl_TOP.Text = "      REEMBOLSOS";
             this.lbl_TOP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dtgV_Reembolsos
-            // 
-            this.dtgV_Reembolsos.AllowUserToAddRows = false;
-            this.dtgV_Reembolsos.AllowUserToDeleteRows = false;
-            this.dtgV_Reembolsos.AllowUserToResizeColumns = false;
-            this.dtgV_Reembolsos.AllowUserToResizeRows = false;
-            this.dtgV_Reembolsos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgV_Reembolsos.BackgroundColor = System.Drawing.Color.White;
-            this.dtgV_Reembolsos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgV_Reembolsos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dtgV_Reembolsos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dtgV_Reembolsos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Goldenrod;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgV_Reembolsos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgV_Reembolsos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgV_Reembolsos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgV_Reembolsos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgV_Reembolsos.EnableHeadersVisualStyles = false;
-            this.dtgV_Reembolsos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dtgV_Reembolsos.Location = new System.Drawing.Point(28, 137);
-            this.dtgV_Reembolsos.Name = "dtgV_Reembolsos";
-            this.dtgV_Reembolsos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dtgV_Reembolsos.RowHeadersVisible = false;
-            this.dtgV_Reembolsos.RowHeadersWidth = 62;
-            this.dtgV_Reembolsos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.dtgV_Reembolsos.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgV_Reembolsos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgV_Reembolsos.Size = new System.Drawing.Size(897, 304);
-            this.dtgV_Reembolsos.TabIndex = 23;
-            // 
             // Frm_Reembolsos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,9 +207,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Reembolsos";
             this.Text = "Frm_Reembolsos";
+            this.Load += new System.EventHandler(this.Frm_Reembolsos_Load);
             this.pn_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgV_Reembolsos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_CloseForm)).EndInit();
             this.ResumeLayout(false);
 
         }

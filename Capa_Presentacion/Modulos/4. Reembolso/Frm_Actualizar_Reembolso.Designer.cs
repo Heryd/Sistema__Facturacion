@@ -83,7 +83,6 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.flowLayoutPanel1.Controls.Add(this.lbl_Fecha);
             this.flowLayoutPanel1.Controls.Add(this.txt_fecha);
@@ -148,7 +147,7 @@
             this.txt_Cedula.AutoSize = true;
             this.txt_Cedula.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Cedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Cedula.Location = new System.Drawing.Point(0, 10);
+            this.txt_Cedula.Location = new System.Drawing.Point(0, 18);
             this.txt_Cedula.Name = "txt_Cedula";
             this.txt_Cedula.Size = new System.Drawing.Size(67, 16);
             this.txt_Cedula.TabIndex = 55;
@@ -160,7 +159,7 @@
             this.lbl_Separator.AutoSize = true;
             this.lbl_Separator.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Separator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Separator.Location = new System.Drawing.Point(88, 10);
+            this.lbl_Separator.Location = new System.Drawing.Point(88, 18);
             this.lbl_Separator.Name = "lbl_Separator";
             this.lbl_Separator.Size = new System.Drawing.Size(12, 16);
             this.lbl_Separator.TabIndex = 54;
@@ -169,12 +168,11 @@
             // 
             // txt_Nombres_Cliente
             // 
-            this.txt_Nombres_Cliente.AutoSize = true;
-            this.txt_Nombres_Cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nombres_Cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombres_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txt_Nombres_Cliente.Location = new System.Drawing.Point(121, 10);
+            this.txt_Nombres_Cliente.Location = new System.Drawing.Point(121, 0);
             this.txt_Nombres_Cliente.Name = "txt_Nombres_Cliente";
-            this.txt_Nombres_Cliente.Size = new System.Drawing.Size(42, 16);
+            this.txt_Nombres_Cliente.Size = new System.Drawing.Size(127, 52);
             this.txt_Nombres_Cliente.TabIndex = 56;
             this.txt_Nombres_Cliente.Text = "-------";
             this.txt_Nombres_Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,7 +192,9 @@
             this.cmb_Estado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_Estado.BackColor = System.Drawing.SystemColors.Control;
+            this.cmb_Estado.Enabled = false;
             this.cmb_Estado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_Estado.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Estado.FormattingEnabled = true;
             this.cmb_Estado.Items.AddRange(new object[] {
             "Seleccionar...",
@@ -203,14 +203,14 @@
             "Pendiente"});
             this.cmb_Estado.Location = new System.Drawing.Point(3, 192);
             this.cmb_Estado.Name = "cmb_Estado";
-            this.cmb_Estado.Size = new System.Drawing.Size(178, 21);
+            this.cmb_Estado.Size = new System.Drawing.Size(259, 31);
             this.cmb_Estado.TabIndex = 50;
             // 
             // lbl_Motivo
             // 
             this.lbl_Motivo.Font = new System.Drawing.Font("Microsoft PhagsPa", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Motivo.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Motivo.Location = new System.Drawing.Point(3, 216);
+            this.lbl_Motivo.Location = new System.Drawing.Point(3, 226);
             this.lbl_Motivo.Name = "lbl_Motivo";
             this.lbl_Motivo.Size = new System.Drawing.Size(259, 28);
             this.lbl_Motivo.TabIndex = 49;
@@ -219,7 +219,7 @@
             // 
             // txt_Motivo_Reembolso
             // 
-            this.txt_Motivo_Reembolso.Location = new System.Drawing.Point(3, 247);
+            this.txt_Motivo_Reembolso.Location = new System.Drawing.Point(3, 257);
             this.txt_Motivo_Reembolso.Name = "txt_Motivo_Reembolso";
             this.txt_Motivo_Reembolso.Size = new System.Drawing.Size(259, 90);
             this.txt_Motivo_Reembolso.TabIndex = 48;

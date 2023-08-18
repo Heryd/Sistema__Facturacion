@@ -1,7 +1,10 @@
-﻿using Capa_Negocio;
+﻿using Capa_Datos.Entidades;
+using Capa_Negocio;
 using System;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 /*GRUPO G03 - INTEGRANTES
@@ -21,6 +24,8 @@ namespace Capa_Presentacion.Modulos._1._Factura
         {
             InitializeComponent();
             RetornarDatosFactura(int.Parse(indice));
+            CalcularTotal();
+
         }
 
         //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
@@ -80,41 +85,86 @@ namespace Capa_Presentacion.Modulos._1._Factura
                                  f.Descripcion,
                                  Cedula = objCapaNegocio.CN_DevolverCliente().Where(cl => cl.Id == f.IdCliente).Select(cl => cl.Cedula).FirstOrDefault(),
                                  Nombres = objCapaNegocio.CN_DevolverCliente().Where(cl => cl.Cedula == f.CedulaCliente).Select(cl => cl.Apellidos + " " + cl.Nombres).FirstOrDefault(),
-                                 Pago = objCapaNegocio.CN_DevolverPago().Where(p => p.Id == f.IdPago).Select(p => p.Valor).FirstOrDefault(),
                                  f.Total
                              }).FirstOrDefault();
             if (facturaData != null)
             {
-                txt_fecha.Text = facturaData.Fecha.ToString("D");
+                txt_fecha.Text = facturaData.Fecha.ToString("dddd dd MMMM, yyyy", CultureInfo.CreateSpecificCulture("es-ES"));
                 txt_Encargado.Text = facturaData.Encargado.ToString();
-                txt_Val_Unit.Text = facturaData.ValorUnitario.ToString();
+                txt_Val_Unit.Text = EvaluarValorUnitario(facturaData.ValorUnitario.ToString());
                 nmUD_Cantidad.Value = int.Parse(facturaData.Cantidad.ToString());
                 txt_Descripcion.Text = facturaData.Descripcion.ToString();
                 txt_Cedula.Text = facturaData.Cedula.ToString();
                 txt_Nombres_Cliente.Text = facturaData.Nombres.ToString();
-                txt_Valor_Pago.Texts = Convert.ToSingle(facturaData.Pago.ToString(),CultureInfo.InvariantCulture)+"";
+                txt_Valor_Pago.Text = "0,00";
                 txt_Total.Text = facturaData.Total.ToString();
-                CalcularTotal();
             }
         }
-
+        private string EvaluarValorUnitario(string valUnit)
+        {
+            // Check if the string contains a decimal point.
+            Regex regex1 = new Regex(@"\,[0-9]{2}$");
+            Regex regex2 = new Regex(@"\,[0-9]{1}$");
+            Match match1 = regex1.Match(valUnit);
+            Match match2 = regex2.Match(valUnit);
+            // Check if the string contains two decimals.
+            if (match1.Success)
+            {
+                return valUnit;
+            }
+            if (match2.Success)
+            {
+                return valUnit + 0;
+            }
+            //if(!match1.Success&&!match2.Success)
+            //{
+            //    return valUnit + 00;
+            //}
+            return valUnit + 00;
+        }
         private void CalcularTotal()
         {
-            float vuelto = 0, valor_pago = 0, valor_unit = 0;
-            valor_unit = float.Parse(txt_Val_Unit.Text.Trim().ToString());
             int cantidad = int.Parse(nmUD_Cantidad.Value.ToString());
-            valor_pago = float.Parse(txt_Valor_Pago.Texts.ToString());
-
-            txt_Subtotal.Text = CalcularSubTotal();
-            txt_Vuelto.Text = CalcularVuelto()+"";
-
-            float total = valor_unit * cantidad + vuelto;
-            txt_Total.Text = String.Format("%.2f", total);
+            float iva = 0.12f;
+            float subTotal = CalcularSubTotal();
+            float pago = float.Parse(txt_Valor_Pago.Text.Trim());
+            txt_Valor_a_Pagar.Text = CalcularValorAPagar() + "";
+            //if (float.Parse(txt_Valor_a_Pagar.Text.Trim()) <= pago)
+            //{
+                txt_Subtotal.Text = subTotal + "";
+                txt_Vuelto.Text = CalcularVuelto() + "";
+                txt_Total.Text = (chb_IVA.Checked ? ((subTotal * iva) + subTotal) + "" : subTotal + "");
+            //}
+            //else
+            //{
+                txt_Val_Unit.Text = "0,00";
+                //MessageBox.Show("El valor a pagar es mayor que el efectivo del cliente.\nPorfavor considere su presupuesto", "No sea pobre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
 
-        public string CalcularSubTotal() => string.Format("%.2f", float.Parse(txt_Val_Unit.Text.Trim()) * int.Parse(nmUD_Cantidad.Value.ToString()));
+        #region Descripción del Método para Calcular el Subtotal
+        /// <summary>
+        /// Este método se encarga de calcular el subtotal realizando la operación <b>(Valor Unitario * Cantidad + Efectivo)</b>
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el subtotal.</returns> 
+        #endregion
+        public float CalcularSubTotal() => (CalcularValorAPagar() + float.Parse(txt_Valor_Pago.Text.Trim()));
 
-        public float CalcularVuelto() => float.Parse(txt_Valor_Pago.Text.ToString()) - float.Parse(CalcularSubTotal());
+        #region Descripción del Método para Calcular el valor a devolver del pago
+        /// <summary>
+        /// Este método se encarga de calcular la cantidad que se debe devolver al cliente por su pago, realizando la operación <b>(Valor del Pago - Subtotal)</b>, así mismo el método round, redondea el valor y se divide entre 100 para obtener solo 2 decimales. Por último el Método Abs hace el valor absoluto para no obtener un valor negativo.
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa el valor a devolver por el pago realizado.</returns> 
+        #endregion
+        public float CalcularVuelto() => Math.Abs(float.Parse(txt_Valor_Pago.Text.Trim()) - CalcularValorAPagar());
+
+        #region Descripción del Método para Calcular el valor a pagar
+        /// <summary>
+        /// Este método se encarga de calcular el valor que debe pagar el cliente, realizando la operación <b>(Valor Unitario * Cantidad)</b>.
+        /// </summary>
+        /// <returns>Un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types">float</see> que representa la cantidad que debe pagar el cliente.</returns> 
+        #endregion
+        public float CalcularValorAPagar() => float.Parse(txt_Val_Unit.Text.Trim()) * int.Parse(nmUD_Cantidad.Value.ToString());
 
         private void txt_Val_Unit_TextChanged(object sender, EventArgs e)
         {
@@ -126,19 +176,95 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 if (int.TryParse(valorSinComaPunto, out int valorEntero))
                 {
                     // Dividir el valor entre 100 para obtener el valor decimal con dos decimales
-                    decimal valorDecimal = valorEntero / 100.0m;
+                    decimal valorDecimal = valorEntero / 100.00m;
 
                     // Asignar el valor formateado al TextBox
                     txt_Val_Unit.Text = valorDecimal.ToString("N2");
                     txt_Val_Unit.SelectionStart = txt_Val_Unit.Text.Length; // Colocar el cursor al final del texto
+                    CalcularTotal();
                 }
-                //CalcularTotal();
             }
         }
 
         private void nmUD_Cantidad_ValueChanged(object sender, EventArgs e)
         {
-            //CalcularTotal();
+            CalcularTotal();
+        }
+
+        private void chb_IVA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_IVA.Checked)
+            {
+                chb_IVA.ForeColor = Color.Green;
+                lbl_IVA_Value.Text = "0.12";
+            }
+            else
+            {
+                lbl_IVA_Value.Text = "0.00";
+            }
+            CalcularTotal();
+        }
+
+        private void txt_Valor_Pago_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_Valor_Pago.Text))
+            {
+                // Eliminar cualquier coma o punto existente en el texto
+                string valorSinComaPunto = txt_Valor_Pago.Text.Replace(",", "").Replace(".", "");
+
+                if (int.TryParse(valorSinComaPunto, out int valorEntero))
+                {
+                    // Dividir el valor entre 100 para obtener el valor decimal con dos decimales
+                    decimal valorDecimal = valorEntero / 100.00m;
+
+                    // Asignar el valor formateado al TextBox
+                    txt_Valor_Pago.Text = valorDecimal.ToString("N2");
+                    txt_Valor_Pago.SelectionStart = txt_Valor_Pago.Text.Length; // Colocar el cursor al final del texto
+                    CalcularTotal();
+                }
+            }
+        }
+
+        private void txt_Val_Unit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsDigit(c) && txt_Val_Unit.Text.Length <= 10)
+            {
+                e.Handled = false;
+            }
+            else if (c == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Val_Unit.Text.Length > 10 && c != ((char)Keys.Back))
+            {
+                MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void txt_Valor_Pago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsDigit(c) && txt_Valor_Pago.Text.Length <= 10)
+            {
+                e.Handled = false;
+            }
+            else if (c == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Valor_Pago.Text.Length > 10 && c != ((char)Keys.Back))
+            {
+                MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

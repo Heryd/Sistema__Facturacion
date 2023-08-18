@@ -252,7 +252,7 @@ BEGIN
 	DECLARE @idEmpresa int =0;
 	SET @idCliente = (SELECT ID_CLIENTE FROM CLIENTE WHERE ID_CLIENTE=@idCliente OR CEDULA = @idCliente);
 	--Primero se añade los datos del servicio a la tabla SERVICIO
-	INSERT INTO SERVICIO(DESCRIPCION_SERVICIO, VALOR_UNITARIO) VALUES(upper(@descripcionServ),@valorUnitario);
+	INSERT INTO SERVICIO(DESCRIPCION_SERVICIO, VALOR_UNITARIO) VALUES(upper(@descripcionServ),ROUND(@valorUnitario,2));
 	--Se obtiene el valor maximo de la columna ID_SERVICIO de la tabla SERVICIO
 	SET @idServ =  (SELECT MAX(ID_SERVICIO) FROM SERVICIO);
 	/*Si la cantidad de registros de la tabla EMPRESA es mayor que 0 entonces obtiene el valor máximo de
@@ -279,4 +279,89 @@ BEGIN
 	--Por último reasigna los estados de cliente -> ACTIVO y pago relacionado con el cliente a PAGADO
 	UPDATE CLIENTE SET ESTADO = 'ACTIVO' WHERE ID_CLIENTE=@idCliente;
 	UPDATE PAGO SET ESTADO = 'PAGADO' WHERE ID_CLIENTE = @idCliente AND ESTADO = 'EN PROCESO';
+	
+	SELECT 'Factura generada con éxito';
+	END
+
+GO
+CREATE PROCEDURE FACTURAS
+AS
+BEGIN
+	SELECT f.ID_FACTURA, 
+	cl.ID_CLIENTE, 
+	cl.CEDULA,
+	f.ID_EMPRESA, 
+	f.FECHA_FACTURACION, 
+	dt.ID_DETALLE_FACTURA, 
+	dt.ID_SERVICIO, 
+	dt.NOMBRE_ENCARGADO,
+	dt.CANTIDAD,
+	dt.TOTAL_PAGAR,
+	s.DESCRIPCION_SERVICIO,
+	s.VALOR_UNITARIO,
+	f.ESTADO
+	FROM SERVICIO s
+	INNER JOIN DETALLE_FACTURA dt ON s.ID_SERVICIO = dt.ID_SERVICIO
+	INNER JOIN FACTURA f ON dt.ID_FACTURA = f.ID_FACTURA
+	INNER JOIN CLIENTE cl ON f.ID_CLIENTE = cl.ID_CLIENTE
+	INNER JOIN PAGO p ON p.ID_CLIENTE = cl.ID_CLIENTE
+	GROUP BY 
+	f.ID_FACTURA, 
+	cl.ID_CLIENTE, 
+	cl.CEDULA,
+	f.ID_EMPRESA, 
+	f.FECHA_FACTURACION, 
+	dt.ID_DETALLE_FACTURA, 
+	dt.ID_SERVICIO, 
+	dt.NOMBRE_ENCARGADO,
+	dt.CANTIDAD,
+	dt.TOTAL_PAGAR,
+	s.DESCRIPCION_SERVICIO,
+	s.VALOR_UNITARIO,
+	f.ESTADO
+END
+
+-------------------------------------------------------------------REEMBOLSO----------------------------------------------------------------
+--SP para registrar el reembolso
+GO
+CREATE PROCEDURE NUEVO_REEMBOLSO
+	@codigoFactura int,
+	@cedula numeric(10),
+	@codigoPago int,
+	@motivoReembolso varchar(180),
+	@fecha date
+AS
+BEGIN	
+	IF NOT EXISTS (
+		SELECT *
+		FROM CLIENTE cl
+		INNER JOIN PAGO p on cl.ID_CLIENTE = p.ID_CLIENTE
+		INNER JOIN FACTURA f on cl.ID_CLIENTE = f.ID_CLIENTE
+		where p.ESTADO = UPPER('reembolsado') and f.ESTADO = UPPER('anulado') and f.ID_FACTURA=@codigoFactura
+	)
+	BEGIN
+		IF NOT EXISTS(SELECT * FROM CLIENTE WHERE CEDULA =@Cedula AND ESTADO = 'PAGANDO')
+		BEGIN
+			INSERT INTO REEMBOLSO(ID_FACTURA, ID_SERVICIO, MOTIVO_REEMBOLSO, FECHA)
+			VALUES (@codigoFactura, (SELECT ID_SERVICIO FROM DETALLE_FACTURA WHERE ID_FACTURA = @codigoFactura), upper(@motivoReembolso),@fecha)
+			UPDATE PAGO SET ESTADO = UPPER('REEMBOLSADO') WHERE ID_PAGO = @codigoPago;
+			UPDATE FACTURA SET ESTADO = UPPER('ANULADO') WHERE ID_FACTURA = @codigoFactura;
+			SELECT 'Se ha realizado correctamente el reembolso de su pago.';
+			RETURN;
+		END
+		ELSE
+		BEGIN
+			SELECT 'Cliente: '+(SELECT APELLIDOS+' '+NOMBRES FROM CLIENTE WHERE CEDULA = @cedula)+', se encuentra en proceso de pago de una Factura';
+		END
+	END
+	SELECT 'Esta factura ya fue anulada y el pago del cliente reembolsado.'
+END
+
+--SP para eliminar
+GO
+CREATE PROCEDURE ELIMINAR_REEMBOLSO
+	@codigoReembolso int
+AS
+BEGIN
+	DELETE FROM REEMBOLSO WHERE ID_REEMBOLSO= @codigoReembolso;
 END
