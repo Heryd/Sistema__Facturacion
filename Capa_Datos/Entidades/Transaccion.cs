@@ -5,5 +5,6 @@
         public int Id { get; set; }
         public int IdPago { get; set; }
         public string MetodoPago { get; set; }
+        public int IdFactura { get; set; }
     }
 }
