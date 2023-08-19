@@ -8,6 +8,6 @@ namespace Capa_Datos.Entidades
 {
     internal class Transaccion
     {
-      
+     ////////////////
     }
 }
