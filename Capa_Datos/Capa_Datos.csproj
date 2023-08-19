@@ -51,6 +51,7 @@
     <Compile Include="Entidades\Factura.cs" />
     <Compile Include="Entidades\Pago.cs" />
     <Compile Include="Entidades\Reembolso.cs" />
+    <Compile Include="Entidades\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
