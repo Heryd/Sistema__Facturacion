@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Capa_Datos.Entidades
 {
-    internal class Transaccion
+    /// <summary>
+    /// Clase Transaccion
+    /// </summary>
+    public class Transaccion
     {
-      
+      public int id { get; set; }
+    }
+
+    /// <summary>
+    /// Clase Gerente
+    /// </summary>
+    public class Gerente
+    {
+
     }
 }
