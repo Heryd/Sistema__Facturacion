@@ -29,7 +29,7 @@ namespace Capa_Datos.Entidades
         /// Método <b>MetodoPago</b> obtiene el métod de pago con el que se realizó la transacción.
         /// </summary> 
         #endregion
-        public string MetodoPago { get; set; }
+    
     }
 
     /// <summary>
