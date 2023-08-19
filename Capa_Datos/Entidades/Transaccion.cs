@@ -11,7 +11,9 @@ namespace Capa_Datos.Entidades
     /// </summary>
     public class Transaccion
     {
-      public int id { get; set; }
+        public int Id { get; set; }
+        public int IdPago { get; set; }
+        public string MetodoPago { get; set; }
     }
 
     /// <summary>
@@ -19,6 +21,10 @@ namespace Capa_Datos.Entidades
     /// </summary>
     public class Gerente
     {
-      
+
+        public int Id { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public decimal Cedula { get; set; }
     }
 }
