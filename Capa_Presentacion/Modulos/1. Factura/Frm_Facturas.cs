@@ -2,6 +2,7 @@
 using Capa_Negocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -52,10 +53,10 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private IEnumerable<Object> CargarRegistrosDataGridView()
         {
-            var facturas = objCapaNegocio.CN_DevolverFactura()
+            var facturas = objCapaNegocio.CN_DevolverFactura().OrderBy(f=> f.Id)
                                 .Select(f => new
                                 {
-                                    CODIGO = f.IdDetalleFactura,
+                                    CODIGO = f.Id,
                                     NOMBRES = objCapaNegocio.CN_DevolverFactura().Join(
                                                 objCapaNegocio.CN_DevolverCliente(),
                                                 fc => f.IdCliente,
@@ -113,15 +114,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
                                 TOTAL = f.Total,
                                 FECHA = f.Fecha
                             });
-                if (facturas.Count() <= 0 || facturas== null)
+                if (txt_Busqueda.Text.Equals(""))
                 {
-                    MessageBox.Show("No se encontró el servicio", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    dtgV_Facturas.DataSource = CargarRegistrosDataGridView().ToList();
+                    lbl_Error.Visible = false;
                 }
-                if (facturas != null)
+                if (facturas != null && facturas.Any())
                 {
                     dtgV_Facturas.DataSource = facturas.ToList();
-
+                    lbl_Error.Visible = false;
+                }
+                else
+                {
+                    Coincidencias();
                 }
                 break;
                 case 2:
@@ -143,18 +148,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
                         TOTAL = f.Total,
                         FECHA = f.Fecha
                     });
-                if (facturaXId.Count() <= 0 || facturaXId == null)
+                if (txt_Busqueda.Text.Equals(""))
                 {
-                    MessageBox.Show("No se encontró el Código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    dtgV_Facturas.DataSource = CargarRegistrosDataGridView().ToList();
+                    lbl_Error.Visible = false;
                 }
-                if (!txt_Busqueda.Text.Trim().Equals(""))
+                if (facturaXId != null && facturaXId.Any())
                 {
                     dtgV_Facturas.DataSource = facturaXId.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    dtgV_Facturas.DataSource = CargarRegistrosDataGridView().ToList();
+                    Coincidencias();
                 }
                 break;
                 case 3:
@@ -176,14 +182,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
                             TOTAL = f.Total,
                             FECHA = f.Fecha
                         });
-                if (facturaXFecha.Any())
+                if (txt_Busqueda.Text.Equals(""))
+                {
+                    dtgV_Facturas.DataSource = CargarRegistrosDataGridView().ToList();
+                    lbl_Error.Visible = false;
+                }
+                if (facturaXFecha != null && facturaXFecha.Any())
                 {
                     dtgV_Facturas.DataSource = facturaXFecha.ToList();
-
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró la fecha", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 4:
@@ -206,19 +217,24 @@ namespace Capa_Presentacion.Modulos._1._Factura
                             FECHA = f.Fecha,
                             f.Estado
                         });
-                if (facturaXMonto.Any())
+                if (txt_Busqueda.Text.Equals(""))
+                {
+                    dtgV_Facturas.DataSource = CargarRegistrosDataGridView().ToList();
+                    lbl_Error.Visible = false;
+                }
+                if (facturaXMonto != null && facturaXMonto.Any())
                 {
                     dtgV_Facturas.DataSource = facturaXMonto.ToList();
-
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró el Monto", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 5:
                 var facturaXCedula = objCapaNegocio.CN_DevolverFactura()
-                    .Where(f => f.CedulaCliente.ToString().Contains(txt_Busqueda.Text.Trim().ToString()))
+                    .Where(f => ("0"+f.CedulaCliente).ToString().Contains(txt_Busqueda.Text.Trim().ToString()))
                     .Select(f => new
                     {
                         CODIGO = f.IdDetalleFactura,
@@ -236,15 +252,19 @@ namespace Capa_Presentacion.Modulos._1._Factura
                         FECHA = f.Fecha,
                         ESTADO = f.Estado
                     }).AsQueryable();
-                if (facturaXCedula.Count() <= 0 || facturaXCedula == null)
+                if (txt_Busqueda.Text.Equals(""))
                 {
-                    MessageBox.Show("No se encontró la Cédula", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    dtgV_Facturas.DataSource=CargarRegistrosDataGridView().ToList();
+                    lbl_Error.Visible = false;
                 }
-                if (facturaXCedula.Any())
+                if (facturaXCedula!=null && facturaXCedula.Any())
                 {
                     dtgV_Facturas.DataSource = facturaXCedula.ToList();
-
+                    lbl_Error.Visible = false;
+                }
+                else
+                {
+                    Coincidencias();
                 }
                 break;
                 default:
@@ -262,5 +282,91 @@ namespace Capa_Presentacion.Modulos._1._Factura
                 frm_Update.ShowDialog();
             }
         }
+
+        //Al momento de ejecutarse el evento KeyPress, permitirá el ingreso de dígitos o caracteres según el índice en el que se encuentre el filtro del combobox
+        private void txt_Busqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            switch (opcFiltro)
+            {
+                //Si el filtro seleccionado es: 
+                //[1]: Descripción del Servicio
+                //entonces el evento keyPress solo permitirá el ingreso de letras
+                case 1:
+                if (Char.IsLetter(c) && txt_Busqueda.Text.Length <= 30)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txt_Busqueda.Text.Length > 30 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda solo puede incluir 30 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[2]: Código,
+                //[4]: Monto,
+                //[6]: Cédula
+                //entonces el evento keyPress solo permitirá el ingreso de dígitos, hasta un máximo de 10
+                case 2:
+                case 4:
+                case 5:
+                if (Char.IsDigit(c) && txt_Busqueda.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txt_Busqueda.Text.Length > 10 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[3]: Fecha del Registro
+                //entonces el evento keyPress solo permitirá el ingreso de la fecha en formato dd/MM/YYYY, has
+                case 3:
+                if (Char.IsDigit(c) && txt_Busqueda.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || c == '/')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txt_Busqueda.Text.Length > 9 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                default:
+                break;
+            }
+        }
+
+        private void Coincidencias()
+        {
+            lbl_Error.Visible = true;
+            lbl_Error.Text = "No se encontraron coincidencias (*)";
+            lbl_Error.ForeColor = Color.OrangeRed;
+        }
+
     }
 }

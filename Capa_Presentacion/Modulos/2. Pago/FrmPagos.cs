@@ -1,5 +1,6 @@
 ﻿using Capa_Negocio;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -50,15 +51,19 @@ namespace Capa_Presentacion.Modulos._2._Pago
                                    MONTO = p.Valor,
                                    ESTADO = p.Estado
                                });
-                if (pagos.Count() <= 0 || pagos == null)
+                if (txtBusquedaPago.Text.Equals(""))
                 {
-                    MessageBox.Show("No se hallaron coincidencias", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    CargarDatosDataGridView();
+                    lbl_Error.Visible = false;
                 }
-                if (pagos.Any())
+                if (pagos != null && pagos.Any())
                 {
                     dtgV_Pagos.DataSource = pagos.ToList();
-
+                    lbl_Error.Visible = false;
+                }
+                else
+                {
+                    Coincidencias();
                 }
                 break;
                 case 2:
@@ -76,15 +81,19 @@ namespace Capa_Presentacion.Modulos._2._Pago
                                MONTO = p.Valor,
                                ESTADO = p.Estado
                            });
-                if (pagosXFecha.Count() <= 0 || pagosXFecha == null)
+                if (txtBusquedaPago.Text.Equals(""))
                 {
-                    MessageBox.Show("No se hallaron coincidencias", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    CargarDatosDataGridView();
+                    lbl_Error.Visible = false;
                 }
-                if (pagosXFecha.Any())
+                if (pagosXFecha != null && pagosXFecha.Any())
                 {
                     dtgV_Pagos.DataSource = pagosXFecha.ToList();
-
+                    lbl_Error.Visible = false;
+                }
+                else
+                {
+                    Coincidencias();
                 }
                 break;
                 case 3:
@@ -102,15 +111,19 @@ namespace Capa_Presentacion.Modulos._2._Pago
                            MONTO = p.Valor,
                            ESTADO = p.Estado
                        });
-                if (pagosXMonto.Count() <= 0 || pagosXMonto == null)
+                if (txtBusquedaPago.Text.Equals(""))
                 {
-                    MessageBox.Show("No se hallaron coincidencias", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    CargarDatosDataGridView();
+                    lbl_Error.Visible = false;
                 }
-                if (pagosXMonto.Any())
+                if (pagosXMonto != null && pagosXMonto.Any())
                 {
                     dtgV_Pagos.DataSource = pagosXMonto.ToList();
-
+                    lbl_Error.Visible = false;
+                }
+                else
+                {
+                    Coincidencias();
                 }
                 break;
                 default:
@@ -136,14 +149,6 @@ namespace Capa_Presentacion.Modulos._2._Pago
             dtgV_Pagos.DataSource = pagos.ToList();
         }
 
-        //private void MostrarElementos()
-        //{
-        //    if (cmbFiltroPagos.SelectedIndex == 3)
-        //    {
-        //        cmbFiltrarMonto.Visible = true;
-        //        txt_Valor1.Visible = true;
-        //    }
-        //}
 
         private void cmbFiltroPagos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -188,5 +193,84 @@ namespace Capa_Presentacion.Modulos._2._Pago
             }
         }
 
+        private void txtBusquedaPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            switch (index_object)
+            {
+                //Si el filtro seleccionado es: 
+                //[1]: Estado del Pago
+                //entonces el evento keyPress solo permitirá el ingreso de letras
+                case 1:
+                if (Char.IsLetter(c) && txtBusquedaPago.Text.Length <= 30)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaPago.Text.Length > 30 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda solo puede incluir 30 caracteres", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[2]: Fecha del Pago
+                //entonces el evento keyPress solo permitirá el ingreso de la fecha en formato dd/MM/YYYY
+                case 2:
+                if (Char.IsDigit(c) && txtBusquedaPago.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || c == '/')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaPago.Text.Length > 9 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;
+                //Si el filtro seleccionado es: 
+                //[3]: Monto del pago
+                //entonces el evento keyPress solo permitirá el ingreso de valores enteros o decimales
+                case 3:
+                if (Char.IsDigit(c) && txtBusquedaPago.Text.Length <= 10)
+                {
+                    e.Handled = false;
+                }
+                else if (c == (char)Keys.Back || c == ',')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (txtBusquedaPago.Text.Length > 10 && c != ((char)Keys.Back))
+                {
+                    MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                break;  
+                default:
+                break;
+            }
+        }
+
+        private void Coincidencias()
+        {
+            lbl_Error.Visible = true;
+            lbl_Error.Text = "No se encontraron coincidencias (*)";
+            lbl_Error.ForeColor = Color.OrangeRed;
+        }
     }
 }

@@ -74,7 +74,6 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                     Direccion = txt_Direccion.Text.Trim(),
                     Telefono = decimal.Parse(txt_Telefono.Text.Trim()),
                     Genero = Get_Item_ComboBox(),
-                    Estado = (rbn_Activo.Checked ? "ACTIVO" : "INACTIVO"),
                     Fecha = DateTime.Today
                 };
                 objCapaNegocio.CN_ActualizarCliente(cl);
@@ -82,7 +81,12 @@ namespace Capa_Presentacion.Modulos._3._Cliente
             }
         }
 
-        //Mapea una lista con Linq y rellena los textbox-combobox 
+        #region Descripción del Método para retornar los datos del cliente seleccionado
+        /// <summary>
+        /// Mapea una lista con Linq y rellena los textbox-combobox.
+        /// </summary>
+        /// <param name="indice">La cédula del cliente.</param> 
+        #endregion
         private void RetornarDatosCliente(int indice)
         {
             var nombreCliente = objCapaNegocio.CN_DevolverCliente()
@@ -98,6 +102,7 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                     cl.Direccion,
                     cl.Telefono
                 }).FirstOrDefault();
+            //Si el objeto IEnumerable<> contiene algún valor entonces envía los valores del registro a cada TextBox y ComboBox 
             if (nombreCliente != null)
             {
                 txt_Codigo_Cliente.Texts = nombreCliente.Id.ToString();

@@ -70,37 +70,43 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
                 codigoFactura = int.Parse(txt_Codigo_Factura.Texts.Trim().ToString());
                 codigoPago = int.Parse(Txt_Id_Pago.Text.Trim().ToString());
 
-                var facturaInfo = objCapaNegocio.CN_DevolverFactura()
-                    .Where(f => f.Id == codigoFactura || f.IdPago ==codigoPago)
-                    .Select(f => new
-                    {
-                        f.Fecha,
-                        Cedula_Cliente = objCapaNegocio.CN_DevolverCliente()
-                                        .Where(cl => cl.Id == f.IdCliente)
-                                        .Select(cl => cl.Cedula)
-                                        .FirstOrDefault(),
-                        Nombres_Cliente = objCapaNegocio.CN_DevolverCliente()
-                                        .Where(cl => cl.Id == f.IdCliente)
-                                        .Select(cl => cl.Nombres + " " + cl.Apellidos)
-                                        .FirstOrDefault(),
-                        Metodo_Pago = objCapaNegocio.CN_DevolverPago()
-                                        .Where(p => p.Id == codigoPago)
-                                        .Select(p => p.MetodoPago)
-                                        .FirstOrDefault(),
-                        Monto = objCapaNegocio.CN_DevolverPago()
-                                        .Where(p => p.Id == codigoPago)
-                                        .Select(p => p.Valor)
-                                        .FirstOrDefault(),
-                    }).FirstOrDefault();
+                var facturaInfo = objCapaNegocio.CN_DevolverPago()
+                                .Where(p => p.Id == codigoPago)
+                                .Join(objCapaNegocio.CN_DevolverCliente(),
+                                    p => p.IdCliente,
+                                    c => c.Id,
+                                    (p, c) => new { Pago = p, Cliente = c })
+                                .Join(objCapaNegocio.CN_DevolverFactura().Where(f=>f.Id==codigoFactura),
+                                    pc => pc.Cliente.Id,
+                                    f => f.IdCliente,
+                                    (pc, f) => new
+                                    {
+                                        Fecha = f.Fecha,
+                                        Cedula_Cliente = pc.Cliente.Cedula,
+                                        Nombres_Cliente = pc.Cliente.Nombres + " " + pc.Cliente.Apellidos,
+                                        Monto = pc.Pago.Valor,
+                                        Metodo_Pago = pc.Pago.MetodoPago,
+                                        Estado_Factura = f.Estado,
+                                        Estado_Pago = pc.Pago.Estado
+                                    }).FirstOrDefault();
                 if (facturaInfo != null)
                 {
-                    Txt_Fecha_Emision.Texts = facturaInfo.Fecha.ToString("dddd dd MMMM, yyyy", CultureInfo.CreateSpecificCulture("es-ES"));
-                    txt_Cedula.Text = "0" + facturaInfo.Cedula_Cliente.ToString();
-                    txt_Nombres_Cliente.Text = facturaInfo.Nombres_Cliente.ToString();
-                    Txt_Valor_Pago.Texts = facturaInfo.Monto.ToString();
-                    Set_Combo_Box(facturaInfo.Metodo_Pago.ToString().ToUpper());
-                    btn_Registrar.Enabled = true;
-                    txt_Motivo_Reembolso.Enabled = true;
+                    if (facturaInfo.Estado_Factura == "ANULADO" || facturaInfo.Estado_Pago == "REEMBOLSADO")
+                    {
+                        MessageBox.Show(
+                            "La factura ya fue anulada y el pago del cliente reembolsado." +
+                            "\nPor favor pruebe con otro pago relacionado a la factura o ingrese nuevos datos", "Factura y Pago Anulados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        Txt_Fecha_Emision.Texts = facturaInfo.Fecha.ToString("dddd dd MMMM, yyyy", CultureInfo.CreateSpecificCulture("es-ES"));
+                        txt_Cedula.Text = "0" + facturaInfo.Cedula_Cliente.ToString();
+                        txt_Nombres_Cliente.Text = facturaInfo.Nombres_Cliente.ToString();
+                        Txt_Valor_Pago.Texts = facturaInfo.Monto.ToString();
+                        Set_Combo_Box(facturaInfo.Metodo_Pago.ToString().ToUpper());
+                        btn_Registrar.Enabled = true;
+                        txt_Motivo_Reembolso.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -198,6 +204,12 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
             if (Char.IsLetter(c) && txt_Motivo_Reembolso.Text.Length <= 175)
             {
                 e.Handled = false;
+                if (Char.IsLower(c))
+                {
+                    string cad = ("" + c).ToUpper();
+                    c = cad[0];
+                    e.KeyChar = c;
+                }
             }
             else if (c == (char)Keys.Back || c == (char)Keys.Space)
             {

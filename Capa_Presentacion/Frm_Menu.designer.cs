@@ -87,8 +87,9 @@
             this.panel_Left.Controls.Add(this.pnl_User);
             this.panel_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_Left.Location = new System.Drawing.Point(0, 0);
+            this.panel_Left.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel_Left.Name = "panel_Left";
-            this.panel_Left.Size = new System.Drawing.Size(224, 585);
+            this.panel_Left.Size = new System.Drawing.Size(336, 900);
             this.panel_Left.TabIndex = 29;
             // 
             // pnDown_More_Options
@@ -97,9 +98,10 @@
             this.pnDown_More_Options.Controls.Add(this.btn_Help);
             this.pnDown_More_Options.Controls.Add(this.btn_Close);
             this.pnDown_More_Options.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnDown_More_Options.Location = new System.Drawing.Point(0, 494);
+            this.pnDown_More_Options.Location = new System.Drawing.Point(0, 760);
+            this.pnDown_More_Options.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnDown_More_Options.Name = "pnDown_More_Options";
-            this.pnDown_More_Options.Size = new System.Drawing.Size(224, 91);
+            this.pnDown_More_Options.Size = new System.Drawing.Size(336, 140);
             this.pnDown_More_Options.TabIndex = 69;
             // 
             // btn_Help
@@ -108,6 +110,7 @@
             this.btn_Help.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_Help.BorderRadius = 10;
             this.btn_Help.BorderSize = 0;
+            this.btn_Help.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Help.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_Help.FlatAppearance.BorderSize = 0;
             this.btn_Help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,13 +118,15 @@
             this.btn_Help.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_Help.Image = global::Capa_Presentacion.Properties.Resources.help;
             this.btn_Help.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Help.Location = new System.Drawing.Point(0, 11);
+            this.btn_Help.Location = new System.Drawing.Point(0, 16);
+            this.btn_Help.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Help.Name = "btn_Help";
-            this.btn_Help.Padding = new System.Windows.Forms.Padding(20, 0, 60, 0);
-            this.btn_Help.Size = new System.Drawing.Size(224, 40);
+            this.btn_Help.Padding = new System.Windows.Forms.Padding(30, 0, 90, 0);
+            this.btn_Help.Size = new System.Drawing.Size(336, 62);
             this.btn_Help.TabIndex = 31;
             this.btn_Help.Text = "HELP";
             this.btn_Help.UseVisualStyleBackColor = false;
+            this.btn_Help.Click += new System.EventHandler(this.btn_Help_Click);
             // 
             // btn_Close
             // 
@@ -130,6 +135,7 @@
             this.btn_Close.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_Close.BorderRadius = 10;
             this.btn_Close.BorderSize = 0;
+            this.btn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Close.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_Close.FlatAppearance.BorderSize = 0;
             this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -137,10 +143,11 @@
             this.btn_Close.ForeColor = System.Drawing.Color.Tomato;
             this.btn_Close.Image = global::Capa_Presentacion.Properties.Resources.exit_door_pink;
             this.btn_Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Close.Location = new System.Drawing.Point(0, 51);
+            this.btn_Close.Location = new System.Drawing.Point(0, 78);
+            this.btn_Close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Close.Name = "btn_Close";
-            this.btn_Close.Padding = new System.Windows.Forms.Padding(15, 0, 60, 0);
-            this.btn_Close.Size = new System.Drawing.Size(224, 40);
+            this.btn_Close.Padding = new System.Windows.Forms.Padding(22, 0, 90, 0);
+            this.btn_Close.Size = new System.Drawing.Size(336, 62);
             this.btn_Close.TabIndex = 30;
             this.btn_Close.Text = "Cerrar Sesión";
             this.btn_Close.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,10 +160,11 @@
             this.pnDown_Reembolso.Controls.Add(this.btn_Consultar_Reembolso);
             this.pnDown_Reembolso.Controls.Add(this.btn_Registrar_Reembolso);
             this.pnDown_Reembolso.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDown_Reembolso.Location = new System.Drawing.Point(0, 617);
-            this.pnDown_Reembolso.MaximumSize = new System.Drawing.Size(310, 240);
+            this.pnDown_Reembolso.Location = new System.Drawing.Point(0, 952);
+            this.pnDown_Reembolso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnDown_Reembolso.MaximumSize = new System.Drawing.Size(465, 369);
             this.pnDown_Reembolso.Name = "pnDown_Reembolso";
-            this.pnDown_Reembolso.Size = new System.Drawing.Size(224, 80);
+            this.pnDown_Reembolso.Size = new System.Drawing.Size(336, 123);
             this.pnDown_Reembolso.TabIndex = 68;
             // 
             // btn_Consultar_Reembolso
@@ -170,10 +178,11 @@
             this.btn_Consultar_Reembolso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Consultar_Reembolso.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultar_Reembolso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Consultar_Reembolso.Location = new System.Drawing.Point(0, 40);
+            this.btn_Consultar_Reembolso.Location = new System.Drawing.Point(0, 62);
+            this.btn_Consultar_Reembolso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Consultar_Reembolso.Name = "btn_Consultar_Reembolso";
-            this.btn_Consultar_Reembolso.Padding = new System.Windows.Forms.Padding(35, 0, 70, 0);
-            this.btn_Consultar_Reembolso.Size = new System.Drawing.Size(224, 40);
+            this.btn_Consultar_Reembolso.Padding = new System.Windows.Forms.Padding(52, 0, 105, 0);
+            this.btn_Consultar_Reembolso.Size = new System.Drawing.Size(336, 62);
             this.btn_Consultar_Reembolso.TabIndex = 67;
             this.btn_Consultar_Reembolso.Text = "REEMBOLSOS";
             this.btn_Consultar_Reembolso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -193,9 +202,10 @@
             this.btn_Registrar_Reembolso.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Registrar_Reembolso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Registrar_Reembolso.Location = new System.Drawing.Point(0, 0);
+            this.btn_Registrar_Reembolso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Registrar_Reembolso.Name = "btn_Registrar_Reembolso";
-            this.btn_Registrar_Reembolso.Padding = new System.Windows.Forms.Padding(0, 0, 35, 0);
-            this.btn_Registrar_Reembolso.Size = new System.Drawing.Size(224, 40);
+            this.btn_Registrar_Reembolso.Padding = new System.Windows.Forms.Padding(0, 0, 52, 0);
+            this.btn_Registrar_Reembolso.Size = new System.Drawing.Size(336, 62);
             this.btn_Registrar_Reembolso.TabIndex = 66;
             this.btn_Registrar_Reembolso.Text = "NUEVO REEMBOLSO";
             this.btn_Registrar_Reembolso.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -215,10 +225,11 @@
             this.btn_MReembolso.ForeColor = System.Drawing.Color.Black;
             this.btn_MReembolso.Image = global::Capa_Presentacion.Properties.Resources.Group_11;
             this.btn_MReembolso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MReembolso.Location = new System.Drawing.Point(0, 577);
+            this.btn_MReembolso.Location = new System.Drawing.Point(0, 890);
+            this.btn_MReembolso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_MReembolso.Name = "btn_MReembolso";
-            this.btn_MReembolso.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.btn_MReembolso.Size = new System.Drawing.Size(224, 40);
+            this.btn_MReembolso.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.btn_MReembolso.Size = new System.Drawing.Size(336, 62);
             this.btn_MReembolso.TabIndex = 67;
             this.btn_MReembolso.Text = "REEMBOLSO";
             this.btn_MReembolso.UseVisualStyleBackColor = false;
@@ -230,10 +241,11 @@
             this.pnDown_Cliente.Controls.Add(this.btn_Consultar_Cliente);
             this.pnDown_Cliente.Controls.Add(this.btn_Registrar_Cliente);
             this.pnDown_Cliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDown_Cliente.Location = new System.Drawing.Point(0, 497);
-            this.pnDown_Cliente.MaximumSize = new System.Drawing.Size(310, 240);
+            this.pnDown_Cliente.Location = new System.Drawing.Point(0, 767);
+            this.pnDown_Cliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnDown_Cliente.MaximumSize = new System.Drawing.Size(465, 369);
             this.pnDown_Cliente.Name = "pnDown_Cliente";
-            this.pnDown_Cliente.Size = new System.Drawing.Size(224, 80);
+            this.pnDown_Cliente.Size = new System.Drawing.Size(336, 123);
             this.pnDown_Cliente.TabIndex = 66;
             // 
             // btn_Consultar_Cliente
@@ -247,10 +259,11 @@
             this.btn_Consultar_Cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Consultar_Cliente.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultar_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Consultar_Cliente.Location = new System.Drawing.Point(0, 40);
+            this.btn_Consultar_Cliente.Location = new System.Drawing.Point(0, 62);
+            this.btn_Consultar_Cliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Consultar_Cliente.Name = "btn_Consultar_Cliente";
-            this.btn_Consultar_Cliente.Padding = new System.Windows.Forms.Padding(65, 0, 75, 0);
-            this.btn_Consultar_Cliente.Size = new System.Drawing.Size(224, 40);
+            this.btn_Consultar_Cliente.Padding = new System.Windows.Forms.Padding(98, 0, 112, 0);
+            this.btn_Consultar_Cliente.Size = new System.Drawing.Size(336, 62);
             this.btn_Consultar_Cliente.TabIndex = 67;
             this.btn_Consultar_Cliente.Text = "CLIENTES";
             this.btn_Consultar_Cliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -270,9 +283,10 @@
             this.btn_Registrar_Cliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Registrar_Cliente.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Registrar_Cliente.Location = new System.Drawing.Point(0, 0);
+            this.btn_Registrar_Cliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Registrar_Cliente.Name = "btn_Registrar_Cliente";
-            this.btn_Registrar_Cliente.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
-            this.btn_Registrar_Cliente.Size = new System.Drawing.Size(224, 40);
+            this.btn_Registrar_Cliente.Padding = new System.Windows.Forms.Padding(68, 0, 0, 0);
+            this.btn_Registrar_Cliente.Size = new System.Drawing.Size(336, 62);
             this.btn_Registrar_Cliente.TabIndex = 66;
             this.btn_Registrar_Cliente.Text = "NUEVO CLIENTE";
             this.btn_Registrar_Cliente.UseVisualStyleBackColor = false;
@@ -284,6 +298,7 @@
             this.btn_MCliente.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_MCliente.BorderRadius = 10;
             this.btn_MCliente.BorderSize = 0;
+            this.btn_MCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_MCliente.FlatAppearance.BorderSize = 0;
             this.btn_MCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -291,10 +306,11 @@
             this.btn_MCliente.ForeColor = System.Drawing.Color.Black;
             this.btn_MCliente.Image = global::Capa_Presentacion.Properties.Resources.Group_10;
             this.btn_MCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MCliente.Location = new System.Drawing.Point(0, 457);
+            this.btn_MCliente.Location = new System.Drawing.Point(0, 705);
+            this.btn_MCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_MCliente.Name = "btn_MCliente";
-            this.btn_MCliente.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.btn_MCliente.Size = new System.Drawing.Size(224, 40);
+            this.btn_MCliente.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
+            this.btn_MCliente.Size = new System.Drawing.Size(336, 62);
             this.btn_MCliente.TabIndex = 65;
             this.btn_MCliente.Text = "CLIENTE";
             this.btn_MCliente.UseVisualStyleBackColor = false;
@@ -306,10 +322,11 @@
             this.pnDown_Pago.Controls.Add(this.btn_Consultar_Pago);
             this.pnDown_Pago.Controls.Add(this.btn_Registro_Pago);
             this.pnDown_Pago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDown_Pago.Location = new System.Drawing.Point(0, 377);
-            this.pnDown_Pago.MaximumSize = new System.Drawing.Size(310, 240);
+            this.pnDown_Pago.Location = new System.Drawing.Point(0, 582);
+            this.pnDown_Pago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnDown_Pago.MaximumSize = new System.Drawing.Size(465, 369);
             this.pnDown_Pago.Name = "pnDown_Pago";
-            this.pnDown_Pago.Size = new System.Drawing.Size(224, 80);
+            this.pnDown_Pago.Size = new System.Drawing.Size(336, 123);
             this.pnDown_Pago.TabIndex = 64;
             // 
             // btn_Consultar_Pago
@@ -324,9 +341,10 @@
             this.btn_Consultar_Pago.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultar_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Consultar_Pago.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Consultar_Pago.Location = new System.Drawing.Point(0, 40);
+            this.btn_Consultar_Pago.Location = new System.Drawing.Point(0, 62);
+            this.btn_Consultar_Pago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Consultar_Pago.Name = "btn_Consultar_Pago";
-            this.btn_Consultar_Pago.Size = new System.Drawing.Size(224, 40);
+            this.btn_Consultar_Pago.Size = new System.Drawing.Size(336, 62);
             this.btn_Consultar_Pago.TabIndex = 67;
             this.btn_Consultar_Pago.Text = "PAGOS";
             this.btn_Consultar_Pago.UseVisualStyleBackColor = false;
@@ -345,9 +363,10 @@
             this.btn_Registro_Pago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Registro_Pago.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Registro_Pago.Location = new System.Drawing.Point(0, 0);
+            this.btn_Registro_Pago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Registro_Pago.Name = "btn_Registro_Pago";
-            this.btn_Registro_Pago.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.btn_Registro_Pago.Size = new System.Drawing.Size(224, 40);
+            this.btn_Registro_Pago.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btn_Registro_Pago.Size = new System.Drawing.Size(336, 62);
             this.btn_Registro_Pago.TabIndex = 66;
             this.btn_Registro_Pago.Text = "NUEVO PAGO";
             this.btn_Registro_Pago.UseVisualStyleBackColor = false;
@@ -359,6 +378,7 @@
             this.btn_MPago.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_MPago.BorderRadius = 10;
             this.btn_MPago.BorderSize = 0;
+            this.btn_MPago.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MPago.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_MPago.FlatAppearance.BorderSize = 0;
             this.btn_MPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -366,10 +386,11 @@
             this.btn_MPago.ForeColor = System.Drawing.Color.Black;
             this.btn_MPago.Image = global::Capa_Presentacion.Properties.Resources.Group_5;
             this.btn_MPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MPago.Location = new System.Drawing.Point(0, 337);
+            this.btn_MPago.Location = new System.Drawing.Point(0, 520);
+            this.btn_MPago.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_MPago.Name = "btn_MPago";
-            this.btn_MPago.Padding = new System.Windows.Forms.Padding(0, 0, 70, 0);
-            this.btn_MPago.Size = new System.Drawing.Size(224, 40);
+            this.btn_MPago.Padding = new System.Windows.Forms.Padding(0, 0, 105, 0);
+            this.btn_MPago.Size = new System.Drawing.Size(336, 62);
             this.btn_MPago.TabIndex = 63;
             this.btn_MPago.Text = "PAGO";
             this.btn_MPago.UseVisualStyleBackColor = false;
@@ -381,10 +402,11 @@
             this.pnDown_Factura.Controls.Add(this.btn_Consultar_Factura);
             this.pnDown_Factura.Controls.Add(this.btn_Registro_Factura);
             this.pnDown_Factura.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDown_Factura.Location = new System.Drawing.Point(0, 254);
-            this.pnDown_Factura.MaximumSize = new System.Drawing.Size(310, 240);
+            this.pnDown_Factura.Location = new System.Drawing.Point(0, 392);
+            this.pnDown_Factura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnDown_Factura.MaximumSize = new System.Drawing.Size(465, 369);
             this.pnDown_Factura.Name = "pnDown_Factura";
-            this.pnDown_Factura.Size = new System.Drawing.Size(224, 83);
+            this.pnDown_Factura.Size = new System.Drawing.Size(336, 128);
             this.pnDown_Factura.TabIndex = 62;
             // 
             // btn_Consultar_Factura
@@ -399,9 +421,10 @@
             this.btn_Consultar_Factura.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultar_Factura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Consultar_Factura.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Consultar_Factura.Location = new System.Drawing.Point(0, 40);
+            this.btn_Consultar_Factura.Location = new System.Drawing.Point(0, 62);
+            this.btn_Consultar_Factura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Consultar_Factura.Name = "btn_Consultar_Factura";
-            this.btn_Consultar_Factura.Size = new System.Drawing.Size(224, 40);
+            this.btn_Consultar_Factura.Size = new System.Drawing.Size(336, 62);
             this.btn_Consultar_Factura.TabIndex = 63;
             this.btn_Consultar_Factura.Text = "FACTURAS";
             this.btn_Consultar_Factura.UseVisualStyleBackColor = false;
@@ -420,9 +443,10 @@
             this.btn_Registro_Factura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Registro_Factura.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Registro_Factura.Location = new System.Drawing.Point(0, 0);
+            this.btn_Registro_Factura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Registro_Factura.Name = "btn_Registro_Factura";
-            this.btn_Registro_Factura.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_Registro_Factura.Size = new System.Drawing.Size(224, 40);
+            this.btn_Registro_Factura.Padding = new System.Windows.Forms.Padding(45, 0, 0, 0);
+            this.btn_Registro_Factura.Size = new System.Drawing.Size(336, 62);
             this.btn_Registro_Factura.TabIndex = 62;
             this.btn_Registro_Factura.Text = "NUEVA FACTURA";
             this.btn_Registro_Factura.UseVisualStyleBackColor = false;
@@ -434,6 +458,7 @@
             this.btn_MFactura.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btn_MFactura.BorderRadius = 10;
             this.btn_MFactura.BorderSize = 0;
+            this.btn_MFactura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_MFactura.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_MFactura.FlatAppearance.BorderSize = 0;
             this.btn_MFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -441,10 +466,11 @@
             this.btn_MFactura.ForeColor = System.Drawing.Color.Black;
             this.btn_MFactura.Image = global::Capa_Presentacion.Properties.Resources.btn_MFactura_Background;
             this.btn_MFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MFactura.Location = new System.Drawing.Point(0, 214);
+            this.btn_MFactura.Location = new System.Drawing.Point(0, 330);
+            this.btn_MFactura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_MFactura.Name = "btn_MFactura";
-            this.btn_MFactura.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.btn_MFactura.Size = new System.Drawing.Size(224, 40);
+            this.btn_MFactura.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
+            this.btn_MFactura.Size = new System.Drawing.Size(336, 62);
             this.btn_MFactura.TabIndex = 61;
             this.btn_MFactura.Text = "FACTURA";
             this.btn_MFactura.UseVisualStyleBackColor = false;
@@ -457,10 +483,11 @@
             this.pn_Home.Controls.Add(this.lbl_Rol_User);
             this.pn_Home.Controls.Add(this.lbl_Name_User);
             this.pn_Home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn_Home.Location = new System.Drawing.Point(0, 83);
+            this.pn_Home.Location = new System.Drawing.Point(0, 128);
+            this.pn_Home.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pn_Home.Name = "pn_Home";
-            this.pn_Home.Padding = new System.Windows.Forms.Padding(0, 55, 0, 0);
-            this.pn_Home.Size = new System.Drawing.Size(224, 131);
+            this.pn_Home.Padding = new System.Windows.Forms.Padding(0, 85, 0, 0);
+            this.pn_Home.Size = new System.Drawing.Size(336, 202);
             this.pn_Home.TabIndex = 0;
             // 
             // btn_HOME
@@ -476,10 +503,11 @@
             this.btn_HOME.ForeColor = System.Drawing.Color.Black;
             this.btn_HOME.Image = global::Capa_Presentacion.Properties.Resources.home_5_line;
             this.btn_HOME.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_HOME.Location = new System.Drawing.Point(0, 91);
+            this.btn_HOME.Location = new System.Drawing.Point(0, 140);
+            this.btn_HOME.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_HOME.Name = "btn_HOME";
-            this.btn_HOME.Padding = new System.Windows.Forms.Padding(10, 0, 80, 0);
-            this.btn_HOME.Size = new System.Drawing.Size(224, 40);
+            this.btn_HOME.Padding = new System.Windows.Forms.Padding(15, 0, 120, 0);
+            this.btn_HOME.Size = new System.Drawing.Size(336, 62);
             this.btn_HOME.TabIndex = 60;
             this.btn_HOME.Text = "HOME";
             this.btn_HOME.UseVisualStyleBackColor = false;
@@ -488,9 +516,10 @@
             // pcb_Separator_Profile
             // 
             this.pcb_Separator_Profile.Image = ((System.Drawing.Image)(resources.GetObject("pcb_Separator_Profile.Image")));
-            this.pcb_Separator_Profile.Location = new System.Drawing.Point(0, 72);
+            this.pcb_Separator_Profile.Location = new System.Drawing.Point(0, 111);
+            this.pcb_Separator_Profile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcb_Separator_Profile.Name = "pcb_Separator_Profile";
-            this.pcb_Separator_Profile.Size = new System.Drawing.Size(224, 2);
+            this.pcb_Separator_Profile.Size = new System.Drawing.Size(336, 3);
             this.pcb_Separator_Profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcb_Separator_Profile.TabIndex = 28;
             this.pcb_Separator_Profile.TabStop = false;
@@ -499,9 +528,10 @@
             // 
             this.lbl_Rol_User.Font = new System.Drawing.Font("IOS 15 Bold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Rol_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(175)))), ((int)(((byte)(0)))));
-            this.lbl_Rol_User.Location = new System.Drawing.Point(0, 36);
+            this.lbl_Rol_User.Location = new System.Drawing.Point(0, 55);
+            this.lbl_Rol_User.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Rol_User.Name = "lbl_Rol_User";
-            this.lbl_Rol_User.Size = new System.Drawing.Size(224, 33);
+            this.lbl_Rol_User.Size = new System.Drawing.Size(336, 51);
             this.lbl_Rol_User.TabIndex = 29;
             this.lbl_Rol_User.Text = "Rol";
             this.lbl_Rol_User.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -510,9 +540,10 @@
             // 
             this.lbl_Name_User.Font = new System.Drawing.Font("IOS 15 Bold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Name_User.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.lbl_Name_User.Location = new System.Drawing.Point(0, 3);
+            this.lbl_Name_User.Location = new System.Drawing.Point(0, 5);
+            this.lbl_Name_User.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Name_User.Name = "lbl_Name_User";
-            this.lbl_Name_User.Size = new System.Drawing.Size(224, 33);
+            this.lbl_Name_User.Size = new System.Drawing.Size(336, 51);
             this.lbl_Name_User.TabIndex = 30;
             this.lbl_Name_User.Text = "User";
             this.lbl_Name_User.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -523,16 +554,18 @@
             this.pnl_User.Controls.Add(this.pcb_Profile_User);
             this.pnl_User.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_User.Location = new System.Drawing.Point(0, 0);
+            this.pnl_User.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnl_User.Name = "pnl_User";
-            this.pnl_User.Size = new System.Drawing.Size(224, 83);
+            this.pnl_User.Size = new System.Drawing.Size(336, 128);
             this.pnl_User.TabIndex = 29;
             // 
             // pcb_Profile_User
             // 
             this.pcb_Profile_User.Image = ((System.Drawing.Image)(resources.GetObject("pcb_Profile_User.Image")));
-            this.pcb_Profile_User.Location = new System.Drawing.Point(82, 11);
+            this.pcb_Profile_User.Location = new System.Drawing.Point(123, 17);
+            this.pcb_Profile_User.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcb_Profile_User.Name = "pcb_Profile_User";
-            this.pcb_Profile_User.Size = new System.Drawing.Size(60, 60);
+            this.pcb_Profile_User.Size = new System.Drawing.Size(90, 92);
             this.pcb_Profile_User.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcb_Profile_User.TabIndex = 30;
             this.pcb_Profile_User.TabStop = false;
@@ -541,32 +574,35 @@
             // 
             this.pn_Form_Hijo.BackColor = System.Drawing.Color.Transparent;
             this.pn_Form_Hijo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Form_Hijo.Location = new System.Drawing.Point(224, 114);
+            this.pn_Form_Hijo.Location = new System.Drawing.Point(336, 175);
+            this.pn_Form_Hijo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pn_Form_Hijo.Name = "pn_Form_Hijo";
-            this.pn_Form_Hijo.Size = new System.Drawing.Size(950, 471);
+            this.pn_Form_Hijo.Size = new System.Drawing.Size(1425, 725);
             this.pn_Form_Hijo.TabIndex = 32;
             // 
             // pcb_Tittle
             // 
             this.pcb_Tittle.Dock = System.Windows.Forms.DockStyle.Top;
             this.pcb_Tittle.Image = ((System.Drawing.Image)(resources.GetObject("pcb_Tittle.Image")));
-            this.pcb_Tittle.Location = new System.Drawing.Point(224, 0);
+            this.pcb_Tittle.Location = new System.Drawing.Point(336, 0);
+            this.pcb_Tittle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pcb_Tittle.Name = "pcb_Tittle";
-            this.pcb_Tittle.Size = new System.Drawing.Size(950, 114);
+            this.pcb_Tittle.Size = new System.Drawing.Size(1425, 175);
             this.pcb_Tittle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcb_Tittle.TabIndex = 4;
             this.pcb_Tittle.TabStop = false;
             // 
             // Frm_Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1174, 585);
+            this.ClientSize = new System.Drawing.Size(1761, 900);
             this.Controls.Add(this.pn_Form_Hijo);
             this.Controls.Add(this.pcb_Tittle);
             this.Controls.Add(this.panel_Left);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Menu";

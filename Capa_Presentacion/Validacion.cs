@@ -66,7 +66,7 @@ namespace Capa_Presentacion
             else
             {
                 v.Handled = true;
-                MessageBox.Show("Solo valores numericos enteros o decimales ");
+                MessageBox.Show("Solo valores numericos enteros o decimales ","Valor a Pagar",MessageBoxButtons.OK,MessageBoxIcon.Hand);
             }
         }
 

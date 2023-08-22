@@ -126,7 +126,7 @@
             // 
             // Txt_Valor_Pago
             // 
-            this.Txt_Valor_Pago.BackColor = System.Drawing.SystemColors.Window;
+            this.Txt_Valor_Pago.BackColor = System.Drawing.Color.White;
             this.Txt_Valor_Pago.BorderColor = System.Drawing.Color.Silver;
             this.Txt_Valor_Pago.BorderFocusColor = System.Drawing.Color.Goldenrod;
             this.Txt_Valor_Pago.BorderRadius = 0;
@@ -289,6 +289,7 @@
             // 
             // txt_Motivo_Reembolso
             // 
+            this.txt_Motivo_Reembolso.DetectUrls = false;
             this.txt_Motivo_Reembolso.Enabled = false;
             this.txt_Motivo_Reembolso.Location = new System.Drawing.Point(33, 312);
             this.txt_Motivo_Reembolso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

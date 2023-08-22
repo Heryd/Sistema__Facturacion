@@ -502,5 +502,24 @@ namespace Capa_Presentacion
             btn_Consultar_Cliente.Image = icon_Records;
             btn_Consultar_Reembolso.Image=icon_Records;
         }
+
+        private void btn_Help_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Grupo 03 - Sistema de Facturación" +
+                "\nIntegrantes:" +
+                "\n- Morla Gordillo Heryd Xavier (L\u00edder)."+
+                "\n- S\u00e1nchez Vargas Bryan Jonas." +
+                "\n- Solorzano Terán Petter Max." +
+                "\n- Valencia Quintero Angelo Jardel." +
+                "\n\nCurso: SOF - S - VE - 6 -2" +
+                "\nDocente: Ing. Johanna Zumba Gamboa" +
+                "\n\n\n      Universidad de Guayaquil" +
+                "\n\t  2023 - 2024 CI",
+                "Contactos ...",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Asterisk
+                );
+        }
     }
 }

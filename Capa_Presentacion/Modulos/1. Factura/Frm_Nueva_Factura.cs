@@ -45,12 +45,13 @@ namespace Capa_Presentacion.Modulos._1._Factura
             Close();
         }
 
-        //Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
+        #region Obtener la Fecha actual
         /// <summary>
-        /// 
+        /// Obtener la fecha actual en formato "([día de la semana], [Mes] [número], [año])"
         /// </summary>
-        /// <returns>Retorna la fecha en formato como un valor de tipo 
-        /// </returns>
+        /// <returns>Retorna la fecha en formato como un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see>
+        /// </returns> 
+        #endregion
         private string Get_Date() => objCapaNegocio.ObtenerFechaActual();
 
         //Calcular el valor total con IVA
@@ -74,7 +75,11 @@ namespace Capa_Presentacion.Modulos._1._Factura
             LimpiarCampos();
         }
 
-        //Limpiar los textBox/[multiline], comboBox, numberUpDown, label
+        #region Limpiar los Campos para poder llenarlos de nuevo
+        /// <summary>
+        /// Limpiar los textBox/[multiline], comboBox, numberUpDown, label
+        /// </summary>
+        #endregion
         private void LimpiarCampos()
         {
             txt_Codigo_Cliente.Texts = "";
@@ -359,53 +364,34 @@ namespace Capa_Presentacion.Modulos._1._Factura
 
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
-            if (objCapaNegocio.CN_DevolverFactura().Count > 0)
-            {
-                SaveFileDialog guardar_reporte = new SaveFileDialog()
-                {
-                    FileName = DateTime.Now.ToString("dddd_d_MMM_yyyy") + ".pdf",
-                    Title = "Reporte de Facturas",
-                };
-
-                var contenido = Properties.Resources.Plantilla.ToString();
-                //contenido = contenido.Replace("@Cliente",)
-
-                if (guardar_reporte.ShowDialog() == DialogResult.OK)
-                {
-                    using (FileStream stream = new FileStream(guardar_reporte.FileName, FileMode.Create))
-                    {
-                        Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
-                        PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
-                        pdf.Open();
-
-                        pdf.Add(new Phrase(""));
-                        using (StringReader str = new StringReader(contenido))
-                        {
-                            //Leer el objeto del conteniod y se pueda incrustar en el pdf
-                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, str);
-                        }
-
-                        pdf.Close();
-                        stream.Close();
-                        MessageBox.Show("Reporte generado con éxito", "Reporte de Factura", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo generar el reporte.\n\tNo hay facturas generadas.", "Fallo al generar Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void gradient_Label_Bounds1_Click(object sender, EventArgs e)
-        {
-
+            Frm_Input_Data_Records frm_dt_rc = new Frm_Input_Data_Records();
+            frm_dt_rc.ShowDialog();
         }
 
         private void nmUD_Cantidad_ValueChanged(object sender, EventArgs e)
         {
             CalcularTotal();
+        }
+
+        private void txt_Val_Unit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char c = e.KeyChar;
+            if (Char.IsDigit(c) && txt_Val_Unit.Text.Length <= 10)
+            {
+                e.Handled = false;
+            }
+            else if (c == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (txt_Val_Unit.Text.Length > 10 && c != ((char)Keys.Back))
+            {
+                MessageBox.Show("El valor unitario debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

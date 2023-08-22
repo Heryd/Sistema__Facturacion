@@ -262,7 +262,7 @@ namespace Capa_Presentacion.Modulos._1._Factura
             }
             if (txt_Val_Unit.Text.Length > 10 && c != ((char)Keys.Back))
             {
-                MessageBox.Show("La búsqueda del filtro seleccionado solo debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("El valor unitario debe contener máximo 10 d\u00edgitos", "Validaci\u00f3n", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

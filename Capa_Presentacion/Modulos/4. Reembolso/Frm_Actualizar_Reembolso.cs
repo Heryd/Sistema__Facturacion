@@ -42,23 +42,23 @@ namespace Capa_Presentacion.Modulos._4._Reembolso
         private void RetornarValoresReembolso(int codigo)
         {
             var reembolsoData = objCapaNegocio.CN_DevolverReembolso()
-        .Where(r => r.Id == codigo)
-        .Join(objCapaNegocio.CN_DevolverFactura(),
-            r => r.IdFactura,
-            f => f.Id,
-            (r, f) => new { Reembolso = r, Factura = f })
-        .Join(objCapaNegocio.CN_DevolverCliente(),
-            rf => rf.Factura.IdCliente,
-            cl => cl.Id,
-            (rf, cl) => new { ReembolsoFactura = rf, Cliente = cl })
-        .Select(result => new
-        {
-            CEDULA = result.Cliente.Cedula,
-            NOMBRES = result.Cliente.Nombres+ " " +result.Cliente.Apellidos,
-            result.ReembolsoFactura.Reembolso.Fecha,
-            ESTADO_PAGO = "REEMBOLSADO",
-            result.ReembolsoFactura.Reembolso.Motivo
-        }).FirstOrDefault();
+                                .Where(r => r.Id == codigo)
+                                .Join(objCapaNegocio.CN_DevolverFactura(),
+                                    r => r.IdFactura,
+                                    f => f.Id,
+                                    (r, f) => new { Reembolso = r, Factura = f })
+                                .Join(objCapaNegocio.CN_DevolverCliente(),
+                                    rf => rf.Factura.IdCliente,
+                                    cl => cl.Id,
+                                    (rf, cl) => new { ReembolsoFactura = rf, Cliente = cl })
+                                .Select(result => new
+                                {
+                                    CEDULA = result.Cliente.Cedula,
+                                    NOMBRES = result.Cliente.Nombres+ " " +result.Cliente.Apellidos,
+                                    result.ReembolsoFactura.Reembolso.Fecha,
+                                    ESTADO_PAGO = "REEMBOLSADO",
+                                    result.ReembolsoFactura.Reembolso.Motivo
+                                }).FirstOrDefault();
 
             if (reembolsoData != null)
             {

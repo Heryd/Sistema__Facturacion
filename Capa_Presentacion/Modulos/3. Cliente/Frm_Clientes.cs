@@ -3,6 +3,7 @@ using Capa_Negocio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -136,14 +137,16 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible = false;
                 }
                 if (clientes != null && clientes.Any())
                 {
                     dtgV_Clientes.DataSource = clientes.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 2:
@@ -162,14 +165,16 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible=false;
                 }
                 if (clientesXNombres != null && clientesXNombres.Any())
                 {
                     dtgV_Clientes.DataSource = clientesXNombres.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias del nombre", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 3:
@@ -188,14 +193,16 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible = false;
                 }
                 if (clientesXTelefono != null && clientesXTelefono.Any())
                 {
                     dtgV_Clientes.DataSource = clientesXTelefono.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias del teléfono", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 4:
@@ -214,14 +221,16 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible = false;
                 }
                 if (clientesXCedula != null && clientesXCedula.Any())
                 {
                     dtgV_Clientes.DataSource = clientesXCedula.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias de la cédula", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 5:
@@ -240,14 +249,16 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible = false;
                 }
                 if (clientesXFecha != null && clientesXFecha.Any())
                 {
                     dtgV_Clientes.DataSource = clientesXFecha.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 case 6:
@@ -266,19 +277,28 @@ namespace Capa_Presentacion.Modulos._3._Cliente
                 if (txtBusquedaCliente.Text.Equals(""))
                 {
                     CargarRegistrosDataGridView();
+                    lbl_Error.Visible = false;
                 }
                 if (clientesXestado != null && clientesXestado.Any())
                 {
                     dtgV_Clientes.DataSource = clientesXestado.ToList();
+                    lbl_Error.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("No se encontraron coincidencias del código", "Búsqueda por filtro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Coincidencias();
                 }
                 break;
                 default:
                 break;
             }
+        }
+
+        private void Coincidencias()
+        {
+            lbl_Error.Visible = true;
+            lbl_Error.Text = "No se encontraron coincidencias (*)";
+            lbl_Error.ForeColor = Color.OrangeRed;
         }
 
         /// <summary>
