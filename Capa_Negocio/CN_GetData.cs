@@ -31,6 +31,26 @@ namespace Capa_Negocio
         #endregion
         private readonly CD_GetData objectCD = new CD_GetData();
 
+
+        #region Descripción del método para validar credenciales de usuario
+        /// <summary>
+        /// Este método envía las credenciales de acceso a la base de datos y las compara con los registros, verificando si existen
+        /// </summary>
+        /// <param name="usuario">User de identificación</param>
+        /// <param name="clave">Clave de acceso</param>
+        /// <returns>Devuelve un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool">Boolean</see></returns> 
+        #endregion
+        public bool Set_Login(string usuario, string clave) => (objectCD.ValidarUsuario(usuario, clave) ? true : false);
+        #region Descripción del método para obtener el nombre del usuario y su rol
+        /// <summary>
+        /// Este método obtiene los datos de nombre del usuario y el rol asignado
+        /// </summary>
+        /// <param name="usuario">El identificador del usuario</param>
+        /// <param name="clave">La clave de acceso al sistema</param>
+        /// <returns>Retorna un valor de tipo <see href="https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0">string</see></returns> 
+        #endregion
+        public string CN_Get_User_ROL(string usuario, string clave) => objectCD.Set_User_Rol(usuario, clave);
+
         #region Descripción Método 1 para consular clientes
         /// <summary>
         /// Método 1 para obtener campos específicos de una tabla de registros de clientes

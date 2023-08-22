@@ -54,9 +54,16 @@ namespace Capa_Presentacion
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            Close();
-            Frm_Menu frm_mn = new Frm_Menu();
-            frm_mn.ShowDialog();
+            string usuario = txt_user.Texts.Trim();
+            string clave = txt_password.Texts.Trim();
+            //Si se encontró al usuario y la clave de acceso fue correcta entonces permite el acceso al sistema
+            if (objCapaNegocio.Set_Login(usuario, clave))
+            {
+                Close();
+                //Envía las credenciales al menú
+                Frm_Menu frm_mn = new Frm_Menu(usuario, clave);
+                frm_mn.ShowDialog();
+            }
         }
     }
 }

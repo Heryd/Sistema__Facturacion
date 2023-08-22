@@ -46,13 +46,32 @@ namespace Capa_Presentacion
         private Image icon_Records= Resources.btn_lista_entidades_background;
 
         CN_GetData objCapaNegocio = new CN_GetData();
+        public string usuario = "", clave = "";
+        private string[] array;
+        private string datosUser;
         #endregion
 
-        public Frm_Menu()
+        #region Descripción del constructor del Formulario Menú
+        /// <summary>
+        /// Recibe las credenciales y las asigna a unas variables
+        /// </summary>
+        /// <param name="user">El identificador del usuario</param>
+        /// <param name="password">La clave de acceso</param> 
+        #endregion
+        public Frm_Menu(string user, string password)
         {
             InitializeComponent();
             hidePanels();
             Add_Icon_Background();
+            usuario = user;
+            clave = password;
+            //Llama a un método para obtener el nombre del usuario y su rol, y lo guarda en una variable de tipo string
+            datosUser=objCapaNegocio.CN_Get_User_ROL(usuario, clave);
+            //Separa los valores de la cadena mediante el método split, separados por una ','
+            array = datosUser.Split(',');
+            //Envía los valores de cada posición del arreglo, a cada label correspondiente
+            lbl_Name_User.Text = array[0];
+            lbl_Rol_User.Text = array[1];
         }
 
 

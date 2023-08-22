@@ -108,6 +108,61 @@ namespace Capa_Datos
             db_connection.CloseConnection();
             return bandera;
         }
+
+        /// <summary>
+        /// SP DE USUARIO Y VENTANA DE LOGIN, verifica si las credenciales son correctas
+        /// </summary>
+        /// <param name="usuario">El identificador del usuario</param>
+        /// <param name="password">La clave de acceso</param>
+        /// <returns></returns>
+        public bool ValidarUsuario(string usuario, string password)
+        {
+            bool bandera = true;
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = db_connection.OpenConnection();
+            comando.CommandText = "Validar_Login_Usuario";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@USER_NAME", usuario);
+            comando.Parameters.AddWithValue("@PASSWORD", password);
+            string resultado = Convert.ToString(comando.ExecuteScalar().ToString());
+            if (resultado.StartsWith("ERROR: USUARIO"))
+            {
+                MessageBox.Show(resultado, "INICIO DE SESI\u00d3N FALLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bandera = false;
+            }
+            else
+            {
+                MessageBox.Show(resultado, "INICIO DE SESI\u00d3N EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            db_connection.CloseConnection();
+            return bandera;
+        }
+
+        /// <summary>
+        /// Este método se encarga de obtener el nombre de usuario y rol
+        /// </summary>
+        /// <param name="user">Identificador del usuario</param>
+        /// <param name="clave">Clave de acceso</param>
+        /// <returns>Devuelve el nombre del usuario y su rol asignado</returns>
+        public string Set_User_Rol(string user, string clave)
+        {
+            string nombreUsuario = "";
+            string nombreRol = "";
+            SqlCommand command = new SqlCommand();
+            command.Connection = db_connection.OpenConnection();
+            command.CommandText = "OBTENER_USUARIO_Y_ROL";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@USERNAME", user);
+            command.Parameters.AddWithValue("@PASSWORD", clave);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                nombreUsuario = reader["NOMBRE_USUARIO"].ToString();
+                nombreRol = reader["NOMBRE_ROL"].ToString();
+            }
+            db_connection.CloseConnection();
+            return "USUARIO: " + nombreUsuario + ", ROL: " + nombreRol;
+        }
         #endregion
 
         //Registros
